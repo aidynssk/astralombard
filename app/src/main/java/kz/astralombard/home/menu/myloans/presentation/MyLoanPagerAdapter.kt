@@ -1,7 +1,7 @@
 package kz.astralombard.home.menu.myloans.presentation
 
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentStatePagerAdapter
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentStatePagerAdapter
 import kz.astralombard.base.BaseFragment
 import kz.astralombard.home.menu.myloans.history.HistoryFragment
 import kz.astralombard.home.menu.myloans.open.OpenLoansFragment
@@ -15,14 +15,13 @@ class MyLoanPagerAdapter(
     fm: FragmentManager
 ) : FragmentStatePagerAdapter(fm) {
 
-    override fun getItem(position: Int): BaseFragment? {
+    override fun getItem(position: Int): BaseFragment {
         return when (position) {
             0 ->
                 OpenLoansFragment.newInstance()
-            1 ->
+            else ->
                 HistoryFragment.newInstance()
 
-            else -> null
         }
 
     }

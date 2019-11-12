@@ -1,8 +1,8 @@
 package kz.astralombard.dialogs
 
 import android.content.Context
-import android.databinding.DataBindingUtil
-import android.support.v7.app.AlertDialog
+import androidx.databinding.DataBindingUtil
+import androidx.appcompat.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.View
 import kz.astralombard.R

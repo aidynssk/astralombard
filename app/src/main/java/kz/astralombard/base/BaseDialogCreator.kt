@@ -3,7 +3,7 @@ package kz.astralombard.base
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.support.v7.app.AlertDialog
+import androidx.appcompat.app.AlertDialog
 import android.view.View
 import kz.astralombard.R
 import kz.astralombard.models.DialogSize

@@ -3,8 +3,8 @@ package kz.astralombard.di
 import kz.astralombard.home.menu.address.data.AddressRepository
 import kz.astralombard.home.menu.address.data.DefaultAddressRepository
 import kz.astralombard.home.menu.address.presentation.AddressViewModel
-import org.koin.android.viewmodel.ext.koin.viewModel
-import org.koin.dsl.module.module
+import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.dsl.module
 
 /**
  * Created by wokrey@gmail.com on 7/16/19.

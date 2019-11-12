@@ -1,9 +1,9 @@
 package kz.astralombard.home.menu.myloans.history
 
 
-import android.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +14,7 @@ import kz.astralombard.base.RecyclerBindingAdapter
 import kz.astralombard.databinding.FragmentHistoryBinding
 import kz.astralombard.home.menu.myloans.model.Loan
 import kz.astralombard.home.menu.myloans.presentation.MyLoansViewModel
-import org.koin.android.viewmodel.ext.android.sharedViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class HistoryFragment : BaseFragment(), RecyclerBindingAdapter.OnItemClickListener<Loan> {
 
@@ -51,8 +51,12 @@ class HistoryFragment : BaseFragment(), RecyclerBindingAdapter.OnItemClickListen
 
 
         binding.rvHistory.adapter = loansAdapter
-        binding.rvHistory.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        binding.lifecycleOwner = this
+        binding.rvHistory.layoutManager = LinearLayoutManager(
+            context,
+            LinearLayoutManager.VERTICAL,
+            false
+        )
+        binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
         return binding.root
     }

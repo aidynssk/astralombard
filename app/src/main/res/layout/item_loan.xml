@@ -9,7 +9,7 @@
             type="kz.astralombard.home.menu.myloans.model.Loan" />
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -23,7 +23,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_loan"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -57,7 +57,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_order">
 
-            <android.support.constraint.ConstraintLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cl_loan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -98,7 +98,7 @@
                     app:layout_constraintStart_toStartOf="@+id/tv_left_days"
                     app:layout_constraintTop_toBottomOf="@+id/tv_left_days" />
 
-                <android.support.v7.widget.AppCompatImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/img_ticket"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
@@ -141,7 +141,7 @@
                     app:layout_constraintStart_toEndOf="@+id/img_city"
                     app:layout_constraintTop_toBottomOf="@+id/divider_ticket" />
 
-                <android.support.v7.widget.AppCompatImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/img_city"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
@@ -164,7 +164,7 @@
                     app:layout_constraintStart_toEndOf="@+id/tv_left_days"
                     app:layout_constraintTop_toBottomOf="@+id/tv_city" />
 
-                <android.support.v7.widget.AppCompatImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/img_bag"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
@@ -196,7 +196,7 @@
                     app:layout_constraintStart_toEndOf="@+id/tv_left_days"
                     app:layout_constraintTop_toBottomOf="@+id/tv_close" />
 
-                <android.support.v7.widget.AppCompatImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/img_sum"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
@@ -269,7 +269,7 @@
                     app:layout_constraintBottom_toBottomOf="@+id/tv_ticket_order"
                     app:layout_constraintStart_toStartOf="@+id/tv_city_value" />
 
-            </android.support.constraint.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </FrameLayout>
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

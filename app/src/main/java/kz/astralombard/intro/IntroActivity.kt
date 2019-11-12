@@ -3,7 +3,7 @@ package kz.astralombard.intro
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.support.v4.view.ViewPager
+import androidx.viewpager.widget.ViewPager
 import kotlinx.android.synthetic.main.activity_intro.*
 import kz.astralombard.R
 import kz.astralombard.base.BaseActivity

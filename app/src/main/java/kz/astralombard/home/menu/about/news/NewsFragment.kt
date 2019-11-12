@@ -1,8 +1,8 @@
 package kz.astralombard.home.menu.about.news
 
-import android.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +13,7 @@ import kz.astralombard.base.RecyclerBindingAdapter
 import kz.astralombard.databinding.FragmentNewsBinding
 import kz.astralombard.home.menu.about.AboutViewModel
 import kz.astralombard.home.menu.myloans.model.Loan
-import org.koin.android.viewmodel.ext.android.sharedViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 /**
  * Created by wokrey@gmail.com on 7/2/19.
@@ -51,8 +51,12 @@ class NewsFragment: BaseFragment(), RecyclerBindingAdapter.OnItemClickListener<L
 
 
         binding.rvNews.adapter = loansAdapter
-        binding.rvNews.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        binding.lifecycleOwner = this
+        binding.rvNews.layoutManager = LinearLayoutManager(
+            context,
+            LinearLayoutManager.VERTICAL,
+            false
+        )
+        binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
         return binding.root
     }

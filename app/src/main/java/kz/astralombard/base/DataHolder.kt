@@ -1,9 +1,6 @@
 package kz.astralombard.base
 
-import android.content.SharedPreferences
-import android.preference.PreferenceManager
-import org.koin.standalone.KoinComponent
-import org.koin.standalone.get
+import org.koin.core.KoinComponent
 
 /**
  * Created by wokrey@gmail.com on 7/16/19.

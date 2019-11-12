@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".home.menu.about.AboutFragment">
 
-    <android.support.v7.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,7 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_main_content"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_title">
 
-        <android.support.constraint.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_about"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <android.support.v7.widget.AppCompatImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/img_about_item"
                 android:layout_width="40dp"
                 android:layout_height="10dp"
@@ -50,7 +50,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/item_icon" />
 
-            <android.support.v7.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_about"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
                 app:layout_constraintStart_toEndOf="@+id/img_about_item"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <android.support.v7.widget.AppCompatImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/img_about_arrow"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -74,9 +74,9 @@
                 app:layout_constraintTop_toTopOf="@+id/tv_about"
                 app:srcCompat="@drawable/arrow_right" />
 
-        </android.support.constraint.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <android.support.constraint.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_news"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -90,7 +90,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cl_about">
 
-            <android.support.v7.widget.AppCompatImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/img_news_item"
                 android:layout_width="40dp"
                 android:layout_height="10dp"
@@ -99,7 +99,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/item_icon" />
 
-            <android.support.v7.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_news"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -112,7 +112,7 @@
                 app:layout_constraintStart_toEndOf="@+id/img_news_item"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <android.support.v7.widget.AppCompatImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/img_news_arrow"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -123,9 +123,9 @@
                 app:layout_constraintTop_toTopOf="@+id/tv_news"
                 app:srcCompat="@drawable/arrow_right" />
 
-        </android.support.constraint.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <android.support.constraint.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_write"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -141,7 +141,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cl_news">
 
-            <android.support.v7.widget.AppCompatImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/img_write_item"
                 android:layout_width="40dp"
                 android:layout_height="10dp"
@@ -152,7 +152,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/item_icon" />
 
-            <android.support.v7.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_write"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -165,7 +165,7 @@
                 app:layout_constraintStart_toEndOf="@+id/img_write_item"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <android.support.v7.widget.AppCompatImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/img_write_arrow"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -176,6 +176,6 @@
                 app:layout_constraintTop_toTopOf="@+id/tv_write"
                 app:srcCompat="@drawable/arrow_right" />
 
-        </android.support.constraint.ConstraintLayout>
-    </android.support.constraint.ConstraintLayout>
-</android.support.constraint.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

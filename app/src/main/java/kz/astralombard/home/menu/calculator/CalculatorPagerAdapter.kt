@@ -1,7 +1,7 @@
 package kz.astralombard.home.menu.calculator
 
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentStatePagerAdapter
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentStatePagerAdapter
 import kz.astralombard.home.menu.calculator.car.CarFragment
 import kz.astralombard.home.menu.calculator.gold.GoldFragment
 
@@ -19,10 +19,8 @@ class CalculatorPagerAdapter(
     override fun getItem(position: Int) = when (position) {
         0 ->
             GoldFragment.newInstance()
-        1 ->
+        else ->
             CarFragment.newInstance()
-
-        else -> null
     }
 
 

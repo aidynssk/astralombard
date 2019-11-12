@@ -1,11 +1,12 @@
 package kz.astralombard.base
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.cancelChildren
 import kotlin.coroutines.CoroutineContext
 
 abstract class CoroutineViewModel(
@@ -23,7 +24,7 @@ abstract class CoroutineViewModel(
 
     override fun onCleared() {
         super.onCleared()
-        job.cancel()
+        coroutineContext.cancelChildren()
     }
 
     //getters

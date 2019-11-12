@@ -1,7 +1,7 @@
 package kz.astralombard.intro
 
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentStatePagerAdapter
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentStatePagerAdapter
 
 /**
  * Created by wokrey@gmail.com on 7/16/19.
@@ -19,9 +19,8 @@ class IntroPagerAdapter(
             FirstFragment.newInstance()
         1 ->
             SecondFragment.newInstance()
-        2 ->
+        else ->
             ThirdFragment.newInstance()
-        else -> null
     }
 
 

@@ -1,10 +1,10 @@
 package kz.astralombard.home.menu.login.presentation
 
 
-import android.arch.lifecycle.Observer
+import androidx.lifecycle.Observer
 import android.opengl.Visibility
 import android.os.Bundle
-import android.support.v7.widget.AppCompatButton
+import androidx.appcompat.widget.AppCompatButton
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.item_news.view.*
 import kz.astralombard.R
 import kz.astralombard.base.BaseFragment
 import kz.astralombard.home.presentation.HomeViewModel
-import org.koin.android.viewmodel.ext.android.sharedViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 
 class LoginFragment : BaseFragment() {

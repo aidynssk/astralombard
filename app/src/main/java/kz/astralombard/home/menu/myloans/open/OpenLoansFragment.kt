@@ -2,9 +2,9 @@ package kz.astralombard.home.menu.myloans.open
 
 
 import android.content.Intent
-import android.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,7 +18,7 @@ import kz.astralombard.databinding.FragmentOpenLoansBinding
 import kz.astralombard.home.menu.myloans.OpenLoansDetailsActivity
 import kz.astralombard.home.menu.myloans.model.Loan
 import kz.astralombard.home.menu.myloans.presentation.MyLoansViewModel
-import org.koin.android.viewmodel.ext.android.sharedViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 
 class OpenLoansFragment : BaseFragment(), RecyclerBindingAdapter.OnItemClickListener<Loan> {
@@ -56,8 +56,12 @@ class OpenLoansFragment : BaseFragment(), RecyclerBindingAdapter.OnItemClickList
 
 
         binding.tvOpenLoans.adapter = loansAdapter
-        binding.tvOpenLoans.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        binding.lifecycleOwner = this
+        binding.tvOpenLoans.layoutManager = LinearLayoutManager(
+            context,
+            LinearLayoutManager.VERTICAL,
+            false
+        )
+        binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
         return binding.root
     }

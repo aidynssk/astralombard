@@ -1,9 +1,9 @@
 package kz.astralombard.home.presentation
 
-import android.arch.lifecycle.Observer
+import androidx.lifecycle.Observer
 import android.os.Bundle
-import android.support.annotation.IdRes
-import android.support.design.widget.BottomNavigationView
+import androidx.annotation.IdRes
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import android.view.Menu
 import kotlinx.android.synthetic.main.activity_home.*
 import kz.astralombard.R
@@ -15,8 +15,7 @@ import kz.astralombard.home.menu.calculator.CalculatorFragment
 import kz.astralombard.home.menu.login.presentation.LoginFragment
 import kz.astralombard.home.menu.myloans.presentation.MyLoansFragment
 import kz.astralombard.home.menu.profile.ProfileFragment
-import org.koin.android.viewmodel.ext.android.viewModel
-
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
  * Created by wokrey@gmail.com on 02.06.2019

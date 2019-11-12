@@ -2,7 +2,7 @@ package kz.astralombard.home.menu.profile
 
 
 import android.os.Bundle
-import android.support.v7.app.AlertDialog
+import androidx.appcompat.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +14,7 @@ import kz.astralombard.home.presentation.HomeActivity
 import kz.astralombard.home.presentation.HomeViewModel
 import kz.astralombard.models.DialogSize
 import kz.astralombard.dialogs.LogoutDialog
-import org.koin.android.viewmodel.ext.android.sharedViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class ProfileFragment : BaseFragment() {
 

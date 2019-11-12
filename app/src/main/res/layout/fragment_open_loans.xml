@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         tools:context=".home.menu.myloans.open.OpenLoansFragment">
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/tv_open_loans"
             android:layout_width="match_parent"
             app:loans="@{viewModel.openLoans}"

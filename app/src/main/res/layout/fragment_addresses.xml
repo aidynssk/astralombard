@@ -10,7 +10,7 @@
             type="kz.astralombard.home.menu.address.presentation.AddressViewModel" />
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".home.menu.address.presentation.AddressesFragment">
@@ -38,7 +38,7 @@
             app:layout_constraintStart_toStartOf="@+id/tv_have_questions"
             app:layout_constraintTop_toBottomOf="@+id/tv_have_questions" />
 
-        <android.support.v7.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_phone"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -47,7 +47,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/phone" />
 
-        <android.support.constraint.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             style="@style/WrapContent"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -59,7 +59,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/img_phone">
 
-            <android.support.v7.widget.AppCompatTextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_choose_city"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <android.support.v7.widget.AppCompatSpinner
+            <androidx.appcompat.widget.AppCompatSpinner
                 android:id="@+id/spn_choose_city"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -83,7 +83,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_choose_city" />
 
-            <android.support.v7.widget.AppCompatImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_margin="8dp"
@@ -96,7 +96,7 @@
                 app:layout_constraintTop_toTopOf="@id/spn_choose_city"
                 app:srcCompat="@drawable/spinner_arrow" />
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_address"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -107,6 +107,6 @@
                 app:layout_constraintTop_toBottomOf="@id/spn_choose_city"
                 app:loans="@{viewModel.openLoans}" />
 
-        </android.support.constraint.ConstraintLayout>
-    </android.support.constraint.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

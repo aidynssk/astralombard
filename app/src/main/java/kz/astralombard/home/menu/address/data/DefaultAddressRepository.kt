@@ -13,11 +13,6 @@ class DefaultAddressRepository(
     val api: ApiService
 ) : BaseRepository(), AddressRepository {
 
-    override suspend fun getCities(): Response<CitiesResponse> = try {
-        val response = api.getCities().await()
-
-        Response.Success(response)
-    } catch (error: Exception) {
-        Response.Error(error)
-    }
+    override suspend fun getCities(): Response<CitiesResponse>
+            = makeApiRequest {api.getCities()}
 }

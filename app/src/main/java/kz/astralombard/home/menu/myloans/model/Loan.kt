@@ -1,6 +1,6 @@
 package kz.astralombard.home.menu.myloans.model
 
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.MutableLiveData
 
 /**
  * Created by wokrey@gmail.com on 7/13/19.

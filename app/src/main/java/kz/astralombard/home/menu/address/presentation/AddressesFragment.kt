@@ -1,10 +1,10 @@
 package kz.astralombard.home.menu.address.presentation
 
 
-import android.arch.lifecycle.Observer
-import android.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,9 +17,9 @@ import kz.astralombard.base.BaseFragment
 import kz.astralombard.base.RecyclerBindingAdapter
 import kz.astralombard.databinding.FragmentAddressesBinding
 import kz.astralombard.home.menu.myloans.model.Loan
-import org.koin.android.viewmodel.ext.android.sharedViewModel
 import android.content.Intent
 import android.net.Uri
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 
 class AddressesFragment :
@@ -57,8 +57,12 @@ class AddressesFragment :
         )
 
         binding.rvAddress.adapter = loansAdapter
-        binding.rvAddress.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        binding.lifecycleOwner = this
+        binding.rvAddress.layoutManager = LinearLayoutManager(
+            context,
+            LinearLayoutManager.VERTICAL,
+            false
+        )
+        binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
         initListeners()
 

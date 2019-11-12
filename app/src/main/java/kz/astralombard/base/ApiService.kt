@@ -20,13 +20,13 @@ interface ApiService {
 //        @Headers("Content-Type:application/x-www-form-urlencoded")
 //    @Headers("Accept: application/json")
     @POST("auth/login/")
-    fun login(@Body loginBody: LoginRequestModel): Deferred<LoginResponse>
+    suspend fun login(@Body loginBody: LoginRequestModel): LoginResponse
 
     @Headers("Content-Type:application/json")
     @POST("auth/validate-code/")
-    fun validate(@Body validateBody: SmsRequestModel): Deferred<SmsResponse>
+    suspend fun validate(@Body validateBody: SmsRequestModel): SmsResponse
 
     @Headers("Content-Type:application/json")
     @GET("cities")
-    fun getCities(): Deferred<CitiesResponse>
+    suspend fun getCities(): CitiesResponse
 }

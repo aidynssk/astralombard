@@ -3,8 +3,8 @@ package kz.astralombard.di
 import kz.astralombard.home.menu.myloans.data.DefaultLoansRepository
 import kz.astralombard.home.menu.myloans.data.LoansRepository
 import kz.astralombard.home.menu.myloans.presentation.MyLoansViewModel
-import org.koin.android.viewmodel.ext.koin.viewModel
-import org.koin.dsl.module.module
+import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.dsl.module
 
 /**
  * Created by wokrey@gmail.com on 7/13/19.

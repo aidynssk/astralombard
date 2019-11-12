@@ -1,11 +1,11 @@
 package kz.astralombard.home.menu.myloans.presentation
 
 
-import android.databinding.DataBindingUtil
+import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.content.ContextCompat
-import android.support.v4.view.ViewPager
+import androidx.fragment.app.Fragment
+import androidx.core.content.ContextCompat
+import androidx.viewpager.widget.ViewPager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.fragment_my_loans.*
 import kz.astralombard.R
 import kz.astralombard.base.BaseFragment
 import kz.astralombard.databinding.FragmentMyLoansBinding
-import org.koin.android.viewmodel.ext.android.sharedViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 
 private const val OPEN_PAGE_INDEX = 0

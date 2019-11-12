@@ -1,6 +1,6 @@
 package kz.astralombard.home.menu.address.presentation
 
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kz.astralombard.base.CoroutineViewModel

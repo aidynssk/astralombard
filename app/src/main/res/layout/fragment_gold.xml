@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:layout_marginBottom="30dp">
 
-        <android.support.constraint.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -57,7 +57,7 @@
                 app:layout_constraintStart_toEndOf="@+id/tv_sample"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <android.support.v7.widget.AppCompatImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginEnd="8dp"
@@ -80,7 +80,7 @@
                 app:layout_constraintStart_toEndOf="@+id/tc_gr_weight"
                 app:layout_constraintTop_toBottomOf="@+id/spinner_sample" />
 
-            <android.support.v7.widget.AppCompatImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginEnd="8dp"
@@ -103,7 +103,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/spinner_weight" />
 
 
-            <android.support.v7.widget.AppCompatImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginEnd="8dp"
@@ -160,7 +160,7 @@
                 app:layout_constraintStart_toStartOf="@+id/tv_repayment_value"
                 app:layout_constraintTop_toBottomOf="@+id/divider_top" />
 
-            <android.support.v7.widget.AppCompatEditText
+            <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/tv_given_sum_value"
                 style="@style/CalcEditTextOutput"
                 android:layout_width="0dp"
@@ -173,7 +173,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_given_sum" />
 
-            <android.support.v7.widget.AppCompatEditText
+            <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/tv_repayment_value"
                 style="@style/CalcEditTextOutput"
                 android:layout_width="0dp"
@@ -211,7 +211,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/divider_bottom" />
 
-            <android.support.v7.widget.AppCompatImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/btn_more"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -226,7 +226,7 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_gold_notes"
                 app:srcCompat="@drawable/more" />
 
-        </android.support.constraint.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
 </FrameLayout>
