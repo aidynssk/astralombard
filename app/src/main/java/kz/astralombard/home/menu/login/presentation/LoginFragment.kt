@@ -55,7 +55,7 @@ class LoginFragment : BaseFragment() {
     }
 
     private fun initObservers() {
-        viewModel.getSmsLD().observe(this, Observer { sms ->
+        viewModel.getSmsLD().observe(viewLifecycleOwner, Observer { sms ->
             sms ?: return@Observer
             btn_request_code.text = "Подтвердить"
             showSmsView()

@@ -79,7 +79,7 @@ class AddressesFragment : BaseFragment(),
     }
 
     private fun initObservers(){
-        viewModel.getCitiesLD().observe(this, Observer {cities ->
+        viewModel.getCitiesLD().observe(viewLifecycleOwner, Observer {cities ->
             val citiesNames = mutableListOf<String>()
             cities!!.forEach {
                 citiesNames.add(it.name)
