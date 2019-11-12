@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".home.menu.myloans.OpenLoansDetailsActivity">
+
+    <LinearLayout
+        android:id="@+id/ll_inf"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintBottom_toTopOf="@+id/btn_pay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@drawable/divider"
+            android:layout_weight="1"
+            android:showDividers="middle"
+            android:dividerPadding="20dp"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.AppCompatTextView
+                style="@style/LoanDetailsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/details_name" />
+
+            <android.support.v7.widget.AppCompatTextView
+                style="@style/LoanDetailsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/details_sample" />
+
+            <android.support.v7.widget.AppCompatTextView
+                style="@style/LoanDetailsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/details_price_for_1g" />
+
+            <android.support.v7.widget.AppCompatTextView
+                style="@style/LoanDetailsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/details_pledge_period" />
+
+            <android.support.v7.widget.AppCompatTextView
+                style="@style/LoanDetailsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/details_guarantee_period" />
+
+            <android.support.v7.widget.AppCompatTextView
+                style="@style/LoanDetailsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/calculator_given_sum" />
+
+            <android.support.v7.widget.AppCompatTextView
+                style="@style/LoanDetailsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/details_branch_office" />
+
+            <android.support.v7.widget.AppCompatTextView
+                style="@style/LoanDetailsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/details_merchandiser_name" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/details_sample" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:divider="@drawable/divider"
+            android:showDividers="middle"
+            android:dividerPadding="20dp"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.AppCompatTextView
+                style="@style/LoanDetailsValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/details_name" />
+
+            <android.support.v7.widget.AppCompatTextView
+                style="@style/LoanDetailsValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/details_sample" />
+
+            <android.support.v7.widget.AppCompatTextView
+                style="@style/LoanDetailsValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/details_price_for_1g" />
+
+            <android.support.v7.widget.AppCompatTextView
+                style="@style/LoanDetailsValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/details_pledge_period" />
+
+            <android.support.v7.widget.AppCompatTextView
+                style="@style/LoanDetailsValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/details_guarantee_period" />
+
+            <android.support.v7.widget.AppCompatTextView
+                style="@style/LoanDetailsValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/calculator_given_sum" />
+
+            <android.support.v7.widget.AppCompatTextView
+                style="@style/LoanDetailsValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/details_branch_office" />
+
+            <android.support.v7.widget.AppCompatTextView
+                style="@style/LoanDetailsValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/details_merchandiser_name" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginTop="15dp"
+                android:textSize="18sp"
+                android:textColor="@android:color/holo_red_dark"
+                android:text="100 000 тг" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_pay"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:layout_marginBottom="50dp"
+        android:text="@string/my_loans_sum_to_pay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/nav_my_loans"
+        android:icon="@drawable/my_loans_selector"
+        android:orderInCategory="1"
+        android:title="@string/my_loans"
+        android:visible="false"
+        android:enabled="true"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/nav_calculator"
+        android:icon="@drawable/calculator_selector"
+        android:orderInCategory="2"
+        android:enabled="true"
+        android:title="@string/calculator"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/nav_about_company"
+        android:icon="@drawable/about_selector"
+        android:orderInCategory="3"
+        android:enabled="true"
+        android:title="@string/about_company"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/nav_addresses"
+        android:icon="@drawable/address_selector"
+        android:enabled="true"
+        android:orderInCategory="4"
+        android:title="@string/addresses"
+        app:showAsAction="ifRoom" />
+
+
+    <item
+        android:id="@+id/nav_login"
+        android:enabled="true"
+        android:icon="@drawable/login"
+        android:orderInCategory="5"
+        android:title="@string/login"
+        app:showAsAction="ifRoom" />
+
+
+    <!-- <item
+         android:id="@+id/nav_profile"
+         android:icon="@drawable/ic_profile_black_24dp"
+         android:title="@string/profile"
+         app:showAsAction="withText"
+         android:orderInCategory="5"/>-->
+</menu>

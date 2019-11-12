@@ -1,0 +1,144 @@
+<resources>
+    <string name="app_name">Astralombard</string>
+
+
+    <!--Navigation menu-->
+    <string name="my_loans">Мои займы</string>
+    <string name="calculator">Калькулятор</string>
+    <string name="about_company">О компании</string>
+    <string name="addresses">Адреса</string>
+    <string name="profile">Профиль</string>
+    <string name="login">Войти</string>
+    <string name="login_pin">ВОЙТИ</string>
+
+    <!--
+    My loans
+-->
+    <string name="my_loans_open_loans">ОТКРЫТЫЕ ЗАЙМЫ</string>
+    <string name="my_loans_city">Город</string>
+    <string name="my_loans_days_left">Остаток дней</string>
+    <string name="my_loans_tenge">Тенге</string>
+    <string name="my_loans_sum_to_pay">Сумма к оплате</string>
+    <string name="my_loans_pledge_ticket">Залоговый билет №</string>
+    <string name="my_loans_pay_before">Оплатить до</string>
+    <string name="my_loans_close_date">Дата закрытия</string>
+    <string name="my_loans_history">ИСТОРИЯ ЗАЙМОВ</string>
+    <string name="my_loans_order">ЗАЙМ №</string>
+
+    <!--Details-->
+    <string name="details_name">Наименование</string>
+    <string name="details_sample">Проба</string>
+    <string name="details_item_weight">Вес изделия</string>
+    <string name="details_price_for_1g">Цена за 1 грамм</string>
+    <string name="details_loan_date">Дата займа</string>
+    <string name="details_pledge_period">Срок залога</string>
+    <string name="details_guarantee_period">Срок залога</string>
+    <string name="details_close_date">Дата закрытия</string>
+    <string name="details_given_sum">Сумма на руки</string>
+    <string name="details_sum_to_pay">СУММА К ОПЛАТЕ</string>
+    <string name="details_branch_office">Филиал</string>
+    <string name="details_merchandiser_name">Имя товароведа</string>
+    <string name="details_total_payment_sum">Общая сумма выплаты</string>
+    <string name="details_pay">ОПЛАТИТЬ</string>
+
+    <!--
+    Calculator
+-->
+    <string name="calculator_choice_of_goods">Выбор товара</string>
+    <string name="calculator_gold">ЗОЛОТО</string>
+    <string name="calculator_car">АВТОМОБИЛЬ</string>
+    <string name="calculator_gr_weight">Вес в граммах</string>
+    <string name="calculator_day_period">Срок в днях</string>
+    <string name="calculator_calculate">Рассчитать стоимость</string>
+    <string name="calculator_given_sum">Сумма на руки</string>
+    <string name="calculator_repayment_sum">Сумма к возврату</string>
+    <string name="calculator_tg">тг.</string>
+    <string name="calculator_gold_notes">Оценка изделия будет варьироваться от просчёта товароведа в филиале</string>
+    <string name="calculator_car_notes">Оценка транспорта будет варьироваться от просчёта товароведа в филиале</string>
+    <string name="calculator_more">Подробнее</string>
+    <string name="calculator_enter_market_price">Введите рыночную стоимость автомобиля, тг</string>
+    <string name="calculator_with_drive_license">С правом вождения</string>
+
+    <!--
+    About
+-->
+    <string name="about_news_sales">Новости и акции</string>
+    <string name="about_write_us">Написать нам</string>
+    <string name="about_message_topic">Тема сообщения:</string>
+    <string name="about_phone">Телефон:</string>
+    <string name="about_message_text">Текст сообщения:</string>
+    <string name="about_send">ОТПРАВИТЬ</string>
+
+    <!--
+    Addresses
+-->
+    <string name="addresses_city">Город</string>
+    <string name="addresses_of_branches">Адреса филиалов</string>
+    <string name="addresses_choose_city">Выберите город</string>
+    <string name="addresses_phones">Телефон</string>
+    <string name="addresses_work_time">Время работы</string>
+    <string name="addresses_address">Адрес</string>
+    <string name="addresses_call_us">Позвоните нам. Звонок бесплатный</string>
+    <string name="addresses_have_questions">Есть вопросы?</string>
+
+    <!--
+    Login
+-->
+    <string name="login_iin">ИИН</string>
+    <string name="login_phone">Телефон</string>
+    <string name="login_request_code">Запросить код</string>
+    <string name="login_enter_code">Введите код</string>
+    <string name="login_sms_code">СМС код</string>
+    <string name="login_user_agreement">Пользовательское соглашение</string>
+
+    <!--
+    Profile
+-->
+    <string name="profile_city">Город</string>
+    <string name="profile_fio">ФИО</string>
+    <string name="profile_IIN">ИИН</string>
+    <string name="profile_birth_date">Дата рождения</string>
+    <string name="profile_address">Адрес</string>
+    <string name="profile_phone">Телефон</string>
+    <string name="profile_chose_city">ВЫБРАТЬ ГОРОД</string>
+    <string name="profile_chose_your_city">ВЫБЕРИТЕ ВАШ ГОРОД</string>
+    <string name="profile_save">Сохранить</string>
+    <string name="profile_change_pin">Изменить код доступа</string>
+    <string name="profile_logout">Выйти с аккаунта</string>
+    <string name="profile_ask_logout">ВЫ УВЕРЕНЫ, ЧТО\nХОТИТЕ ВЫЙТИ ИЗ АККАУНТА</string>
+    <string name="profile_no">НЕТ</string>
+    <string name="profile_yes">ДА</string>
+    <string name="profile_enter_new_pin">Введите новый код доступа\nдля входа в приложение</string>
+    <string name="profile_request_pin">Введите новый код доступа для входа в приложение</string>
+    <string name="profile_enter_pin">Введите код доступа</string>
+    <string name="profile_code">КОД ДОСТУПА</string>
+    <string name="profile_ru">РУССКИЙ</string>
+    <string name="profile_kz">КАЗАХСКИЙ</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="test">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porta, ex sit amet dictum efficitur,
+        orci lectus pulvinar nisi, et auctor sapien ipsum vel felis. Nam congue nibh libero, vitae aliquet erat molestie eget.
+        Maecenas imperdiet in enim et dapibus. Nunc quis eros vehicula, aliquet tellus
+        non, sagittis velit. Nullam auctor, mauris vel tincidunt varius, odio augue aliquet tellus, id tincidunt velit
+        neque faucibus urna. </string>
+
+    <string-array name="planets_array">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
+    <string name="title_activity_open_loans_details">OpenLoansDetailsActivity</string>
+    <string name="skip">ПРОПУСТИТЬ</string>
+    <string name="further">ДАЛЕЕ</string>
+    <string name="change_city_later">позже в настройках Вы можете изменить свой город</string>
+    <string name="enter_pin">ВВЕДИТЕ КОД</string>
+
+
+</resources>

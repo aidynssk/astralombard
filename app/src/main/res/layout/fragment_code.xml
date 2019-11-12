@@ -1,0 +1,262 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/helveticaneuecyr_1"
+        android:text="@string/profile_code"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/content_bg"
+        android:minHeight="250dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        app:layout_constraintVertical_bias="0.0">
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.2" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.8" />
+
+        <TextView
+            android:id="@+id/tv_enter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/profile_enter_new_pin"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/ll_code"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/enter_code_bg"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:weightSum="4"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@+id/tv_enter">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/first_digit"
+                android:layout_width="@dimen/code_size"
+                android:layout_height="@dimen/code_size"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/hidden_code_bg" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/second_digit"
+                android:layout_width="@dimen/code_size"
+                android:layout_height="@dimen/code_size"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/hidden_code_bg" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/third_digit"
+                android:layout_width="@dimen/code_size"
+                android:layout_height="@dimen/code_size"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/hidden_code_bg" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/fourth_digit"
+                android:layout_width="@dimen/code_size"
+                android:layout_height="@dimen/code_size"
+                android:background="@drawable/hidden_code_bg" />
+        </LinearLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/cl_keyboard"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/btn_save"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@+id/ll_code">
+
+            <android.support.v7.widget.AppCompatRadioButton
+                android:id="@+id/rb_2"
+                style="@style/KeyboardDigit"
+                android:layout_width="@dimen/keyboard_digit_size"
+                android:layout_height="@dimen/keyboard_digit_size"
+                android:text="2"
+                app:layout_constraintBottom_toTopOf="@+id/rb_5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/rb_3"
+                app:layout_constraintStart_toEndOf="@+id/rb_1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <android.support.v7.widget.AppCompatRadioButton
+                android:id="@+id/rb_5"
+                style="@style/KeyboardDigit"
+                android:layout_width="@dimen/keyboard_digit_size"
+                android:layout_height="@dimen/keyboard_digit_size"
+                android:text="5"
+                app:layout_constraintBottom_toTopOf="@+id/rb_8"
+                app:layout_constraintEnd_toEndOf="@id/rb_2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@id/rb_2"
+                app:layout_constraintTop_toBottomOf="@+id/rb_2" />
+
+            <android.support.v7.widget.AppCompatRadioButton
+                android:id="@+id/rb_8"
+                style="@style/KeyboardDigit"
+                android:layout_width="@dimen/keyboard_digit_size"
+                android:layout_height="@dimen/keyboard_digit_size"
+                android:text="8"
+                app:layout_constraintBottom_toTopOf="@+id/rb_0"
+                app:layout_constraintEnd_toEndOf="@id/rb_5"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@id/rb_5"
+                app:layout_constraintTop_toBottomOf="@+id/rb_5" />
+
+            <android.support.v7.widget.AppCompatRadioButton
+                android:id="@+id/rb_0"
+                style="@style/KeyboardDigit"
+                android:layout_width="@dimen/keyboard_digit_size"
+                android:layout_height="@dimen/keyboard_digit_size"
+                android:text="0"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/rb_8"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@id/rb_8"
+                app:layout_constraintTop_toBottomOf="@+id/rb_8" />
+
+            <android.support.v7.widget.AppCompatRadioButton
+                android:id="@+id/rb_1"
+                style="@style/KeyboardDigit"
+                android:layout_width="@dimen/keyboard_digit_size"
+                android:layout_height="@dimen/keyboard_digit_size"
+                android:text="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/rb_2" />
+
+            <android.support.v7.widget.AppCompatRadioButton
+                android:id="@+id/rb_4"
+                style="@style/KeyboardDigit"
+                android:layout_width="@dimen/keyboard_digit_size"
+                android:layout_height="@dimen/keyboard_digit_size"
+                android:text="4"
+                app:layout_constraintBottom_toBottomOf="@+id/rb_5"
+                app:layout_constraintEnd_toEndOf="@id/rb_1"
+                app:layout_constraintStart_toStartOf="@id/rb_1"
+                app:layout_constraintTop_toTopOf="@+id/rb_5" />
+
+            <android.support.v7.widget.AppCompatRadioButton
+                android:id="@+id/rb_7"
+                style="@style/KeyboardDigit"
+                android:layout_width="@dimen/keyboard_digit_size"
+                android:layout_height="@dimen/keyboard_digit_size"
+                android:text="7"
+                app:layout_constraintBottom_toBottomOf="@+id/rb_8"
+                app:layout_constraintEnd_toEndOf="@id/rb_4"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@id/rb_4"
+                app:layout_constraintTop_toTopOf="@+id/rb_8" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/rb_watch"
+                style="@style/KeyboardDigit"
+                android:layout_width="@dimen/keyboard_digit_size"
+                android:layout_height="@dimen/keyboard_digit_size"
+                android:padding="6dp"
+                android:scaleType="centerInside"
+                app:layout_constraintBottom_toBottomOf="@+id/rb_0"
+                app:layout_constraintEnd_toEndOf="@id/rb_7"
+                app:layout_constraintStart_toStartOf="@id/rb_7"
+                app:layout_constraintTop_toTopOf="@+id/rb_0"
+                app:srcCompat="@drawable/watch" />
+
+            <android.support.v7.widget.AppCompatRadioButton
+                android:id="@+id/rb_3"
+                style="@style/KeyboardDigit"
+                android:layout_width="@dimen/keyboard_digit_size"
+                android:layout_height="@dimen/keyboard_digit_size"
+                android:text="3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/rb_2" />
+
+
+            <android.support.v7.widget.AppCompatRadioButton
+                android:id="@+id/rb_6"
+                style="@style/KeyboardDigit"
+                android:layout_width="@dimen/keyboard_digit_size"
+                android:layout_height="@dimen/keyboard_digit_size"
+                android:text="6"
+                app:layout_constraintBottom_toBottomOf="@+id/rb_5"
+                app:layout_constraintEnd_toEndOf="@id/rb_3"
+                app:layout_constraintStart_toStartOf="@id/rb_3"
+                app:layout_constraintTop_toTopOf="@+id/rb_5" />
+
+            <android.support.v7.widget.AppCompatRadioButton
+                android:id="@+id/rb_9"
+                style="@style/KeyboardDigit"
+                android:layout_width="@dimen/keyboard_digit_size"
+                android:layout_height="@dimen/keyboard_digit_size"
+                android:text="9"
+                app:layout_constraintBottom_toBottomOf="@+id/rb_8"
+                app:layout_constraintEnd_toEndOf="@id/rb_6"
+                app:layout_constraintStart_toStartOf="@id/rb_6"
+                app:layout_constraintTop_toTopOf="@+id/rb_8" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/rb_delete"
+                style="@style/KeyboardDigit"
+                android:layout_width="@dimen/keyboard_digit_size"
+                android:layout_height="@dimen/keyboard_digit_size"
+                android:padding="8dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="@+id/rb_0"
+                app:layout_constraintEnd_toEndOf="@id/rb_9"
+                app:layout_constraintStart_toStartOf="@id/rb_9"
+                app:layout_constraintTop_toTopOf="@+id/rb_0"
+                app:srcCompat="@drawable/delete" />
+
+
+        </android.support.constraint.ConstraintLayout>
+
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:text="@string/profile_save"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_end"
+            app:layout_constraintStart_toStartOf="@+id/guideline_start" />
+    </android.support.constraint.ConstraintLayout>
+
+
+</android.support.constraint.ConstraintLayout>

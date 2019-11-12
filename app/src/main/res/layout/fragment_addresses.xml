@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="kz.astralombard.home.menu.address.presentation.AddressViewModel" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".home.menu.address.presentation.AddressesFragment">
+
+        <TextView
+            android:id="@+id/tv_have_questions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/addresses_have_questions"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_call_us"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/img_phone"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_goneMarginStart="8dp" />
+
+        <TextView
+            android:id="@+id/tv_call_us"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/addresses_call_us"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/img_phone"
+            app:layout_constraintStart_toStartOf="@+id/tv_have_questions"
+            app:layout_constraintTop_toBottomOf="@+id/tv_have_questions" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_phone"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/phone" />
+
+        <android.support.constraint.ConstraintLayout
+            style="@style/WrapContent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/content_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img_phone">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_choose_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/addresses_choose_city"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/spn_choose_city"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/about_item_bg"
+                android:padding="10dp"
+                android:spinnerMode="dropdown"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_choose_city" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="8dp"
+                android:layout_marginEnd="8dp"
+                android:elevation="2dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="@+id/spn_choose_city"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintEnd_toEndOf="@+id/spn_choose_city"
+                app:layout_constraintTop_toTopOf="@id/spn_choose_city"
+                app:srcCompat="@drawable/spinner_arrow" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_address"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/spn_choose_city"
+                app:loans="@{viewModel.openLoans}" />
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
+</layout>

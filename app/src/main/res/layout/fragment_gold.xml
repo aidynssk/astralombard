@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".home.menu.calculator.gold.GoldFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="30dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_sample"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/details_sample"
+                app:layout_constraintBottom_toBottomOf="@+id/spinner_sample"
+                app:layout_constraintEnd_toEndOf="@+id/tc_gr_weight"
+                app:layout_constraintStart_toStartOf="@+id/tc_gr_weight"
+                app:layout_constraintTop_toTopOf="@+id/spinner_sample" />
+
+            <TextView
+                android:id="@+id/tc_gr_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/calculator_gr_weight"
+                app:layout_constraintBottom_toBottomOf="@+id/spinner_weight"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/spinner_weight" />
+
+            <TextView
+                android:id="@+id/tv_days_period"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/calculator_day_period"
+                app:layout_constraintBottom_toBottomOf="@+id/spinner_period"
+                app:layout_constraintEnd_toEndOf="@+id/tc_gr_weight"
+                app:layout_constraintStart_toStartOf="@+id/tc_gr_weight"
+                app:layout_constraintTop_toTopOf="@+id/spinner_period" />
+
+            <Spinner
+                android:id="@+id/spinner_sample"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_sample"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_margin="8dp"
+                android:elevation="2dp"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/spinner_arrow"
+                app:layout_constraintBottom_toBottomOf="@id/spinner_sample"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintEnd_toEndOf="@id/spinner_sample"
+                app:layout_constraintTop_toTopOf="@id/spinner_sample" />
+
+            <Spinner
+                android:id="@+id/spinner_weight"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/spinner_sample"
+                app:layout_constraintStart_toEndOf="@+id/tc_gr_weight"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_sample" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_margin="8dp"
+                android:elevation="2dp"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/spinner_arrow"
+                app:layout_constraintBottom_toBottomOf="@id/spinner_weight"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintEnd_toEndOf="@id/spinner_weight"
+                app:layout_constraintTop_toTopOf="@id/spinner_weight" />
+
+            <Spinner
+                android:id="@+id/spinner_period"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/spinner_weight"
+                app:layout_constraintStart_toStartOf="@+id/spinner_weight"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_weight" />
+
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_margin="8dp"
+                android:elevation="2dp"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/spinner_arrow"
+                app:layout_constraintBottom_toBottomOf="@id/spinner_period"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintEnd_toEndOf="@id/spinner_period"
+                app:layout_constraintTop_toTopOf="@id/spinner_period" />
+
+            <Button
+                android:id="@+id/appCompatImageView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="30dp"
+                android:text="@string/calculator_calculate"
+                app:layout_constraintEnd_toEndOf="@+id/spinner_period"
+                app:layout_constraintStart_toStartOf="@+id/tv_days_period"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_period" />
+
+            <TextView
+                android:id="@+id/tv_given_sum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/calculator_given_sum"
+                app:layout_constraintStart_toStartOf="@+id/tv_given_sum_value"
+                app:layout_constraintTop_toBottomOf="@+id/divider_top" />
+
+            <View
+                android:id="@+id/divider_top"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="8dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appCompatImageView" />
+
+            <TextView
+                android:id="@+id/tv_repayment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/calculator_repayment_sum"
+                app:layout_constraintStart_toStartOf="@+id/tv_repayment_value"
+                app:layout_constraintTop_toBottomOf="@+id/divider_top" />
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/tv_given_sum_value"
+                style="@style/CalcEditTextOutput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/tv_repayment_value"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_given_sum" />
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/tv_repayment_value"
+                style="@style/CalcEditTextOutput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/tv_given_sum_value"
+                app:layout_constraintTop_toBottomOf="@+id/tv_repayment" />
+
+            <View
+                android:id="@+id/divider_bottom"
+                android:layout_width="395dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_given_sum_value" />
+
+            <TextView
+                android:id="@+id/tv_gold_notes"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="30dp"
+                android:gravity="center"
+                android:text="@string/calculator_gold_notes"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider_bottom" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/btn_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/calculator_more"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_gold_notes"
+                app:srcCompat="@drawable/more" />
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+</FrameLayout>

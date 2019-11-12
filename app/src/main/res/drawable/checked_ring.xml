@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector>
+    <item>
+        <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
+            <gradient android:endColor="#ffca15" android:startColor="#ff6e00" />
+            <size android:width="@dimen/checkbox_size" android:height="@dimen/checkbox_size"/>
+        </shape>
+    </item>
+</selector>

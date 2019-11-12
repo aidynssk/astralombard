@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="checkbox_size">20dp</dimen>
+    <dimen name="code_size">20dp</dimen>
+    <dimen name="keyboard_digit_size">50dp</dimen>
+
+    <dimen name="smallDialogWidth">290dp</dimen>
+    <dimen name="smallDialogHeight">310dp</dimen>
+    <dimen name="largeDialogWidth">300dp</dimen>
+    <dimen name="largeDialogHeight">500dp</dimen>
+
+    <dimen name="titleFontSize">40sp</dimen>
+</resources>

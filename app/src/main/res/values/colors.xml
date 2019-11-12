@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#d67e2a</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="colorBaseOrange">#d67e2a</color>
+
+
+    <color name="colorAddressOrange">#ef7f1a</color>
+
+    <color name="colorLoanItemOrange">#f17f1a</color>
+
+</resources>
