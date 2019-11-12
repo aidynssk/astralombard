@@ -2,9 +2,7 @@ package kz.astralombard.home.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import kz.astralombard.base.CoroutineViewModel
 import kz.astralombard.base.Response
 import kz.astralombard.home.data.HomeRepository
@@ -16,23 +14,20 @@ import kz.astralombard.home.model.LoginRequestModel
  */
 class HomeViewModel(
     private val repository: HomeRepository
-): CoroutineViewModel() {
+) : CoroutineViewModel() {
     private val smsLD = MutableLiveData<String>()
     private val userLoggedLD = MutableLiveData<Boolean>()
 
-    fun onLoginButtonClicked(iin: String, phone: String) = launch(uiContext) {
+    fun onLoginButtonClicked(iin: String, phone: String) = launch {
         progressBarStatusLD.value = true
 
-        val response = withContext(bg) {
-
-            return@withContext repository.login(
-                LoginRequestModel(
-                    iin = iin,
-                    phone_number = phone,
-                    device_uuid = "4545325"
-                )
+        val response = repository.login(
+            LoginRequestModel(
+                iin = iin,
+                phone_number = phone,
+                device_uuid = "4545325"
             )
-        }
+        )
 
         when (response) {
             is Response.Success -> {
@@ -44,26 +39,23 @@ class HomeViewModel(
         }
         userLoggedLD.value?.let {
             userLoggedLD.value = it.not()
-        }?:let{
+        } ?: let {
             userLoggedLD.value = true
         }
         progressBarStatusLD.value = false
     }
 
 
-    fun validateSms(code: String, iin: String, phone: String) = launch(uiContext) {
+    fun validateSms(code: String, iin: String, phone: String) = launch {
         progressBarStatusLD.value = true
 
-        val response = withContext(Dispatchers.IO) {
-
-            return@withContext repository.validate(
-                SmsRequestModel(
-                    iin = iin,
-                    phone_number = phone,
-                    code = code
-                )
+        val response = repository.validate(
+            SmsRequestModel(
+                iin = iin,
+                phone_number = phone,
+                code = code
             )
-        }
+        )
         when (response) {
             is Response.Success -> {
 
@@ -74,7 +66,7 @@ class HomeViewModel(
         }
         userLoggedLD.value?.let {
             userLoggedLD.value = it.not()
-        }?:let{
+        } ?: let {
             userLoggedLD.value = true
         }
         progressBarStatusLD.value = false

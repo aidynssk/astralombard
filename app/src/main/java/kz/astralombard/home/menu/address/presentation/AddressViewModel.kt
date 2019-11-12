@@ -27,14 +27,9 @@ class AddressViewModel(
         Loan()
     )
 
-    fun loadCities() = launch(uiContext) {
+    fun loadCities() = launch{
         progressBarStatusLD.value = true
-        val response = withContext(bg){
-
-            return@withContext repository.getCities()
-        }
-
-        when(response){
+        when(val response = repository.getCities()){
             is Response.Success -> {
                 citiesLD.value = response.result.data
             }

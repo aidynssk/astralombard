@@ -22,8 +22,8 @@ import android.net.Uri
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 
-class AddressesFragment :
-    BaseFragment(), RecyclerBindingAdapter.OnItemClickListener<Loan> {
+class AddressesFragment : BaseFragment(),
+    RecyclerBindingAdapter.OnItemClickListener<Loan> {
     private val viewModel: AddressViewModel by sharedViewModel()
 
     companion object {
