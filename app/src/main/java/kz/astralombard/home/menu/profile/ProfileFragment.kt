@@ -10,7 +10,6 @@ import kotlinx.android.synthetic.main.fragment_profile.*
 
 import kz.astralombard.R
 import kz.astralombard.base.BaseFragment
-import kz.astralombard.home.presentation.HomeActivity
 import kz.astralombard.home.presentation.HomeViewModel
 import kz.astralombard.models.DialogSize
 import kz.astralombard.dialogs.LogoutDialog
@@ -42,10 +41,10 @@ class ProfileFragment : BaseFragment() {
 
     private fun initListeners() {
         cl_change_code?.setOnClickListener {
-            replaceFragment(CodeFragment.newInstance(), CodeFragment.TAG)
+            replaceFragment(CodeFragment.newInstance())
         }
         cl_choose_city?.setOnClickListener {
-            replaceFragment(CityFragment.newInstance(), CityFragment.TAG)
+            replaceFragment(CityFragment.newInstance())
         }
         cl_logout?.setOnClickListener {
             dialog = LogoutDialog(requireContext())
@@ -61,11 +60,4 @@ class ProfileFragment : BaseFragment() {
               dialog?.show()
         }
     }
-        private fun replaceFragment(fragment: BaseFragment, tag: String){
-            (activity as HomeActivity?)?.replaceFragment(
-                id = R.id.current_menu_container,
-                f = fragment,
-                tag = tag
-            )
-        }
 }

@@ -50,13 +50,6 @@ class HomeActivity : BaseActivity() {
         }
     }
 
-    fun replaceFragment(@IdRes id: Int, f: BaseFragment, tag: String?){
-        supportFragmentManager.beginTransaction()
-            .replace(id, f, tag)
-            .addToBackStack(tag)
-            .commit()
-    }
-
     private fun initObservers() {
         viewModel.getUserLoggedLD().observe(this, Observer { isLogged ->
             isLogged ?: return@Observer

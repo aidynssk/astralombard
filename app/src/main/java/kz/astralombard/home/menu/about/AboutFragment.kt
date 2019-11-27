@@ -36,21 +36,13 @@ class AboutFragment : BaseFragment() {
 
    private fun initListeners(){
        cl_about?.setOnClickListener {
-           replaceFragment(AboutCompanyFragment.newInstance(), AboutCompanyFragment.TAG)
+           replaceFragment(AboutCompanyFragment.newInstance())
        }
        cl_news?.setOnClickListener {
-           replaceFragment(NewsFragment.newInstance(), NewsFragment.TAG)
+           replaceFragment(NewsFragment.newInstance())
        }
        cl_write?.setOnClickListener {
-           replaceFragment(WriteUsFragment.newInstance(), WriteUsFragment.TAG)
+           replaceFragment(WriteUsFragment.newInstance())
        }
    }
-
-    private fun replaceFragment(fragment: BaseFragment, tag: String){
-        (activity as HomeActivity?)?.replaceFragment(
-            id = R.id.current_menu_container,
-            f = fragment,
-            tag = tag
-        )
-    }
 }

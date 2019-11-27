@@ -1,6 +1,5 @@
 package kz.astralombard.base
 
-import android.content.Context
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import kz.astralombard.R
@@ -11,21 +10,31 @@ import java.lang.Exception
 /**
  * Created by wokrey@gmail.com on 03.06.2019
  */
-open class BaseFragment: Fragment() {
+open class BaseFragment :
+    Fragment(),
+    Navigator {
 
-    open val progressBar: ProgressDialog by lazy { ProgressDialog(viewLifecycleOwner, requireContext()) }
+    open val navigator: Navigator by lazy {
+        activity as Navigator
+    }
+    open val progressBar: ProgressDialog by lazy {
+        ProgressDialog(
+            viewLifecycleOwner,
+            requireContext()
+        )
+    }
 
 
-    fun showProgress(){
+    fun showProgress() {
         progressBar.showDialog()
     }
 
-    fun hideProgress(){
+    fun hideProgress() {
         progressBar.hideDialog()
     }
 
-    fun handleError(exception: Exception, ok: (() -> Unit)? = null){
-        val message = when(exception){
+    fun handleError(exception: Exception, ok: (() -> Unit)? = null) {
+        val message = when (exception) {
             is HttpException -> exception.response()?.errorBody()?.string()
             is IOException -> "Возможно, проблемы с соединением"
             else -> null
@@ -33,6 +42,7 @@ open class BaseFragment: Fragment() {
         showErrorAlert(message, ok)
 
     }
+
     fun showErrorAlert(message: String? = null, ok: (() -> Unit)? = null) {
         AlertDialog.Builder(requireContext())
             .setCancelable(false)
@@ -44,4 +54,8 @@ open class BaseFragment: Fragment() {
             .create()
             .show()
     }
+
+    override fun addFragment(fragment: Fragment) = navigator.addFragment(fragment)
+    override fun replaceFragment(fragment: Fragment) = navigator.replaceFragment(fragment)
+    override fun popFragment() = navigator.popFragment()
 }
