@@ -79,13 +79,13 @@ class AddressesFragment : BaseFragment(),
     }
 
     private fun initObservers(){
-        viewModel.getCitiesLD().observe(viewLifecycleOwner, Observer {cities ->
+        viewModel.citiesLD.observe(viewLifecycleOwner, Observer {cities ->
             val citiesNames = mutableListOf<String>()
             cities!!.forEach {
                 citiesNames.add(it.name)
             }
             val adapter = ArrayAdapter<String>(
-                context,
+                requireContext(),
                 android.R.layout.simple_spinner_item,
                 citiesNames
             )

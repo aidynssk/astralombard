@@ -48,10 +48,10 @@ class ProfileFragment : BaseFragment() {
             replaceFragment(CityFragment.newInstance(), CityFragment.TAG)
         }
         cl_logout?.setOnClickListener {
-            dialog = LogoutDialog(context!!)
+            dialog = LogoutDialog(requireContext())
                 .apply {
                     yesClickListener {
-                        viewModel.onLoginButtonClicked("","")
+                        viewModel.logoutConfirmed()
                     }
                     noClickListener {
                         dialog?.dismiss()

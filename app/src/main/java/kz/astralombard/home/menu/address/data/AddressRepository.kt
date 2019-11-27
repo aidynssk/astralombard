@@ -10,4 +10,6 @@ import kz.astralombard.home.menu.address.model.CitiesResponse
 interface AddressRepository {
 
     suspend fun getCities(): Response<CitiesResponse>
+
+//    suspend fun getAddresses(): Response<Any>
 }

@@ -11,5 +11,6 @@ data class SmsRequestModel(
 )
 
 data class SmsResponse(
-    val message: String
+    val message: String,
+    val status: String? = null
 )

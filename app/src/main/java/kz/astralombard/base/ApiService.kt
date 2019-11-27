@@ -6,10 +6,7 @@ import kz.astralombard.home.menu.login.data.SmsRequestModel
 import kz.astralombard.home.menu.login.data.SmsResponse
 import kz.astralombard.home.model.LoginRequestModel
 import kz.astralombard.home.model.LoginResponse
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.Headers
-import retrofit2.http.POST
+import retrofit2.http.*
 
 /**
  * Created by wokrey@gmail.com on 02.06.2019
@@ -29,4 +26,12 @@ interface ApiService {
     @Headers("Content-Type:application/json")
     @GET("cities")
     suspend fun getCities(): CitiesResponse
+
+    @Headers("Content-Type:application/json")
+    @GET("cities/1?latitude=43.212238&longitude=76.8982445")
+    suspend fun getAddresses(
+        /*@Path("id") id: String,
+        @Field("latitude") lat: String,
+        @Field("latitude") long: String*/
+    ): CitiesResponse
 }

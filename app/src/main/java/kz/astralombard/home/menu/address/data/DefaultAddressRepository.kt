@@ -14,5 +14,5 @@ class DefaultAddressRepository(
 ) : BaseRepository(), AddressRepository {
 
     override suspend fun getCities(): Response<CitiesResponse>
-            = makeApiRequest {api.getCities()}
+            = makeApiRequest {api.getAddresses()}
 }

@@ -1,18 +1,19 @@
 package kz.astralombard.home.menu.login.presentation
 
 
-import androidx.lifecycle.Observer
-import android.opengl.Visibility
 import android.os.Bundle
-import androidx.appcompat.widget.AppCompatButton
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.appcompat.widget.AppCompatButton
+import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.fragment_login.*
-import kotlinx.android.synthetic.main.item_news.view.*
 import kz.astralombard.R
 import kz.astralombard.base.BaseFragment
+import kz.astralombard.ext.hide
+import kz.astralombard.ext.show
 import kz.astralombard.home.presentation.HomeViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
@@ -44,12 +45,15 @@ class LoginFragment : BaseFragment() {
         btn_request_code.setOnClickListener {
             if ((it as AppCompatButton).text == getString(R.string.login_request_code)) {
                 viewModel.onLoginButtonClicked(et_iin.text.toString(), et_phone.text.toString())
-//            } else {
-                /*viewModel.validateSms(
+            } else {
+                if (et_enter_code.text.toString().isNullOrBlank()){
+                    return@setOnClickListener
+                }
+                viewModel.validateSms(
                     iin = et_iin.text.toString(),
                     phone = et_phone.text.toString(),
                     code = et_enter_code.text.toString()
-                )*/
+                )
             }
         }
     }
@@ -62,13 +66,23 @@ class LoginFragment : BaseFragment() {
 
             Toast.makeText(activity, sms, Toast.LENGTH_SHORT ).show()
         })
+        viewModel.getProgressBarStatusLD().observe(viewLifecycleOwner, Observer {
+            if (it)
+                showProgress()
+            else
+                hideProgress()
+        })
+
+        viewModel.getErrorLD().observe(viewLifecycleOwner, Observer {
+            handleError(it)
+        })
     }
 
     private fun showSmsView() {
-        et_iin.visibility = View.GONE
-        et_phone.visibility = View.GONE
+        et_iin.hide()
+        et_phone.hide()
 
-        tv_enter_code.visibility = View.VISIBLE
-        et_enter_code.visibility = View.VISIBLE
+        tv_enter_code.show()
+        et_enter_code.show()
     }
 }

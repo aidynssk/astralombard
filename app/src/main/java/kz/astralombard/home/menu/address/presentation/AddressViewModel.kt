@@ -1,8 +1,8 @@
 package kz.astralombard.home.menu.address.presentation
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import kz.astralombard.base.CoroutineViewModel
 import kz.astralombard.base.Response
 import kz.astralombard.home.menu.address.data.AddressRepository
@@ -17,7 +17,8 @@ class AddressViewModel(
     private val repository: AddressRepository
 ) : CoroutineViewModel() {
 
-    private val citiesLD = MutableLiveData<List<City>>()
+    private val _citiesLD = MutableLiveData<List<City>>()
+    val citiesLD: LiveData<List<City>> = _citiesLD
 
     val openLoans: List<Loan> = arrayListOf(
         Loan(),
@@ -28,16 +29,18 @@ class AddressViewModel(
     )
 
     fun loadCities() = launch{
+        if (_citiesLD.value != null){
+            return@launch
+        }
         progressBarStatusLD.value = true
         when(val response = repository.getCities()){
             is Response.Success -> {
-                citiesLD.value = response.result.data
+                _citiesLD.value = response.result.data
             }
             is Response.Error -> {
                 errorLD.value = response.error
             }
         }
+        progressBarStatusLD.value = false
     }
-
-    fun getCitiesLD() = citiesLD
 }

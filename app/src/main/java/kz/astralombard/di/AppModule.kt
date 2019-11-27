@@ -1,9 +1,11 @@
 package kz.astralombard.di
 
 import android.preference.PreferenceManager
+import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kz.astralombard.base.ApiService
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -14,14 +16,9 @@ private const val TEST_BASE_URL = "http://185.146.1.56/api/"
 
 val appModule = module {
     single {
-        OkHttpClient.Builder().addInterceptor {
-            val request = it.request()
-                .newBuilder()
-                .addHeader("Accept", "Application/JSON")
-                .build()
-
-            return@addInterceptor it.proceed(request)
-        }
+        OkHttpClient.Builder()
+            .addNetworkInterceptor(StethoInterceptor())
+            .addInterceptor(HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY })
             .build()
     }
 

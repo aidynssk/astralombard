@@ -141,4 +141,8 @@
     <string name="enter_pin">ВВЕДИТЕ КОД</string>
 
 
+    <string name="loading">Подождите</string>
+    <string name="error">Ошибка</string>
+    <string name="error_general">Произошла ошибка</string>
+    <string name="ok">OK</string>
 </resources>
