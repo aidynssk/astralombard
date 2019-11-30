@@ -12,5 +12,5 @@ data class FeedbackRequest(
 )
 
 data class FeedbackResponse(
-    val message: String?
+    val message: String? = null
 )

@@ -15,20 +15,15 @@ import retrofit2.http.*
 interface ApiService {
     /**
      * add single slash for POST method endpoint*/
-//        @Headers("Content-Type:application/x-www-form-urlencoded")
-//    @Headers("Accept: application/json")
     @POST("auth/get-otp/")
     suspend fun getCode(@Body loginBody: GetCodeRequestModel): GetCodeResponse
 
-    @Headers("Content-Type:application/json")
     @POST("auth/login/")
     suspend fun validate(@Body validateBody: GetCodeResponse): SmsValidateResponse
 
-    @Headers("Content-Type:application/json")
     @GET("cities")
     suspend fun getCities(): List<City>
 
-    @Headers("Content-Type:application/json")
     @GET("cities/{id}")
     suspend fun getAddresses(
         @Path("id") id: String,
@@ -36,7 +31,6 @@ interface ApiService {
         @Query("latitude") long: String
     ): List<Point>
 
-    @Headers("Content-Type:application/json")
     @POST("feedback/")
-    suspend fun leaveFeedback(request: FeedbackRequest): FeedbackResponse
+    suspend fun leaveFeedback(@Body request: FeedbackRequest): FeedbackResponse
 }

@@ -1,113 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="10dp"
-    android:paddingTop="0dp">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tv_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/helveticaneuecyr_1"
-        android:text="@string/about_write_us"
-        android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
+        <variable
+            name="viewModel"
+            type="kz.astralombard.home.menu.about.writeus.presentation.WriteUsViewModel" />
+    </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/content_bg"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_title">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-
-        <TextView
-            android:id="@+id/tv_topic"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="32dp"
-            android:text="@string/about_message_topic"
-            app:layout_constraintStart_toStartOf="@+id/et_topic"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:padding="10dp"
+            android:paddingTop="0dp">
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/et_topic"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/login_et_bg"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:padding="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_topic" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/helveticaneuecyr_1"
+                android:text="@string/about_write_us"
+                android:textSize="40sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_phone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/about_phone"
-            app:layout_constraintStart_toStartOf="@+id/tv_topic"
-            app:layout_constraintTop_toBottomOf="@+id/et_topic" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/content_bg"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_title">
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/et_phone"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/login_et_bg"
-            android:inputType="phone"
-            android:padding="8dp"
-            app:layout_constraintEnd_toEndOf="@+id/et_topic"
-            app:layout_constraintStart_toStartOf="@+id/et_topic"
-            app:layout_constraintTop_toBottomOf="@+id/tv_phone" />
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="50dp"
+                    android:onClick="@{() -> viewModel.leaveFeedback()}"
+                    android:text="@string/about_send"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/et_message_text"
+                    app:layout_constraintStart_toStartOf="@+id/et_message_text" />
 
-        <TextView
-            android:id="@+id/tv_message_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/about_message_text"
-            app:layout_constraintStart_toStartOf="@+id/tv_phone"
-            app:layout_constraintTop_toBottomOf="@+id/et_phone" />
+                <TextView
+                    android:id="@+id/tv_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/about_phone"
+                    app:layout_constraintStart_toStartOf="@+id/tv_topic"
+                    app:layout_constraintTop_toBottomOf="@+id/et_topic" />
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/et_message_text"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            android:padding="4dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/login_et_bg"
-            android:inputType="textMultiLine"
-            android:gravity="top|start"
-            app:layout_constraintBottom_toTopOf="@+id/button"
-            app:layout_constraintEnd_toEndOf="@+id/et_phone"
-            app:layout_constraintStart_toStartOf="@+id/et_phone"
-            app:layout_constraintTop_toBottomOf="@+id/tv_message_text" />
+                <TextView
+                    android:id="@+id/tv_message_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/about_message_text"
+                    app:layout_constraintStart_toStartOf="@+id/tv_phone"
+                    app:layout_constraintTop_toBottomOf="@+id/et_phone" />
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="50dp"
-            android:text="@string/about_send"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/et_message_text"
-            app:layout_constraintStart_toStartOf="@+id/et_message_text" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/tv_topic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/about_message_topic"
+                    app:layout_constraintStart_toStartOf="@+id/et_topic"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/et_topic"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/login_et_bg"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:padding="8dp"
+                    android:text="@={viewModel.subject}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_topic" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/et_message_text"
+                    android:layout_width="0dp"
+                    android:layout_height="300dp"
+                    android:layout_marginTop="8dp"
+                    android:minHeight="250dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/login_et_bg"
+                    android:gravity="top|start"
+                    android:inputType="textMultiLine"
+                    android:padding="4dp"
+                    android:text="@={viewModel.text}"
+                    app:layout_constraintBottom_toTopOf="@+id/button"
+                    app:layout_constraintEnd_toEndOf="@+id/et_phone"
+                    app:layout_constraintStart_toStartOf="@+id/et_phone"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_message_text" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/et_phone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/login_et_bg"
+                    android:inputType="phone"
+                    android:padding="8dp"
+                    android:text="@={viewModel.username}"
+                    app:layout_constraintEnd_toEndOf="@+id/et_topic"
+                    app:layout_constraintStart_toStartOf="@+id/et_topic"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_phone" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</layout>
