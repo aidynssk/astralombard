@@ -1,4 +1,4 @@
-package kz.astralombard.home.menu.about.writeus.data
+package kz.astralombard.home.menu.about.data
 
 /**
  * Created by wokrey@gmail.com on 30.11.2019.

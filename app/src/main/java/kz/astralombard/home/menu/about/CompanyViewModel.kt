@@ -1,4 +1,4 @@
-package kz.astralombard.home.menu.about.writeus.presentation
+package kz.astralombard.home.menu.about
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -7,16 +7,16 @@ import kz.astralombard.base.Constants
 import kz.astralombard.base.CoroutineViewModel
 import kz.astralombard.base.data.AstraException
 import kz.astralombard.base.data.Response
-import kz.astralombard.home.menu.about.writeus.data.FeedbackRequest
-import kz.astralombard.home.menu.about.writeus.data.FeedbackResponse
-import kz.astralombard.home.menu.about.writeus.data.IWriteUsRepository
+import kz.astralombard.home.menu.about.data.FeedbackRequest
+import kz.astralombard.home.menu.about.data.FeedbackResponse
+import kz.astralombard.home.menu.about.data.ICompanyRepository
 
 /**
  * Created by wokrey@gmail.com on 30.11.2019.
  * It's not wokrey, if the code smells bad. Somebody set me up.
  */
-class WriteUsViewModel(
-    private val repository: IWriteUsRepository
+class CompanyViewModel(
+    private val repository: ICompanyRepository
 ) : CoroutineViewModel() {
 
     private val _feedbackLD = MutableLiveData<FeedbackResponse>()

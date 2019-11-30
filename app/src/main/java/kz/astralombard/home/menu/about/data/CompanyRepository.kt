@@ -1,4 +1,4 @@
-package kz.astralombard.home.menu.about.writeus.data
+package kz.astralombard.home.menu.about.data
 
 import kz.astralombard.base.data.ApiService
 import kz.astralombard.base.data.BaseRepository
@@ -9,12 +9,12 @@ import kz.astralombard.base.data.Response
  * It's not wokrey, if the code smells bad. Somebody set me up.
  */
 
-interface IWriteUsRepository{
+interface ICompanyRepository{
     suspend fun leaveFeedback(request: FeedbackRequest): Response<FeedbackResponse>
 }
-class WriteUsRepository(
+class CompanyRepository(
     private val apiService: ApiService
-): BaseRepository(), IWriteUsRepository {
+): BaseRepository(), ICompanyRepository {
 
     override suspend fun leaveFeedback(request: FeedbackRequest)
             = makeApiRequest { apiService.leaveFeedback(request) }

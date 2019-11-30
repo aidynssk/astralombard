@@ -1,7 +1,7 @@
 package kz.astralombard.base.data
 
-import kz.astralombard.home.menu.about.writeus.data.FeedbackRequest
-import kz.astralombard.home.menu.about.writeus.data.FeedbackResponse
+import kz.astralombard.home.menu.about.data.FeedbackRequest
+import kz.astralombard.home.menu.about.data.FeedbackResponse
 import kz.astralombard.home.menu.address.model.City
 import kz.astralombard.home.menu.address.model.Point
 import kz.astralombard.home.menu.login.data.SmsValidateResponse

@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="kz.astralombard.home.menu.about.writeus.presentation.WriteUsViewModel" />
+            type="kz.astralombard.home.menu.about.CompanyViewModel" />
     </data>
 
     <ScrollView

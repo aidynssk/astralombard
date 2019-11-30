@@ -1,8 +1,8 @@
 package kz.astralombard.di
 
-import kz.astralombard.home.menu.about.writeus.data.IWriteUsRepository
-import kz.astralombard.home.menu.about.writeus.data.WriteUsRepository
-import kz.astralombard.home.menu.about.writeus.presentation.WriteUsViewModel
+import kz.astralombard.home.menu.about.data.ICompanyRepository
+import kz.astralombard.home.menu.about.data.CompanyRepository
+import kz.astralombard.home.menu.about.CompanyViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -11,14 +11,14 @@ import org.koin.dsl.module
  * It's not wokrey, if the code smells bad. Somebody set me up.
  */
 
-val writeUsModule = module {
+val companyModule = module {
     viewModel {
-        WriteUsViewModel(
+        CompanyViewModel(
             repository = get()
         )
     }
-    factory<IWriteUsRepository> {
-        WriteUsRepository(
+    factory<ICompanyRepository> {
+        CompanyRepository(
             apiService = get()
         )
     }

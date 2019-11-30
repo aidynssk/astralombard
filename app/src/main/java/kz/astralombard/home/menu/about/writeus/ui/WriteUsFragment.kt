@@ -9,7 +9,7 @@ import androidx.lifecycle.Observer
 import kz.astralombard.R
 import kz.astralombard.base.ui.BaseFragment
 import kz.astralombard.databinding.FragmentWriteUsBinding
-import kz.astralombard.home.menu.about.writeus.presentation.WriteUsViewModel
+import kz.astralombard.home.menu.about.CompanyViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
@@ -24,7 +24,7 @@ class WriteUsFragment : BaseFragment() {
     }
 
     private lateinit var binding: FragmentWriteUsBinding
-    private val viewModel: WriteUsViewModel by viewModel()
+    private val viewModel: CompanyViewModel by viewModel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_write_us, container, false)
