@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import kz.astralombard.R
 import kz.astralombard.base.Navigator
+import kz.astralombard.base.data.AstraException
 import retrofit2.HttpException
 import java.io.IOException
 import java.lang.Exception
@@ -38,6 +39,7 @@ open class BaseFragment :
         val message = when (exception) {
             is HttpException -> exception.response()?.errorBody()?.string()
             is IOException -> "Возможно, проблемы с соединением"
+            is AstraException -> exception.message
             else -> null
         }
         showErrorAlert(message, ok)
