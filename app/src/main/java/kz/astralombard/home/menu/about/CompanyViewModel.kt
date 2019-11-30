@@ -7,9 +7,7 @@ import kz.astralombard.base.Constants
 import kz.astralombard.base.CoroutineViewModel
 import kz.astralombard.base.data.AstraException
 import kz.astralombard.base.data.Response
-import kz.astralombard.home.menu.about.data.FeedbackRequest
-import kz.astralombard.home.menu.about.data.FeedbackResponse
-import kz.astralombard.home.menu.about.data.ICompanyRepository
+import kz.astralombard.home.menu.about.data.*
 
 /**
  * Created by wokrey@gmail.com on 30.11.2019.
@@ -21,11 +19,41 @@ class CompanyViewModel(
 
     private val _feedbackLD = MutableLiveData<FeedbackResponse>()
     val feedbackLD: LiveData<FeedbackResponse> = _feedbackLD
-
     var subject: String = Constants.DEFAULT_STRING
     var username: String = Constants.DEFAULT_STRING
     var text: String = Constants.DEFAULT_STRING
 
+    private val _aboutCompanyLD = MutableLiveData<String>()
+    val aboutCompanyLD: LiveData<String> = _aboutCompanyLD
+
+    private val _newsLD = MutableLiveData<List<News>>()
+    val newsLD: LiveData<List<News>> = _newsLD
+
+    fun getAboutCompany(){
+        _progressBarStatusLD.value = true
+        launch {
+            when(val response = repository.getAboutCompanyText()){
+                is Response.Success ->
+                    _aboutCompanyLD.value = response.result.text ?: "kdhkadfvfk"
+                is Response.Error ->
+                    _errorLD.value = response.error
+            }
+            _progressBarStatusLD.value = false
+        }
+    }
+
+    fun getNews(){
+        _progressBarStatusLD.value = true
+        launch {
+            when(val response = repository.getNews()){
+                is Response.Success ->
+                    _newsLD.value = response.result
+                is Response.Error ->
+                    _errorLD.value = response.error
+            }
+        }
+        _progressBarStatusLD.value = false
+    }
     fun leaveFeedback(
        /* subject: String,
         username: String,

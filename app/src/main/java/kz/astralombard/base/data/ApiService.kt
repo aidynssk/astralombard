@@ -1,7 +1,9 @@
 package kz.astralombard.base.data
 
+import kz.astralombard.home.menu.about.data.AboutCompanyResponse
 import kz.astralombard.home.menu.about.data.FeedbackRequest
 import kz.astralombard.home.menu.about.data.FeedbackResponse
+import kz.astralombard.home.menu.about.data.News
 import kz.astralombard.home.menu.address.model.City
 import kz.astralombard.home.menu.address.model.Point
 import kz.astralombard.home.menu.login.data.SmsValidateResponse
@@ -33,4 +35,10 @@ interface ApiService {
 
     @POST("feedback/")
     suspend fun leaveFeedback(@Body request: FeedbackRequest): FeedbackResponse
+
+    @GET("news")
+    suspend fun getNews(): List<News>
+
+    @GET("about")
+    suspend fun getAbout(): AboutCompanyResponse
 }

@@ -11,6 +11,8 @@ import kz.astralombard.base.data.Response
 
 interface ICompanyRepository{
     suspend fun leaveFeedback(request: FeedbackRequest): Response<FeedbackResponse>
+    suspend fun getAboutCompanyText(): Response<AboutCompanyResponse>
+    suspend fun getNews(): Response<List<News>>
 }
 class CompanyRepository(
     private val apiService: ApiService
@@ -18,4 +20,10 @@ class CompanyRepository(
 
     override suspend fun leaveFeedback(request: FeedbackRequest)
             = makeApiRequest { apiService.leaveFeedback(request) }
+
+    override suspend fun getAboutCompanyText()
+            = makeApiRequest{ apiService.getAbout() }
+
+    override suspend fun getNews()
+            = makeApiRequest { apiService.getNews() }
 }
