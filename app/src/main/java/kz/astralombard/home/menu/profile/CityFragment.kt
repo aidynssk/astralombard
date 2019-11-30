@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import kotlinx.android.synthetic.main.fragment_city.*
 import kz.astralombard.R
-import kz.astralombard.base.BaseFragment
+import kz.astralombard.base.ui.BaseFragment
 
 
 class CityFragment : BaseFragment() {

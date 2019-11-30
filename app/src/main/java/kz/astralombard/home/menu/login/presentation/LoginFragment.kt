@@ -5,14 +5,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.lifecycle.Observer
-import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.fragment_login.*
 import kz.astralombard.R
-import kz.astralombard.base.BaseFragment
+import kz.astralombard.base.ui.BaseFragment
 import kz.astralombard.ext.hide
 import kz.astralombard.ext.show
 import kz.astralombard.home.presentation.HomeViewModel

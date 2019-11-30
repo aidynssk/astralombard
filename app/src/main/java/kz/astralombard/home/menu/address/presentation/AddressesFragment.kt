@@ -14,8 +14,8 @@ import kotlinx.android.synthetic.main.fragment_addresses.*
 import kz.astralombard.BR
 
 import kz.astralombard.R
-import kz.astralombard.base.BaseFragment
-import kz.astralombard.base.RecyclerBindingAdapter
+import kz.astralombard.base.ui.BaseFragment
+import kz.astralombard.base.ui.RecyclerBindingAdapter
 import kz.astralombard.databinding.FragmentAddressesBinding
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -32,8 +32,6 @@ import com.karumi.dexter.listener.single.PermissionListener
 import kz.astralombard.base.PermisionStatus
 import kz.astralombard.home.menu.address.model.Point
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import java.text.DateFormat
-import java.util.*
 import kotlin.math.roundToInt
 
 class AddressesFragment

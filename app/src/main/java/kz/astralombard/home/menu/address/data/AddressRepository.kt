@@ -1,7 +1,7 @@
 package kz.astralombard.home.menu.address.data
 
 import kz.astralombard.base.PermisionStatus
-import kz.astralombard.base.Response
+import kz.astralombard.base.data.Response
 import kz.astralombard.home.menu.address.model.City
 import kz.astralombard.home.menu.address.model.Point
 

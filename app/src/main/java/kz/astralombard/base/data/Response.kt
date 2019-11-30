@@ -1,4 +1,4 @@
-package kz.astralombard.base
+package kz.astralombard.base.data
 
 sealed class Response<T> {
 

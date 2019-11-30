@@ -8,9 +8,8 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_code.*
 
 import kz.astralombard.R
-import kz.astralombard.base.BaseFragment
+import kz.astralombard.base.ui.BaseFragment
 import kz.astralombard.home.presentation.HomeActivity
-import kz.astralombard.home.presentation.HomeViewModel
 
 
 class CodeFragment : BaseFragment() {

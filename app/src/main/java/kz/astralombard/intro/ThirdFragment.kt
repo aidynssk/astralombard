@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kz.astralombard.R
-import kz.astralombard.base.BaseFragment
+import kz.astralombard.base.ui.BaseFragment
 
 
 class ThirdFragment : BaseFragment() {

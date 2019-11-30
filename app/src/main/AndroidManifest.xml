@@ -23,11 +23,11 @@
         <activity
             android:name=".home.menu.myloans.OpenLoansDetailsActivity"
             android:label="@string/title_activity_open_loans_details"
-            android:parentActivityName=".base.BaseActivity"
+            android:parentActivityName=".base.ui.BaseActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="kz.astralombard.base.BaseActivity" />
+                android:value="kz.astralombard.base.ui.BaseActivity" />
         </activity>
         <activity android:name=".MainAppActivity">
             <intent-filter>

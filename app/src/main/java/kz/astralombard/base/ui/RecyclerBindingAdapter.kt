@@ -1,15 +1,12 @@
-package kz.astralombard.base
+package kz.astralombard.base.ui
 
 import android.content.Context
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import android.graphics.drawable.ColorDrawable
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.LinearLayout
 import kz.astralombard.R
 import kz.astralombard.databinding.ItemNewsBinding
 
@@ -28,13 +25,13 @@ class RecyclerBindingAdapter<T>(
     private var items: List<T> = ArrayList<T>()
     private var onItemClickListener: OnItemClickListener<T>? = null
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerBindingAdapter.BindingHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BindingHolder {
         val v = LayoutInflater.from(parent.context)
             .inflate(viewType, parent, false)
         return BindingHolder(v)
     }
 
-    override fun onBindViewHolder(holder: RecyclerBindingAdapter.BindingHolder, position: Int) {
+    override fun onBindViewHolder(holder: BindingHolder, position: Int) {
         val item = items[position]
 
         if (holderLayout == R.layout.item_news) {

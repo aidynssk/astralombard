@@ -1,14 +1,12 @@
-package kz.astralombard.base
+package kz.astralombard.base.ui
 
 import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.OnLifecycleEvent
 import kz.astralombard.R
 
 /**

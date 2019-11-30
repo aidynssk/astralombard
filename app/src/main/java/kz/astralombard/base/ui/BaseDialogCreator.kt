@@ -1,4 +1,4 @@
-package kz.astralombard.base
+package kz.astralombard.base.ui
 
 import android.content.Context
 import android.graphics.Color

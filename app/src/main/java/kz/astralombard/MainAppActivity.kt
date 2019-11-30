@@ -3,7 +3,7 @@ package kz.astralombard
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import kz.astralombard.base.BaseActivity
+import kz.astralombard.base.ui.BaseActivity
 import kz.astralombard.home.presentation.HomeActivity
 import kz.astralombard.intro.INTRO_SHOWED
 import kz.astralombard.intro.IntroActivity

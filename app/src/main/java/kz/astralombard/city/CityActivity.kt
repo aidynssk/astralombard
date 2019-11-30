@@ -6,9 +6,8 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import kotlinx.android.synthetic.main.activity_city.*
-import kotlinx.android.synthetic.main.activity_intro.*
 import kz.astralombard.R
-import kz.astralombard.base.BaseActivity
+import kz.astralombard.base.ui.BaseActivity
 import kz.astralombard.home.presentation.HomeActivity
 import kz.astralombard.intro.INTRO_SHOWED
 import org.koin.android.ext.android.get

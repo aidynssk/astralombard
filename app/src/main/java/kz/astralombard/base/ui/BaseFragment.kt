@@ -1,8 +1,9 @@
-package kz.astralombard.base
+package kz.astralombard.base.ui
 
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import kz.astralombard.R
+import kz.astralombard.base.Navigator
 import retrofit2.HttpException
 import java.io.IOException
 import java.lang.Exception

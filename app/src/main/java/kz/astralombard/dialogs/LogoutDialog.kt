@@ -6,7 +6,7 @@ import androidx.appcompat.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.View
 import kz.astralombard.R
-import kz.astralombard.base.BaseDialogCreator
+import kz.astralombard.base.ui.BaseDialogCreator
 import kz.astralombard.databinding.DialogLogoutBinding
 import kz.astralombard.models.DialogSize
 

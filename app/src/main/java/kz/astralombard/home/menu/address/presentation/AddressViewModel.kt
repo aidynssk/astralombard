@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.launch
 import kz.astralombard.base.CoroutineViewModel
 import kz.astralombard.base.PermisionStatus
-import kz.astralombard.base.Response
+import kz.astralombard.base.data.Response
 import kz.astralombard.home.menu.address.data.AddressRepository
 import kz.astralombard.home.menu.address.model.City
 import kz.astralombard.home.menu.address.model.Point

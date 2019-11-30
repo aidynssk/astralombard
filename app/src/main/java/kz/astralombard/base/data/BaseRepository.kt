@@ -1,4 +1,4 @@
-package kz.astralombard.base
+package kz.astralombard.base.data
 
 /**
  * Created by wokrey@gmail.com on 7/13/19.

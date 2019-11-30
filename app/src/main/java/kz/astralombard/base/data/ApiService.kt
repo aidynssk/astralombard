@@ -1,4 +1,4 @@
-package kz.astralombard.base
+package kz.astralombard.base.data
 
 import kz.astralombard.home.menu.about.writeus.data.FeedbackRequest
 import kz.astralombard.home.menu.about.writeus.data.FeedbackResponse

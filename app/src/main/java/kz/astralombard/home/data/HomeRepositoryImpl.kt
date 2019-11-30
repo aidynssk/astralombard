@@ -1,9 +1,9 @@
 package kz.astralombard.home.data
 
 import android.content.SharedPreferences
-import kz.astralombard.base.ApiService
-import kz.astralombard.base.BaseRepository
-import kz.astralombard.base.Response
+import kz.astralombard.base.data.ApiService
+import kz.astralombard.base.data.BaseRepository
+import kz.astralombard.base.data.Response
 import kz.astralombard.base.SharedPrefKeys
 import kz.astralombard.home.menu.login.data.SmsValidateResponse
 import kz.astralombard.home.model.GetCodeRequestModel

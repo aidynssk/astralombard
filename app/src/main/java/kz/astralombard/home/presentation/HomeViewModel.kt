@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.launch
 import kz.astralombard.base.CoroutineViewModel
 import kz.astralombard.base.DataHolder
-import kz.astralombard.base.Response
+import kz.astralombard.base.data.Response
 import kz.astralombard.home.data.HomeRepository
 import kz.astralombard.home.model.GetCodeRequestModel
 import kz.astralombard.home.model.GetCodeResponse

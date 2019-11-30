@@ -11,7 +11,7 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_calculator.*
 
 import kz.astralombard.R
-import kz.astralombard.base.BaseFragment
+import kz.astralombard.base.ui.BaseFragment
 import kz.astralombard.databinding.FragmentCalculatorBinding
 
 private const val GOLD_PAGE_INDEX = 0

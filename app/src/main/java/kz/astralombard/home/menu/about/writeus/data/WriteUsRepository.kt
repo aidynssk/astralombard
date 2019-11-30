@@ -1,8 +1,8 @@
 package kz.astralombard.home.menu.about.writeus.data
 
-import kz.astralombard.base.ApiService
-import kz.astralombard.base.BaseRepository
-import kz.astralombard.base.Response
+import kz.astralombard.base.data.ApiService
+import kz.astralombard.base.data.BaseRepository
+import kz.astralombard.base.data.Response
 
 /**
  * Created by wokrey@gmail.com on 30.11.2019.

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_about.*
 
 import kz.astralombard.R
-import kz.astralombard.base.BaseFragment
+import kz.astralombard.base.ui.BaseFragment
 import kz.astralombard.home.menu.about.company.AboutCompanyFragment
 import kz.astralombard.home.menu.about.news.NewsFragment
 import kz.astralombard.home.menu.about.writeus.ui.WriteUsFragment

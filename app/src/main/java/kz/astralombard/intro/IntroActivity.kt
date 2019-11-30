@@ -6,9 +6,8 @@ import android.os.Bundle
 import androidx.viewpager.widget.ViewPager
 import kotlinx.android.synthetic.main.activity_intro.*
 import kz.astralombard.R
-import kz.astralombard.base.BaseActivity
+import kz.astralombard.base.ui.BaseActivity
 import kz.astralombard.city.CityActivity
-import kz.astralombard.home.presentation.HomeActivity
 import org.koin.android.ext.android.get
 
 const val INTRO_SHOWED = "intro_showed"

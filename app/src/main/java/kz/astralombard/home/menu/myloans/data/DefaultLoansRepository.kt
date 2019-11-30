@@ -1,8 +1,7 @@
 package kz.astralombard.home.menu.myloans.data
 
-import kz.astralombard.base.ApiService
-import kz.astralombard.base.BaseRepository
-import kz.astralombard.home.menu.myloans.model.Loan
+import kz.astralombard.base.data.ApiService
+import kz.astralombard.base.data.BaseRepository
 
 /**
  * Created by wokrey@gmail.com on 7/13/19.

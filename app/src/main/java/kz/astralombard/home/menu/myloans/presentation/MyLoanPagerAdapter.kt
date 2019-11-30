@@ -2,7 +2,7 @@ package kz.astralombard.home.menu.myloans.presentation
 
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
-import kz.astralombard.base.BaseFragment
+import kz.astralombard.base.ui.BaseFragment
 import kz.astralombard.home.menu.myloans.history.HistoryFragment
 import kz.astralombard.home.menu.myloans.open.OpenLoansFragment
 

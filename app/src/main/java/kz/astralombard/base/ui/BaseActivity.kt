@@ -1,9 +1,10 @@
-package kz.astralombard.base
+package kz.astralombard.base.ui
 
 import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import kz.astralombard.R
+import kz.astralombard.base.Navigator
 
 abstract class BaseActivity
     : AppCompatActivity(),

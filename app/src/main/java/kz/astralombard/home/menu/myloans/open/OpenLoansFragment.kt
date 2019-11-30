@@ -8,12 +8,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.fragment_open_loans.*
 import kz.astralombard.BR
 
 import kz.astralombard.R
-import kz.astralombard.base.BaseFragment
-import kz.astralombard.base.RecyclerBindingAdapter
+import kz.astralombard.base.ui.BaseFragment
+import kz.astralombard.base.ui.RecyclerBindingAdapter
 import kz.astralombard.databinding.FragmentOpenLoansBinding
 import kz.astralombard.home.menu.myloans.OpenLoansDetailsActivity
 import kz.astralombard.home.menu.myloans.model.Loan

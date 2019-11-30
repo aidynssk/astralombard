@@ -4,7 +4,7 @@ import android.content.SharedPreferences
 import android.preference.PreferenceManager
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import kz.astralombard.base.ApiService
+import kz.astralombard.base.data.ApiService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidApplication

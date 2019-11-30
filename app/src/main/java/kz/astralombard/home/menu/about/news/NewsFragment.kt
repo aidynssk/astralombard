@@ -8,8 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import kz.astralombard.BR
 import kz.astralombard.R
-import kz.astralombard.base.BaseFragment
-import kz.astralombard.base.RecyclerBindingAdapter
+import kz.astralombard.base.ui.BaseFragment
+import kz.astralombard.base.ui.RecyclerBindingAdapter
 import kz.astralombard.databinding.FragmentNewsBinding
 import kz.astralombard.home.menu.about.AboutViewModel
 import kz.astralombard.home.menu.myloans.model.Loan

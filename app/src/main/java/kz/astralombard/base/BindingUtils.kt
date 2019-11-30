@@ -4,6 +4,7 @@ import android.view.View
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
+import kz.astralombard.base.ui.RecyclerBindingAdapter
 import kz.astralombard.ext.hide
 import kz.astralombard.ext.show
 import kz.astralombard.home.menu.myloans.model.Loan

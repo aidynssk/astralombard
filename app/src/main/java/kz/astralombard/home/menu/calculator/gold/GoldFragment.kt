@@ -2,8 +2,6 @@ package kz.astralombard.home.menu.calculator.gold
 
 
 import android.os.Bundle
-import androidx.annotation.IdRes
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +10,7 @@ import android.widget.Spinner
 import kotlinx.android.synthetic.main.fragment_gold.*
 
 import kz.astralombard.R
-import kz.astralombard.base.BaseFragment
+import kz.astralombard.base.ui.BaseFragment
 
 
 class GoldFragment : BaseFragment() {

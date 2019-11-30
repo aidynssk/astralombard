@@ -7,7 +7,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import android.view.Menu
 import kotlinx.android.synthetic.main.activity_home.*
 import kz.astralombard.R
-import kz.astralombard.base.BaseActivity
+import kz.astralombard.base.ui.BaseActivity
 import kz.astralombard.home.menu.about.AboutFragment
 import kz.astralombard.home.menu.address.presentation.AddressesFragment
 import kz.astralombard.home.menu.calculator.CalculatorFragment

@@ -1,4 +1,4 @@
-package kz.astralombard.base
+package kz.astralombard.base.ui
 
 /**
  * Created by wokrey@gmail.com on 26.11.2019.
