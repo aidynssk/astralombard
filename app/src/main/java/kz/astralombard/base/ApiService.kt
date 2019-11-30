@@ -1,5 +1,7 @@
 package kz.astralombard.base
 
+import kz.astralombard.home.menu.about.writeus.data.FeedbackRequest
+import kz.astralombard.home.menu.about.writeus.data.FeedbackResponse
 import kz.astralombard.home.menu.address.model.City
 import kz.astralombard.home.menu.address.model.Point
 import kz.astralombard.home.menu.login.data.SmsValidateResponse
@@ -33,4 +35,8 @@ interface ApiService {
         @Query("latitude") lat: String,
         @Query("latitude") long: String
     ): List<Point>
+
+    @Headers("Content-Type:application/json")
+    @POST("feedback/")
+    suspend fun leaveFeedback(request: FeedbackRequest): FeedbackResponse
 }

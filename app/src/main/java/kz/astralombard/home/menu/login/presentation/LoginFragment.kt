@@ -77,7 +77,7 @@ class LoginFragment : BaseFragment() {
                 hideProgress()
         })
 
-        viewModel.getErrorLD().observe(viewLifecycleOwner, Observer {
+        viewModel.errorLD.observe(viewLifecycleOwner, Observer {
             handleError(it)
         })
     }

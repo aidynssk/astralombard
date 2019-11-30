@@ -17,7 +17,8 @@ abstract class CoroutineViewModel(
     protected val _progressBarStatusLD = MutableLiveData<Boolean>()
     val progressBarStatusLD: LiveData<Boolean> = _progressBarStatusLD
 
-    protected val errorLD = MutableLiveData<Exception>()
+    protected val _errorLD = MutableLiveData<Exception>()
+    val errorLD: LiveData<Exception> = _errorLD
     private val job = Job()
 
     override val coroutineContext: CoroutineContext by lazy {
@@ -28,7 +29,4 @@ abstract class CoroutineViewModel(
         super.onCleared()
         coroutineContext.cancelChildren()
     }
-
-    //getters
-    fun getErrorLD(): LiveData<Exception> = errorLD
 }

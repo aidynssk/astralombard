@@ -7,10 +7,8 @@ import kz.astralombard.base.CoroutineViewModel
 import kz.astralombard.base.DataHolder
 import kz.astralombard.base.Response
 import kz.astralombard.home.data.HomeRepository
-import kz.astralombard.home.menu.login.data.SmsRequestModel
 import kz.astralombard.home.model.GetCodeRequestModel
 import kz.astralombard.home.model.GetCodeResponse
-import java.lang.Exception
 
 /**
  * Created by wokrey@gmail.com on 02.06.2019
@@ -37,7 +35,7 @@ class HomeViewModel(
                 smsLD.value = response.result
             }
             is Response.Error -> {
-                errorLD.value = response.error
+                _errorLD.value = response.error
             }
         }
         _progressBarStatusLD.value = false
@@ -63,7 +61,7 @@ class HomeViewModel(
                 DataHolder.token = response.result.token
             }
             is Response.Error -> {
-                errorLD.value = response.error
+                _errorLD.value = response.error
             }
         }
     }

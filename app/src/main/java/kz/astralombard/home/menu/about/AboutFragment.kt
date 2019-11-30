@@ -10,9 +10,7 @@ import kz.astralombard.R
 import kz.astralombard.base.BaseFragment
 import kz.astralombard.home.menu.about.company.AboutCompanyFragment
 import kz.astralombard.home.menu.about.news.NewsFragment
-import kz.astralombard.home.menu.about.writeus.WriteUsFragment
-import kz.astralombard.home.presentation.HomeActivity
-
+import kz.astralombard.home.menu.about.writeus.ui.WriteUsFragment
 
 class AboutFragment : BaseFragment() {
 

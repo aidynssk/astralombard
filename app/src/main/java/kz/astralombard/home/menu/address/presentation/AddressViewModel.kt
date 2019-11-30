@@ -33,7 +33,7 @@ class AddressViewModel(
             is Response.Success ->
                 _citiesLD.value = response.result
             is Response.Error ->
-                errorLD.value = response.error
+                _errorLD.value = response.error
         }
         _progressBarStatusLD.value = false
     }
@@ -47,7 +47,7 @@ class AddressViewModel(
             is Response.Success ->
                 _addresses.value = response.result
             is Response.Error ->
-                errorLD.value = response.error
+                _errorLD.value = response.error
         }
     }
 
