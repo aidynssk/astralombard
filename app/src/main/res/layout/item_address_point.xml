@@ -3,8 +3,8 @@
 
     <data>
         <variable
-            name="loan"
-            type="kz.astralombard.home.menu.myloans.model.Loan" />
+            name="address"
+            type="kz.astralombard.home.menu.address.model.Point" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -22,7 +22,7 @@
             android:background="?android:attr/listDivider"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent" />
 
         <TextView
             android:id="@+id/tv_address"
@@ -36,7 +36,7 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/divider" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_address_value"
@@ -46,7 +46,7 @@
             android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="@+id/tv_address"
             app:layout_constraintTop_toBottomOf="@+id/tv_address"
-            android:text="Samal" />
+            android:text="@{address.address}" />
 
         <TextView
             android:id="@+id/tv_work_time"
@@ -78,19 +78,18 @@
             app:layout_constraintEnd_toStartOf="@+id/tv_distance"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/tv_address"
-            app:layout_constraintTop_toBottomOf="@+id/divider" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_distance"
             style="@style/AddressValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/tv_phone"
-            app:layout_constraintTop_toBottomOf="@+id/divider"
-            android:text="234m" />
+            app:layout_constraintTop_toTopOf="@id/tv_phone"
+            android:text="@{address.distance + `м`}" />
 
         <TextView
             android:id="@+id/tv_phones"
@@ -100,7 +99,7 @@
             android:layout_marginTop="8dp"
             app:layout_constraintStart_toStartOf="@+id/tv_phone"
             app:layout_constraintTop_toBottomOf="@+id/tv_phone"
-            android:text="+7-747-266-17-36\n+7-707-65-69-001\n+7-777-555-7896" />
+            android:text="@{address.phone1 + `\n` + address.phone2 + `\n` + address.phone3}" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

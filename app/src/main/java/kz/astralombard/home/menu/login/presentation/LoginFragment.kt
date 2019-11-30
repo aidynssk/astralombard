@@ -9,6 +9,7 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.lifecycle.Observer
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.fragment_login.*
 import kz.astralombard.R
 import kz.astralombard.base.BaseFragment
@@ -44,7 +45,10 @@ class LoginFragment : BaseFragment() {
     private fun initListeners() {
         btn_request_code.setOnClickListener {
             if ((it as AppCompatButton).text == getString(R.string.login_request_code)) {
-                viewModel.onLoginButtonClicked(et_iin.text.toString(), et_phone.text.toString())
+                viewModel.onLoginButtonClicked(
+                    phone = et_iin.text.toString(),
+                    iin = et_phone.text.toString()
+                )
             } else {
                 if (et_enter_code.text.toString().isNullOrBlank()){
                     return@setOnClickListener
@@ -64,9 +68,9 @@ class LoginFragment : BaseFragment() {
             btn_request_code.text = "Подтвердить"
             showSmsView()
 
-            Toast.makeText(activity, sms, Toast.LENGTH_SHORT ).show()
+            Toast.makeText(activity, sms.code, Toast.LENGTH_SHORT ).show()
         })
-        viewModel.getProgressBarStatusLD().observe(viewLifecycleOwner, Observer {
+        viewModel.progressBarStatusLD.observe(viewLifecycleOwner, Observer {
             if (it)
                 showProgress()
             else

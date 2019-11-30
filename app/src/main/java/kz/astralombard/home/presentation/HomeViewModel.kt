@@ -4,10 +4,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.launch
 import kz.astralombard.base.CoroutineViewModel
+import kz.astralombard.base.DataHolder
 import kz.astralombard.base.Response
 import kz.astralombard.home.data.HomeRepository
 import kz.astralombard.home.menu.login.data.SmsRequestModel
-import kz.astralombard.home.model.LoginRequestModel
+import kz.astralombard.home.model.GetCodeRequestModel
+import kz.astralombard.home.model.GetCodeResponse
 import java.lang.Exception
 
 /**
@@ -16,55 +18,54 @@ import java.lang.Exception
 class HomeViewModel(
     private val repository: HomeRepository
 ) : CoroutineViewModel() {
-    private val smsLD = MutableLiveData<String>()
+    private val smsLD = MutableLiveData<GetCodeResponse>()
     private val userLoggedLD = MutableLiveData<Boolean>()
 
     fun onLoginButtonClicked(iin: String, phone: String) = launch {
-        progressBarStatusLD.value = true
+        _progressBarStatusLD.value = true
 
-        val response = repository.login(
-            LoginRequestModel(
-                iin = iin,
-                phone_number = phone,
+        val response = repository.getCode(
+            GetCodeRequestModel(
+                username = phone,
+                password = iin,
                 device_uuid = "4545325"
             )
         )
 
         when (response) {
             is Response.Success -> {
-                smsLD.value = response.result.message
+                smsLD.value = response.result
             }
             is Response.Error -> {
                 errorLD.value = response.error
             }
         }
-        progressBarStatusLD.value = false
+        _progressBarStatusLD.value = false
     }
 
 
     fun validateSms(code: String, iin: String, phone: String) = launch {
-        progressBarStatusLD.value = true
+        _progressBarStatusLD.value = true
 
         val response = repository.validate(
-            SmsRequestModel(
+            smsLD.value!!
+           /* SmsRequestModel(
                 iin = iin,
                 phone_number = phone,
                 code = code
-            )
+            )*/
         )
+        _progressBarStatusLD.value = false
         when (response) {
-            is Response.Success -> run{
-                if (response.result.message.contains("invalid")){
-                    errorLD.value = Exception()
-                    return@run
-                }
+            is Response.Success -> {
                 userLoggedLD.value = true
+                repository.saveToken(response.result.token)
+                DataHolder.token = response.result.token
             }
             is Response.Error -> {
                 errorLD.value = response.error
             }
         }
-        progressBarStatusLD.value = false
     }
 
     fun logoutConfirmed(){
@@ -72,7 +73,7 @@ class HomeViewModel(
     }
 
     //getters
-    fun getSmsLD(): LiveData<String> = smsLD
+    fun getSmsLD(): LiveData<GetCodeResponse> = smsLD
 
 
     fun getUserLoggedLD(): LiveData<Boolean> = userLoggedLD

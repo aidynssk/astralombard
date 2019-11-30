@@ -86,6 +86,7 @@ class RecyclerBindingAdapter<T>(
         if (items != null) {
             this.items = items
         }
+        notifyDataSetChanged()
     }
 }
 

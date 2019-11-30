@@ -7,12 +7,20 @@ import com.google.gson.annotations.SerializedName
  * It's not wokrey, if the code smells bad. Somebody set me up.
  */
 
+data class AddressesResponse(
+    val message: String,
+    val data: List<Point>
+)
+
 data class Point(
     val address: String,
-    @SerializedName("phone_1")
     val phone1: String,
-    @SerializedName("phone_2")
     val phone2: String,
-    @SerializedName("phone_3")
-    val phone3: String
+    val phone3: String,
+    val distance: String,
+    @SerializedName("open_time")
+    val openTime: String,
+    @SerializedName("close_time")
+    val closeTime: String,
+    val city: String
 )

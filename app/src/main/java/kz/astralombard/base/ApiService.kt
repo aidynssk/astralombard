@@ -1,11 +1,10 @@
 package kz.astralombard.base
 
-import kotlinx.coroutines.Deferred
-import kz.astralombard.home.menu.address.model.CitiesResponse
-import kz.astralombard.home.menu.login.data.SmsRequestModel
-import kz.astralombard.home.menu.login.data.SmsResponse
-import kz.astralombard.home.model.LoginRequestModel
-import kz.astralombard.home.model.LoginResponse
+import kz.astralombard.home.menu.address.model.City
+import kz.astralombard.home.menu.address.model.Point
+import kz.astralombard.home.menu.login.data.SmsValidateResponse
+import kz.astralombard.home.model.GetCodeRequestModel
+import kz.astralombard.home.model.GetCodeResponse
 import retrofit2.http.*
 
 /**
@@ -16,22 +15,22 @@ interface ApiService {
      * add single slash for POST method endpoint*/
 //        @Headers("Content-Type:application/x-www-form-urlencoded")
 //    @Headers("Accept: application/json")
-    @POST("auth/login/")
-    suspend fun login(@Body loginBody: LoginRequestModel): LoginResponse
+    @POST("auth/get-otp/")
+    suspend fun getCode(@Body loginBody: GetCodeRequestModel): GetCodeResponse
 
     @Headers("Content-Type:application/json")
-    @POST("auth/validate-code/")
-    suspend fun validate(@Body validateBody: SmsRequestModel): SmsResponse
+    @POST("auth/login/")
+    suspend fun validate(@Body validateBody: GetCodeResponse): SmsValidateResponse
 
     @Headers("Content-Type:application/json")
     @GET("cities")
-    suspend fun getCities(): CitiesResponse
+    suspend fun getCities(): List<City>
 
     @Headers("Content-Type:application/json")
-    @GET("cities/1?latitude=43.212238&longitude=76.8982445")
+    @GET("cities/{id}")
     suspend fun getAddresses(
-        /*@Path("id") id: String,
-        @Field("latitude") lat: String,
-        @Field("latitude") long: String*/
-    ): CitiesResponse
+        @Path("id") id: String,
+        @Query("latitude") lat: String,
+        @Query("latitude") long: String
+    ): List<Point>
 }

@@ -83,6 +83,20 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_choose_city" />
 
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="@style/HorizontalProgressBar"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:background="@null"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/spn_choose_city"
+                android:indeterminateOnly="true"
+                app:gone="@{viewModel.progressBarStatusLD.booleanValue}" />
+
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="0dp"
                 android:layout_height="0dp"
@@ -96,6 +110,17 @@
                 app:layout_constraintTop_toTopOf="@id/spn_choose_city"
                 app:srcCompat="@drawable/spinner_arrow" />
 
+            <View
+                android:id="@+id/divider"
+                android:layout_width="395dp"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/rv_address"
+                app:gone="@{!viewModel.progressBarStatusLD.booleanValue}"
+                />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_address"
                 android:layout_width="0dp"
@@ -105,7 +130,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/spn_choose_city"
-                app:loans="@{viewModel.openLoans}" />
+                app:items="@{viewModel.addresses}" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

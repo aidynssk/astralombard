@@ -19,9 +19,10 @@ val addressModule = module {
         )
     }
 
-    factory {
+    factory<AddressRepository> {
         DefaultAddressRepository(
-           api =  get()
-        ) as AddressRepository
+            api = get(),
+            pref = get()
+        )
     }
 }

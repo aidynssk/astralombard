@@ -20,7 +20,8 @@ val homeModule = module {
 
     factory {
         HomeRepositoryImpl(
-            api = get()
+            api = get(),
+            pref = get()
         ) as HomeRepository
     }
 }

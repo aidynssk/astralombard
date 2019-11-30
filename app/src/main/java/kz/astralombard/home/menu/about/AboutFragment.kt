@@ -36,13 +36,13 @@ class AboutFragment : BaseFragment() {
 
    private fun initListeners(){
        cl_about?.setOnClickListener {
-           replaceFragment(AboutCompanyFragment.newInstance())
+           addFragment(AboutCompanyFragment.newInstance())
        }
        cl_news?.setOnClickListener {
-           replaceFragment(NewsFragment.newInstance())
+           addFragment(NewsFragment.newInstance())
        }
        cl_write?.setOnClickListener {
-           replaceFragment(WriteUsFragment.newInstance())
+           addFragment(WriteUsFragment.newInstance())
        }
    }
 }

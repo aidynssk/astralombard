@@ -14,7 +14,9 @@ abstract class CoroutineViewModel(
     protected val bg: CoroutineContext = Dispatchers.IO
 ) : ViewModel(), CoroutineScope {
 
-    protected val progressBarStatusLD = MutableLiveData<Boolean>()
+    protected val _progressBarStatusLD = MutableLiveData<Boolean>()
+    val progressBarStatusLD: LiveData<Boolean> = _progressBarStatusLD
+
     protected val errorLD = MutableLiveData<Exception>()
     private val job = Job()
 
@@ -29,6 +31,4 @@ abstract class CoroutineViewModel(
 
     //getters
     fun getErrorLD(): LiveData<Exception> = errorLD
-
-    fun getProgressBarStatusLD(): LiveData<Boolean> = progressBarStatusLD
 }

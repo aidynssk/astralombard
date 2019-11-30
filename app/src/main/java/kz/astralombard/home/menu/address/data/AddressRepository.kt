@@ -1,7 +1,9 @@
 package kz.astralombard.home.menu.address.data
 
+import kz.astralombard.base.PermisionStatus
 import kz.astralombard.base.Response
-import kz.astralombard.home.menu.address.model.CitiesResponse
+import kz.astralombard.home.menu.address.model.City
+import kz.astralombard.home.menu.address.model.Point
 
 /**
  * Created by wokrey@gmail.com on 7/16/19.
@@ -9,7 +11,13 @@ import kz.astralombard.home.menu.address.model.CitiesResponse
  */
 interface AddressRepository {
 
-    suspend fun getCities(): Response<CitiesResponse>
+    suspend fun getCities(): Response<List<City>>
 
-//    suspend fun getAddresses(): Response<Any>
+    suspend fun getAddresses(
+        lat: String,
+        long: String,
+        id: String
+    ): Response<List<Point>>
+
+    fun saveLocationPermissionStatus(status: PermisionStatus)
 }

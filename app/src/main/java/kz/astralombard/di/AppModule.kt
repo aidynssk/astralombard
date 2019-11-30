@@ -1,5 +1,6 @@
 package kz.astralombard.di
 
+import android.content.SharedPreferences
 import android.preference.PreferenceManager
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
@@ -11,7 +12,7 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-private const val BASE_URL = "https://astra182.herokuapp.com/api/"
+private const val BASE_URL = "https://astra-back.herokuapp.com/api/"
 private const val TEST_BASE_URL = "http://185.146.1.56/api/"
 
 val appModule = module {
@@ -22,7 +23,7 @@ val appModule = module {
             .build()
     }
 
-    single {
+    single<SharedPreferences> {
         PreferenceManager.getDefaultSharedPreferences(androidApplication().applicationContext)
     }
 

@@ -8,4 +8,5 @@ import org.koin.core.KoinComponent
  */
 object DataHolder: KoinComponent {
 
+    var token: String? = null
 }
