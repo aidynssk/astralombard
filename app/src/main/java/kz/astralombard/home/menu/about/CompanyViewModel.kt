@@ -51,8 +51,8 @@ class CompanyViewModel(
                 is Response.Error ->
                     _errorLD.value = response.error
             }
+            _progressBarStatusLD.value = false
         }
-        _progressBarStatusLD.value = false
     }
     fun leaveFeedback(
        /* subject: String,

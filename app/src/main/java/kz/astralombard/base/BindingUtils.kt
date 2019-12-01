@@ -1,9 +1,13 @@
 package kz.astralombard.base
 
+import android.content.Context
 import android.view.View
+import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable
+import com.bumptech.glide.Glide
 import kz.astralombard.base.ui.RecyclerBindingAdapter
 import kz.astralombard.ext.hide
 import kz.astralombard.ext.show
@@ -13,6 +17,8 @@ import kz.astralombard.home.menu.myloans.model.Loan
  * Created by wokrey@gmail.com on 7/13/19.
  * It's not wokrey, if the code smells bad. Somebody set me up.
  */
+
+private const val IMAGE_URL_PREFIX = "https://astra-back.herokuapp.com/api"
 object BindingUtils {
     @JvmStatic
     @BindingAdapter("loans")
@@ -40,5 +46,21 @@ object BindingUtils {
 
     }
 
+    @JvmStatic
+    @BindingAdapter("img")
+    fun loadImg(view: ImageView, url: String?) {
+        if (url.isNullOrBlank()) return
 
+        Glide.with(view)
+            .load(IMAGE_URL_PREFIX + url)
+            .fitCenter()
+            .placeholder(getProgresDrawable(view.context))
+            .into(view)
+    }
+
+    private fun getProgresDrawable(context: Context) = CircularProgressDrawable(context).apply {
+        strokeWidth = 5f
+        centerRadius = 30f
+        start()
+    }
 }

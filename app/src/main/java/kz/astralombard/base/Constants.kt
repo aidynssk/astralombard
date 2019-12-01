@@ -7,4 +7,5 @@ package kz.astralombard.base
 object Constants {
     const val DEFAULT_STRING = ""
     const val DEFAULT_INT = 0
+    const val AUTH_HEADER = "Authorization"
 }

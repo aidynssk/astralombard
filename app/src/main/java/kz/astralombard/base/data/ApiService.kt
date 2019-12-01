@@ -1,5 +1,7 @@
 package kz.astralombard.base.data
 
+import kz.astralombard.base.Constants
+import kz.astralombard.base.DataHolder
 import kz.astralombard.home.menu.about.data.AboutCompanyResponse
 import kz.astralombard.home.menu.about.data.FeedbackRequest
 import kz.astralombard.home.menu.about.data.FeedbackResponse
@@ -7,6 +9,7 @@ import kz.astralombard.home.menu.about.data.News
 import kz.astralombard.home.menu.address.model.City
 import kz.astralombard.home.menu.address.model.Point
 import kz.astralombard.home.menu.login.data.SmsValidateResponse
+import kz.astralombard.home.menu.myloans.data.MyLoan
 import kz.astralombard.home.model.GetCodeRequestModel
 import kz.astralombard.home.model.GetCodeResponse
 import retrofit2.http.*
@@ -41,4 +44,9 @@ interface ApiService {
 
     @GET("about")
     suspend fun getAbout(): AboutCompanyResponse
+
+    @GET("loads")
+    suspend fun getLoans(
+        @Header(Constants.AUTH_HEADER) token: String = DataHolder.token!!
+    ): List<MyLoan>
 }

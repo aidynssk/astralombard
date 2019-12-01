@@ -4,11 +4,12 @@
     <data>
         <variable
             name="viewModel"
-            type="kz.astralombard.home.menu.about.AboutViewModel" />
+            type="kz.astralombard.home.menu.about.CompanyViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:padding="10dp"
         android:layout_height="match_parent">
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -28,9 +29,10 @@
             android:layout_height="0dp"
             android:background="@drawable/content_bg"
             android:paddingBottom="50dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:loans="@{viewModel.openLoans}"
+            app:items="@{viewModel.newsLD}"
             android:layout_marginBottom="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_title" />

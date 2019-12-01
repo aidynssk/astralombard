@@ -1,6 +1,8 @@
 package kz.astralombard.home.menu.myloans.presentation
 
+import kotlinx.coroutines.launch
 import kz.astralombard.base.CoroutineViewModel
+import kz.astralombard.base.data.Response
 import kz.astralombard.home.menu.myloans.data.LoansRepository
 import kz.astralombard.home.menu.myloans.model.Loan
 
@@ -17,4 +19,20 @@ class MyLoansViewModel(
         Loan(),
         Loan()
     )
+
+    fun getMyLoans(){
+        _progressBarStatusLD.value = true
+        launch {
+            val response = repository.getMyLoans()
+            when(response){
+                is Response.Success ->{
+
+                }
+                is Response.Error ->{
+                    _errorLD.value = response.error
+                }
+            }
+            _progressBarStatusLD.value = false
+        }
+    }
 }
