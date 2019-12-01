@@ -14,7 +14,7 @@ import kz.astralombard.models.DialogSize
  * Created by wokrey@gmail.com on 7/17/19.
  * It's not wokrey, if the code smells bad. Somebody set me up.
  */
-public class LogoutDialog(
+class LogoutDialog(
     override val context: Context
 ): BaseDialogCreator(context = context) {
     lateinit var binding: DialogLogoutBinding
@@ -34,19 +34,14 @@ public class LogoutDialog(
         val windowlp = dialog?.window?.attributes
         windowlp?.windowAnimations = R.style.DialogAnimation
         dialog?.window?.attributes = windowlp
-
-
         setDismissListener()
+
         return dialog!!
     }
 
     fun yesClickListener(func: (() -> Unit)? = null) =
-        with(binding.btnYes) {
-            setClickListenerToDialogButton(func)
-        }
+        binding.btnYes.setClickListenerToDialogButton(func)
 
     fun noClickListener(func: (() -> Unit)? = null) =
-        with(binding.btnNo) {
-            setClickListenerToDialogButton(func)
-        }
+        binding.btnNo.setClickListenerToDialogButton(func)
 }

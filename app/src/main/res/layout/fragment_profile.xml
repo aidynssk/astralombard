@@ -1,411 +1,413 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".home.menu.profile.ProfileFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".home.menu.profile.ProfileFragment">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tv_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/helveticaneuecyr_1"
-        android:text="@string/profile"
-        android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ScrollView
-        android:id="@+id/sv_content"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/content_bg"
-        android:paddingBottom="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_title"
-        app:layout_constraintVertical_bias="1.0">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_content"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp">
-
-            <RadioGroup
-                android:id="@+id/rg_language"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:orientation="horizontal"
-                android:weightSum="2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <RadioButton
-                    android:id="@+id/ru"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="10dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/language_state"
-                    android:button="@null"
-                    android:gravity="center"
-                    android:padding="8dp"
-                    android:text="@string/profile_ru" />
-
-                <RadioButton
-                    android:id="@+id/kz"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginStart="10dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/language_state"
-                    android:button="@null"
-                    android:gravity="center"
-                    android:padding="8dp"
-                    android:text="@string/profile_kz" />
-
-            </RadioGroup>
-
-            <View
-                android:id="@+id/divider_top"
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_marginTop="15dp"
-                android:background="?android:attr/listDivider"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rg_language" />
-
-            <TextView
-                android:id="@+id/tv_city"
-                style="@style/ProfileTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="10dp"
-                android:text="@string/profile_city"
-                app:layout_constraintStart_toStartOf="@+id/divider_top"
-                app:layout_constraintTop_toBottomOf="@+id/divider_top" />
-
-            <TextView
-                android:id="@+id/tv_city_value"
-                style="@style/ProfileValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Almaty"
-                app:layout_constraintStart_toStartOf="@+id/tv_city"
-                app:layout_constraintTop_toBottomOf="@+id/tv_city" />
-
-            <View
-                android:id="@+id/divider_city"
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_marginTop="8dp"
-                android:background="?android:attr/listDivider"
-                app:layout_constraintEnd_toEndOf="@+id/divider_top"
-                app:layout_constraintStart_toStartOf="@+id/divider_top"
-                app:layout_constraintTop_toBottomOf="@+id/tv_city_value" />
-
-            <TextView
-                android:id="@+id/tv_fio"
-                style="@style/ProfileTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/profile_fio"
-                app:layout_constraintStart_toStartOf="@+id/tv_city_value"
-                app:layout_constraintTop_toBottomOf="@+id/divider_city" />
-
-            <TextView
-                android:id="@+id/tv_fio_value"
-                style="@style/ProfileValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Ivan Ivanov Ivanovich"
-                app:layout_constraintStart_toStartOf="@+id/tv_fio"
-                app:layout_constraintTop_toBottomOf="@+id/tv_fio" />
-
-            <View
-                android:id="@+id/divider_fio"
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_marginTop="8dp"
-                android:background="?android:attr/listDivider"
-                app:layout_constraintEnd_toEndOf="@+id/divider_city"
-                app:layout_constraintStart_toStartOf="@+id/divider_city"
-                app:layout_constraintTop_toBottomOf="@+id/tv_fio_value" />
-
-            <TextView
-                android:id="@+id/tv_iin"
-                style="@style/ProfileTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/profile_IIN"
-                app:layout_constraintStart_toStartOf="@+id/tv_fio_value"
-                app:layout_constraintTop_toBottomOf="@+id/divider_fio" />
-
-            <TextView
-                android:id="@+id/tv_iin_value"
-                style="@style/ProfileValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="961478569995"
-                app:layout_constraintStart_toStartOf="@+id/tv_iin"
-                app:layout_constraintTop_toBottomOf="@+id/tv_iin" />
-
-            <TextView
-                android:id="@+id/tv_birthday"
-                style="@style/ProfileTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/profile_birth_date"
-                app:layout_constraintStart_toStartOf="@+id/tv_iin_value"
-                app:layout_constraintTop_toBottomOf="@+id/divider5" />
-
-            <View
-                android:id="@+id/divider5"
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_marginTop="8dp"
-                android:background="?android:attr/listDivider"
-                app:layout_constraintEnd_toEndOf="@+id/divider_fio"
-                app:layout_constraintStart_toStartOf="@+id/divider_fio"
-                app:layout_constraintTop_toBottomOf="@+id/tv_iin_value" />
-
-            <TextView
-                android:id="@+id/tv_birthday_value"
-                style="@style/ProfileValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="01.12.1999 г."
-                app:layout_constraintStart_toStartOf="@+id/tv_birthday"
-                app:layout_constraintTop_toBottomOf="@+id/tv_birthday" />
-
-            <View
-                android:id="@+id/divider6"
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_marginTop="8dp"
-                android:background="?android:attr/listDivider"
-                app:layout_constraintEnd_toEndOf="@+id/divider5"
-                app:layout_constraintStart_toStartOf="@+id/divider5"
-                app:layout_constraintTop_toBottomOf="@+id/tv_birthday_value" />
-
-            <TextView
-                android:id="@+id/tv_address"
-                style="@style/ProfileTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/profile_address"
-                app:layout_constraintStart_toStartOf="@+id/tv_birthday_value"
-                app:layout_constraintTop_toBottomOf="@+id/divider6" />
-
-            <TextView
-                android:id="@+id/tv_address_value"
-                style="@style/ProfileValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Гагарина 123, д5"
-                app:layout_constraintStart_toStartOf="@+id/tv_address"
-                app:layout_constraintTop_toBottomOf="@+id/tv_address" />
-
-            <View
-                android:id="@+id/divider7"
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_marginTop="8dp"
-                android:background="?android:attr/listDivider"
-                app:layout_constraintEnd_toEndOf="@+id/divider6"
-                app:layout_constraintStart_toStartOf="@+id/divider6"
-                app:layout_constraintTop_toBottomOf="@+id/tv_address_value" />
-
-            <TextView
-                android:id="@+id/tv_phone"
-                style="@style/ProfileTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/profile_phone"
-                app:layout_constraintStart_toStartOf="@+id/tv_address_value"
-                app:layout_constraintTop_toBottomOf="@+id/divider7" />
-
-            <TextView
-                android:id="@+id/textView12"
-                style="@style/ProfileValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="+7-747-888-78-96"
-                app:layout_constraintStart_toStartOf="@+id/tv_phone"
-                app:layout_constraintTop_toBottomOf="@+id/tv_phone" />
-
-            <View
-                android:id="@+id/divider_phone"
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_marginTop="8dp"
-                android:background="?android:attr/listDivider"
-                app:layout_constraintEnd_toEndOf="@+id/divider7"
-                app:layout_constraintStart_toStartOf="@+id/divider7"
-                app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        <ScrollView
+            android:id="@+id/sv_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/content_bg"
+            android:paddingBottom="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            app:layout_constraintVertical_bias="1.0">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/cl_main_content"
-                android:layout_width="0dp"
+                android:id="@+id/cl_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/content_bg"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/divider_phone">
+                android:padding="10dp">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/cl_choose_city"
+                <RadioGroup
+                    android:id="@+id/rg_language"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
-                    android:background="@drawable/about_item_bg"
-                    android:elevation="3dp"
-                    android:padding="10dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_choose_city"
-                        android:layout_width="wrap_content"
+                    <RadioButton
+                        android:id="@+id/ru"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp"
-                        android:text="@string/profile_chose_city"
-                        android:textSize="18sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/img_about_arrow"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
+                        android:layout_gravity="center"
                         android:layout_marginEnd="10dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/tv_choose_city"
-                        app:layout_constraintDimensionRatio="V,1:1"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/tv_choose_city"
-                        app:srcCompat="@drawable/arrow_right" />
+                        android:layout_weight="1"
+                        android:background="@drawable/language_state"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="@string/profile_ru" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                    <RadioButton
+                        android:id="@+id/kz"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/language_state"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="@string/profile_kz" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/cl_change_code"
-                    android:layout_width="0dp"
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/tv_city"
+                    style="@style/ProfileTitle"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/profile_city"
+                    app:layout_constraintStart_toStartOf="@+id/divider_top"
+                    app:layout_constraintTop_toBottomOf="@+id/divider_top" />
+
+                <TextView
+                    android:id="@+id/tv_city_value"
+                    style="@style/ProfileValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:background="@drawable/about_item_bg"
-                    android:elevation="3dp"
-                    android:padding="10dp"
+                    android:text="Almaty"
+                    app:layout_constraintStart_toStartOf="@+id/tv_city"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_city" />
+
+                <TextView
+                    android:id="@+id/tv_fio"
+                    style="@style/ProfileTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/profile_fio"
+                    app:layout_constraintStart_toStartOf="@+id/tv_city_value"
+                    app:layout_constraintTop_toBottomOf="@+id/divider_city" />
+
+                <TextView
+                    android:id="@+id/tv_fio_value"
+                    style="@style/ProfileValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Ivan Ivanov Ivanovich"
+                    app:layout_constraintStart_toStartOf="@+id/tv_fio"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_fio" />
+
+                <TextView
+                    android:id="@+id/tv_iin"
+                    style="@style/ProfileTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/profile_IIN"
+                    app:layout_constraintStart_toStartOf="@+id/tv_fio_value"
+                    app:layout_constraintTop_toBottomOf="@+id/divider_fio" />
+
+                <TextView
+                    android:id="@+id/tv_iin_value"
+                    style="@style/ProfileValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="961478569995"
+                    app:layout_constraintStart_toStartOf="@+id/tv_iin"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_iin" />
+
+                <TextView
+                    android:id="@+id/tv_birthday"
+                    style="@style/ProfileTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/profile_birth_date"
+                    app:layout_constraintStart_toStartOf="@+id/tv_iin_value"
+                    app:layout_constraintTop_toBottomOf="@+id/divider5" />
+
+                <TextView
+                    android:id="@+id/tv_birthday_value"
+                    style="@style/ProfileValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="01.12.1999 г."
+                    app:layout_constraintStart_toStartOf="@+id/tv_birthday"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_birthday" />
+
+                <TextView
+                    android:id="@+id/tv_address"
+                    style="@style/ProfileTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/profile_address"
+                    app:layout_constraintStart_toStartOf="@+id/tv_birthday_value"
+                    app:layout_constraintTop_toBottomOf="@+id/divider6" />
+
+                <TextView
+                    android:id="@+id/tv_address_value"
+                    style="@style/ProfileValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Гагарина 123, д5"
+                    app:layout_constraintStart_toStartOf="@+id/tv_address"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_address" />
+
+                <TextView
+                    android:id="@+id/tv_phone"
+                    style="@style/ProfileTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/profile_phone"
+                    app:layout_constraintStart_toStartOf="@+id/tv_address_value"
+                    app:layout_constraintTop_toBottomOf="@+id/divider7" />
+
+                <TextView
+                    android:id="@+id/textView12"
+                    style="@style/ProfileValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="+7-747-888-78-96"
+                    app:layout_constraintStart_toStartOf="@+id/tv_phone"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_phone" />
+
+                <View
+                    android:id="@+id/divider_top"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="15dp"
+                    android:background="?android:attr/listDivider"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cl_choose_city">
+                    app:layout_constraintTop_toBottomOf="@id/rg_language" />
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_change_code"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp"
-                        android:text="@string/profile_change_pin"
-                        android:textSize="18sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                <View
+                    android:id="@+id/divider_city"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="@+id/divider_top"
+                    app:layout_constraintStart_toStartOf="@+id/divider_top"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_city_value" />
 
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/img_news_arrow"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_marginEnd="10dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/tv_change_code"
-                        app:layout_constraintDimensionRatio="V,1:1"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/tv_change_code"
-                        app:srcCompat="@drawable/arrow_right" />
+                <View
+                    android:id="@+id/divider_fio"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="@+id/divider_city"
+                    app:layout_constraintStart_toStartOf="@+id/divider_city"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_fio_value" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                <View
+                    android:id="@+id/divider5"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="@+id/divider_fio"
+                    app:layout_constraintStart_toStartOf="@+id/divider_fio"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_iin_value" />
+
+                <View
+                    android:id="@+id/divider6"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="@+id/divider5"
+                    app:layout_constraintStart_toStartOf="@+id/divider5"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_birthday_value" />
+
+                <View
+                    android:id="@+id/divider7"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="@+id/divider6"
+                    app:layout_constraintStart_toStartOf="@+id/divider6"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_address_value" />
+
+                <View
+                    android:id="@+id/divider_phone"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="@+id/divider7"
+                    app:layout_constraintStart_toStartOf="@+id/divider7"
+                    app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/cl_logout"
+                    android:id="@+id/cl_main_content"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:background="@drawable/about_item_bg"
-                    android:elevation="3dp"
-                    android:padding="10dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:background="@drawable/content_bg"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cl_change_code">
+                    app:layout_constraintTop_toBottomOf="@id/divider_phone">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_logout"
-                        android:layout_width="wrap_content"
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cl_choose_city"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp"
-                        android:text="@string/profile_logout"
-                        android:textSize="18sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/img_write_arrow"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_marginEnd="10dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/tv_logout"
-                        app:layout_constraintDimensionRatio="V,1:1"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/about_item_bg"
+                        android:elevation="3dp"
+                        android:padding="10dp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/tv_logout"
-                        app:srcCompat="@drawable/arrow_right" />
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/img_about_arrow"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginEnd="10dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/tv_choose_city"
+                            app:layout_constraintDimensionRatio="V,1:1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/tv_choose_city"
+                            app:srcCompat="@drawable/arrow_right" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_choose_city"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:text="@string/profile_chose_city"
+                            android:textSize="18sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cl_change_code"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@drawable/about_item_bg"
+                        android:elevation="3dp"
+                        android:padding="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cl_choose_city">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/img_news_arrow"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginEnd="10dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/tv_change_code"
+                            app:layout_constraintDimensionRatio="V,1:1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/tv_change_code"
+                            app:srcCompat="@drawable/arrow_right" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_change_code"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:text="@string/profile_change_pin"
+                            android:textSize="18sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cl_logout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/about_item_bg"
+                        android:elevation="3dp"
+                        android:padding="10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cl_change_code">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/img_write_arrow"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginEnd="10dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/tv_logout"
+                            app:layout_constraintDimensionRatio="V,1:1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/tv_logout"
+                            app:srcCompat="@drawable/arrow_right" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_logout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:text="@string/profile_logout"
+                            android:textSize="18sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/helveticaneuecyr_1"
+            android:text="@string/profile"
+            android:textSize="40sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -6,10 +6,12 @@ import androidx.appcompat.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 import kz.astralombard.R
 import kz.astralombard.base.ui.BaseFragment
+import kz.astralombard.databinding.FragmentProfileBinding
 import kz.astralombard.home.presentation.HomeViewModel
 import kz.astralombard.models.DialogSize
 import kz.astralombard.dialogs.LogoutDialog
@@ -17,9 +19,10 @@ import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class ProfileFragment : BaseFragment() {
 
-    val viewModel: HomeViewModel by sharedViewModel()
+    private val viewModel: HomeViewModel by sharedViewModel()
+    private lateinit var binding: FragmentProfileBinding
 
-    var dialog: AlertDialog? = null
+    private var dialog: AlertDialog? = null
 
     companion object {
         const val TAG="ProfileFragment"
@@ -30,12 +33,14 @@ class ProfileFragment : BaseFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
+        binding.lifecycleOwner = viewLifecycleOwner
 
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+        return binding.root
     }
 
-    override fun onStart() {
-        super.onStart()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         initListeners()
     }
 
