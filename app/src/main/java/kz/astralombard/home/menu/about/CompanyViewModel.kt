@@ -70,8 +70,7 @@ class CompanyViewModel(
                 text = text
             )
             when (val response = repository.leaveFeedback(request)) {
-                is Response.Success ->
-                    _feedbackLD.value = response.result
+                is Response.Success -> {}
                 is Response.Error ->
                     _errorLD.value = response.error
             }

@@ -4,7 +4,6 @@ import kz.astralombard.base.Constants
 import kz.astralombard.base.DataHolder
 import kz.astralombard.home.menu.about.data.AboutCompanyResponse
 import kz.astralombard.home.menu.about.data.FeedbackRequest
-import kz.astralombard.home.menu.about.data.FeedbackResponse
 import kz.astralombard.home.menu.about.data.News
 import kz.astralombard.home.menu.address.model.City
 import kz.astralombard.home.menu.address.model.Point
@@ -33,11 +32,11 @@ interface ApiService {
     suspend fun getAddresses(
         @Path("id") id: String,
         @Query("latitude") lat: String,
-        @Query("latitude") long: String
+        @Query("longitude") long: String
     ): List<Point>
 
     @POST("feedback/")
-    suspend fun leaveFeedback(@Body request: FeedbackRequest): FeedbackResponse
+    suspend fun leaveFeedback(@Body request: FeedbackRequest): Any
 
     @GET("news")
     suspend fun getNews(): List<News>

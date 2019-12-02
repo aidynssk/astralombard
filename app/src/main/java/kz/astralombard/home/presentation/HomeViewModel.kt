@@ -3,6 +3,7 @@ package kz.astralombard.home.presentation
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.launch
+import kz.astralombard.base.Constants
 import kz.astralombard.base.CoroutineViewModel
 import kz.astralombard.base.DataHolder
 import kz.astralombard.base.data.Response
@@ -20,7 +21,8 @@ class HomeViewModel(
     private val userLoggedLD = MutableLiveData<Boolean>()
 
     init {
-        userLoggedLD.value = !repository.getToken().isBlank()
+        DataHolder.token = repository.getToken()
+        userLoggedLD.value = !DataHolder.token.isNullOrBlank()
     }
     fun onLoginButtonClicked(iin: String, phone: String) = launch {
         _progressBarStatusLD.value = true
@@ -70,6 +72,7 @@ class HomeViewModel(
     }
 
     fun logoutConfirmed(){
+        repository.saveToken(Constants.DEFAULT_STRING)
         userLoggedLD.value = false
     }
 

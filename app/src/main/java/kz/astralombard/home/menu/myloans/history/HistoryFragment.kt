@@ -48,17 +48,17 @@ class HistoryFragment : BaseFragment(), RecyclerBindingAdapter.OnItemClickListen
             container,
             false
         )
-
-
-        binding.rvHistory.adapter = loansAdapter
-        binding.rvHistory.layoutManager = LinearLayoutManager(
-            context,
-            LinearLayoutManager.VERTICAL,
-            false
-        )
-        binding.lifecycleOwner = viewLifecycleOwner
-        binding.viewModel = viewModel
+        with(binding) {
+            rvHistory.adapter = loansAdapter
+            lifecycleOwner = viewLifecycleOwner
+            viewModel = this@HistoryFragment.viewModel
+        }
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.getMyLoans()
     }
 
     override fun onItemClick(position: Int, item: Loan) {

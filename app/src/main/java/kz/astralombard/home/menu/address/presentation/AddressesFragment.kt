@@ -179,7 +179,7 @@ class AddressesFragment
             .addOnSuccessListener { location ->
                 this.location = location
                 viewModel.getAddresses(
-                    lat = location.latitude.roundToInt().toString(),
+                    lat = location.latitude.toString(),
                     long = location.longitude.toString(),
                     id = "1"
                 )
@@ -190,7 +190,6 @@ class AddressesFragment
                 l ?: return
                 val lat = l.lastLocation.latitude.toString()
                 val long = l.lastLocation.longitude.toString()
-
             }
         }
     }
