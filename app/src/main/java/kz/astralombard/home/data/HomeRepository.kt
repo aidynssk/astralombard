@@ -16,4 +16,6 @@ interface HomeRepository {
 
     fun saveToken(token: String)
 
+    fun getToken(): String
+
 }

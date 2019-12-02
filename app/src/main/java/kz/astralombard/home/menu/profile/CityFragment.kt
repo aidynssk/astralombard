@@ -13,6 +13,8 @@ import kz.astralombard.base.ui.BaseFragment
 
 class CityFragment : BaseFragment() {
 
+
+
     companion object {
         const val TAG = "CityFragment"
         fun newInstance() = CityFragment()

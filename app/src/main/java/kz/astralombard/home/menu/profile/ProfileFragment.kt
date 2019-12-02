@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import kotlinx.android.synthetic.main.fragment_profile.*
 
 import kz.astralombard.R
 import kz.astralombard.base.ui.BaseFragment
@@ -19,8 +18,8 @@ import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class ProfileFragment : BaseFragment() {
 
-    private val viewModel: HomeViewModel by sharedViewModel()
     private lateinit var binding: FragmentProfileBinding
+    private val viewModel: HomeViewModel by sharedViewModel()
 
     private var dialog: AlertDialog? = null
 
@@ -34,7 +33,6 @@ class ProfileFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
-        binding.lifecycleOwner = viewLifecycleOwner
 
         return binding.root
     }
@@ -45,13 +43,13 @@ class ProfileFragment : BaseFragment() {
     }
 
     private fun initListeners() {
-        cl_change_code?.setOnClickListener {
+        binding.clChangeCode.setOnClickListener {
             replaceFragment(CodeFragment.newInstance())
         }
-        cl_choose_city?.setOnClickListener {
+        binding.clChooseCity.setOnClickListener {
             replaceFragment(CityFragment.newInstance())
         }
-        cl_logout?.setOnClickListener {
+        binding.clLogout.setOnClickListener {
             dialog = LogoutDialog(requireContext())
                 .apply {
                     yesClickListener {

@@ -19,6 +19,9 @@ class HomeViewModel(
     private val smsLD = MutableLiveData<GetCodeResponse>()
     private val userLoggedLD = MutableLiveData<Boolean>()
 
+    init {
+        userLoggedLD.value = !repository.getToken().isBlank()
+    }
     fun onLoginButtonClicked(iin: String, phone: String) = launch {
         _progressBarStatusLD.value = true
 

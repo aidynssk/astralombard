@@ -1,6 +1,7 @@
 package kz.astralombard.home.data
 
 import android.content.SharedPreferences
+import kz.astralombard.base.Constants
 import kz.astralombard.base.data.ApiService
 import kz.astralombard.base.data.BaseRepository
 import kz.astralombard.base.data.Response
@@ -25,4 +26,6 @@ class HomeRepositoryImpl(
     override fun saveToken(token: String) = pref.edit()
         .putString(SharedPrefKeys.USER_TOKEN, token)
         .apply()
+
+    override fun getToken() = pref.getString(SharedPrefKeys.USER_TOKEN, Constants.DEFAULT_STRING)!!
 }
