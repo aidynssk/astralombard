@@ -21,6 +21,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import android.net.Uri
+import android.widget.AdapterView
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.*
 import com.karumi.dexter.Dexter
@@ -29,6 +30,7 @@ import com.karumi.dexter.listener.PermissionDeniedResponse
 import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.single.PermissionListener
+import kz.astralombard.base.Constants
 import kz.astralombard.base.PermisionStatus
 import kz.astralombard.home.menu.address.model.Point
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -152,6 +154,23 @@ class AddressesFragment
             val intent = Intent(Intent.ACTION_DIAL)
             intent.data = Uri.parse(uri)
             startActivity(intent)
+        }
+
+        binding.spnChooseCity.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) = viewModel.onCitySelected(
+                    position,
+                    location?.latitude?.toString() ?: Constants.DEFAULT_ALMATY_LAT,
+                    location?.longitude?.toString() ?: Constants.DEFAULT_ALMATY_LONG
+                )
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
         }
     }
 

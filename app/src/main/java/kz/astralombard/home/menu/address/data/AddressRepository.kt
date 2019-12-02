@@ -20,4 +20,8 @@ interface AddressRepository {
     ): Response<List<Point>>
 
     fun saveLocationPermissionStatus(status: PermisionStatus)
+
+    fun saveCity(city: City)
+
+    fun getSavedCity(): City?
 }

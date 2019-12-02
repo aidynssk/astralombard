@@ -1,5 +1,6 @@
 package kz.astralombard.home.menu.address.presentation
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.launch
@@ -53,4 +54,23 @@ class AddressViewModel(
 
     fun saveLocationPermissionStatus(status: PermisionStatus)
             = repository.saveLocationPermissionStatus(status)
+
+    fun saveCity(position: Int){
+        if (_citiesLD.value.isNullOrEmpty()){
+            Log.e(javaClass.toString(), "Null or empty cities", KotlinNullPointerException())
+            return
+        }
+        repository.saveCity(_citiesLD.value!![position])
+    }
+
+    fun onCitySelected(position: Int, lat: String, long: String){
+        _citiesLD.value?.getOrNull(position)?.let {
+            getAddresses(
+                lat = lat,
+                long = long,
+                id = it.id.toString()
+            )
+        }
+    }
+    fun getSavedCity() = repository.getSavedCity()
 }

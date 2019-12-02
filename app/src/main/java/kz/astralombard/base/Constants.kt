@@ -7,5 +7,7 @@ package kz.astralombard.base
 object Constants {
     const val DEFAULT_STRING = ""
     const val DEFAULT_INT = 0
+    const val DEFAULT_ALMATY_LAT = "43.212238"
+    const val DEFAULT_ALMATY_LONG = "76.898244"
     const val AUTH_HEADER = "Authorization"
 }

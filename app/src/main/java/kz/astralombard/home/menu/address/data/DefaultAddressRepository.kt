@@ -1,6 +1,7 @@
 package kz.astralombard.home.menu.address.data
 
 import android.content.SharedPreferences
+import com.google.gson.Gson
 import kz.astralombard.base.*
 import kz.astralombard.base.data.ApiService
 import kz.astralombard.base.data.BaseRepository
@@ -24,13 +25,27 @@ class DefaultAddressRepository(
         long: String,
         id: String
     ): Response<List<Point>> =
-        makeApiRequest { api.getAddresses(
-            id = id,
-            lat = lat,
-            long = long
-        )}
+        makeApiRequest {
+            api.getAddresses(
+                id = id,
+                lat = lat,
+                long = long
+            )
+        }
 
     override fun saveLocationPermissionStatus(status: PermisionStatus) = pref.edit()
         .putInt(SharedPrefKeys.LOCATION_PERMISSION, status.value)
         .apply()
+
+    override fun saveCity(city: City) {
+        val cityJson = Gson().toJson(city)
+        pref.edit()
+            .putString(SharedPrefKeys.SAVED_CITY, cityJson)
+            .apply()
+    }
+
+    override fun getSavedCity() =
+        pref.getString(SharedPrefKeys.SAVED_CITY, null)?.let {
+            Gson().fromJson(it, City::class.java)
+        }
 }
