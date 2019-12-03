@@ -9,3 +9,8 @@ import androidx.lifecycle.MutableLiveData
 data class Loan(
     val a: String=""
 )
+
+data class MyLoanRequest(
+    val username: String,
+    val password: String
+)

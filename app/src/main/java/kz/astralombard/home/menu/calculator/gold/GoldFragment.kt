@@ -28,15 +28,15 @@ class GoldFragment : BaseFragment() {
 
     override fun onStart() {
         super.onStart()
-       bindAdapter(spinner_period, R.array.planets_array)
-       bindAdapter(spinner_sample, R.array.planets_array)
-       bindAdapter(spinner_weight, R.array.planets_array)
+       bindAdapter(spinner_period, R.array.period_array)
+       bindAdapter(spinner_sample, R.array.sample_array)
+       bindAdapter(spinner_weight, R.array.weight_array)
     }
 
 
     private fun bindAdapter(spinner: Spinner, array: Int){
         ArrayAdapter.createFromResource(
-            context,
+            requireContext(),
             array,
             android.R.layout.simple_spinner_item
         ).also { adapter ->

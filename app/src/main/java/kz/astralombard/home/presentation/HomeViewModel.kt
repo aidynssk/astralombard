@@ -8,6 +8,8 @@ import kz.astralombard.base.CoroutineViewModel
 import kz.astralombard.base.DataHolder
 import kz.astralombard.base.data.Response
 import kz.astralombard.home.data.HomeRepository
+import kz.astralombard.home.menu.myloans.model.MyLoanRequest
+import kz.astralombard.home.menu.profile.model.Profile
 import kz.astralombard.home.model.GetCodeRequestModel
 import kz.astralombard.home.model.GetCodeResponse
 
@@ -20,10 +22,14 @@ class HomeViewModel(
     private val smsLD = MutableLiveData<GetCodeResponse>()
     private val userLoggedLD = MutableLiveData<Boolean>()
 
+    private val _profileLD = MutableLiveData<Profile>()
+    val profileLD: LiveData<Profile> = _profileLD
+
     init {
         DataHolder.token = repository.getToken()
         userLoggedLD.value = !DataHolder.token.isNullOrBlank()
     }
+
     fun onLoginButtonClicked(iin: String, phone: String) = launch {
         _progressBarStatusLD.value = true
 
@@ -52,17 +58,18 @@ class HomeViewModel(
 
         val response = repository.validate(
             smsLD.value!!
-           /* SmsRequestModel(
-                iin = iin,
-                phone_number = phone,
-                code = code
-            )*/
+            /* SmsRequestModel(
+                 iin = iin,
+                 phone_number = phone,
+                 code = code
+             )*/
         )
         _progressBarStatusLD.value = false
         when (response) {
             is Response.Success -> {
                 userLoggedLD.value = true
                 repository.saveToken(response.result.token)
+                repository.saveUsernameAndIIN(username = iin, iin = phone)
                 DataHolder.token = response.result.token
             }
             is Response.Error -> {
@@ -71,15 +78,33 @@ class HomeViewModel(
         }
     }
 
-    fun logoutConfirmed(){
-        repository.saveToken(Constants.DEFAULT_STRING)
-        userLoggedLD.value = false
+    fun loadProfileData() {
+        _progressBarStatusLD.value = true
+        launch {
+            val myLoanRequest = MyLoanRequest(
+                username = repository.getUsername(),
+                password = repository.getIIN()
+            )
+            val response = repository.getProfileData(myLoanRequest)
+            when (response) {
+                is Response.Success -> {
+                    _profileLD.value = response.result
+                }
+                is Response.Error -> {
+                    _errorLD.value = response.error
+                }
+            }
+            _progressBarStatusLD.value = false
+        }
     }
 
-    //getters
-    fun getSmsLD(): LiveData<GetCodeResponse> = smsLD
+        fun logoutConfirmed() {
+            repository.saveToken(Constants.DEFAULT_STRING)
+            userLoggedLD.value = false
+        }
 
+        //getters
+        fun getSmsLD(): LiveData<GetCodeResponse> = smsLD
 
-    fun getUserLoggedLD(): LiveData<Boolean> = userLoggedLD
-
-}
+        fun getUserLoggedLD(): LiveData<Boolean> = userLoggedLD
+    }

@@ -3,6 +3,9 @@ package kz.astralombard
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import kz.astralombard.base.Constants
+import kz.astralombard.base.DataHolder
+import kz.astralombard.base.SharedPrefKeys
 import kz.astralombard.base.ui.BaseActivity
 import kz.astralombard.home.presentation.HomeActivity
 import kz.astralombard.intro.INTRO_SHOWED
@@ -29,6 +32,7 @@ class MainAppActivity : BaseActivity() {
 
     private fun goHome(){
         val intent = Intent(this, HomeActivity::class.java)
+        DataHolder.token = shared.getString(SharedPrefKeys.USER_TOKEN, Constants.DEFAULT_STRING)
         startActivity(intent)
         finish()
     }

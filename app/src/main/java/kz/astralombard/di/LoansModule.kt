@@ -18,9 +18,10 @@ val loansModule = module {
         )
     }
 
-    factory {
+    factory<LoansRepository> {
         DefaultLoansRepository(
-            api = get()
-        ) as LoansRepository
+            api = get(),
+            prefs = get()
+        )
     }
 }

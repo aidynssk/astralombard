@@ -32,7 +32,7 @@
     <string name="details_price_for_1g">Цена за 1 грамм</string>
     <string name="details_loan_date">Дата займа</string>
     <string name="details_pledge_period">Срок залога</string>
-    <string name="details_guarantee_period">Срок залога</string>
+    <string name="details_guarantee_period">Гарантийный срок</string>
     <string name="details_close_date">Дата закрытия</string>
     <string name="details_given_sum">Сумма на руки</string>
     <string name="details_sum_to_pay">СУММА К ОПЛАТЕ</string>
@@ -133,6 +133,44 @@
         <item>Saturn</item>
         <item>Uranus</item>
         <item>Neptune</item>
+    </string-array>
+
+    <string-array name="sample_array">
+        <item>999</item>
+        <item>750</item>
+        <item>585</item>
+        <item>333</item>
+    </string-array>
+
+    <string-array name="weight_array">
+        <item>1</item>
+        <item>1,5</item>
+        <item>2</item>
+        <item>2,5</item>
+        <item>3</item>
+        <item>3,5</item>
+        <item>4</item>
+        <item>4,5</item>
+        <item>5</item>
+        <item>5,5</item>
+        <item>6</item>
+        <item>6,5</item>
+        <item>7</item>
+        <item>7,5</item>
+        <item>8</item>
+        <item>8,5</item>
+        <item>9</item>
+        <item>9,5</item>
+        <item>10</item>
+    </string-array>
+
+    <string-array name="period_array">
+        <item>5 дней</item>
+        <item>10 дней</item>
+        <item>15 дней</item>
+        <item>20 дней</item>
+        <item>25 дней</item>
+        <item>30 дней</item>
     </string-array>
     <string name="title_activity_open_loans_details">OpenLoansDetailsActivity</string>
     <string name="skip">ПРОПУСТИТЬ</string>

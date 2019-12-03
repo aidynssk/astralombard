@@ -68,13 +68,14 @@ class HomeActivity : BaseActivity() {
 
             main_navigation.menu.findItem(R.id.nav_my_loans)?.isVisible = false
             main_navigation.menu.removeItem(R.id.nav_profile)
-            main_navigation.menu
-                .add(Menu.NONE, R.id.nav_login, 4, R.string.login)
-                .setChecked(true)
-                .setIcon(R.drawable.ic_login_black_24dp)
+            if (main_navigation.menu.findItem(R.id.nav_login) == null) {
+                main_navigation.menu
+                    .add(Menu.NONE, R.id.nav_login, 4, R.string.login)
+                    .setChecked(true)
+                    .setIcon(R.drawable.ic_login_black_24dp)
+            }
             supportFragmentManager.findFragmentByTag(ProfileFragment.TAG)?.onDestroy()
             main_navigation.selectedItemId = R.id.nav_calculator
-
 
         })
     }

@@ -2,6 +2,8 @@ package kz.astralombard.home.data
 
 import kz.astralombard.base.data.Response
 import kz.astralombard.home.menu.login.data.SmsValidateResponse
+import kz.astralombard.home.menu.myloans.model.MyLoanRequest
+import kz.astralombard.home.menu.profile.model.Profile
 import kz.astralombard.home.model.GetCodeRequestModel
 import kz.astralombard.home.model.GetCodeResponse
 
@@ -14,8 +16,15 @@ interface HomeRepository {
 
     suspend fun validate(validateRequest: GetCodeResponse): Response<SmsValidateResponse>
 
+    suspend fun getProfileData(myLoanRequest: MyLoanRequest): Response<Profile>
+
     fun saveToken(token: String)
 
+    fun saveUsernameAndIIN(username: String, iin: String)
+
     fun getToken(): String
+
+    suspend fun getUsername(): String
+    suspend fun getIIN(): String
 
 }

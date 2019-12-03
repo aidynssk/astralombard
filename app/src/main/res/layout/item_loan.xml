@@ -6,7 +6,7 @@
     <data>
         <variable
             name="loan"
-            type="kz.astralombard.home.menu.myloans.model.Loan" />
+            type="kz.astralombard.home.menu.myloans.data.Item" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="@string/my_loans_order"
+            android:text="@{@string/my_loans_order + loan.id}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -224,7 +224,7 @@
                     android:layout_marginTop="4dp"
                     android:layout_marginBottom="8dp"
                     android:fontFamily="@font/helveticaneuecyr_4"
-                    android:text="105 000 тг"
+                    android:text="@{String.valueOf(loan.payAmount)}"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/guideline"
@@ -245,7 +245,7 @@
                     style="@style/LoanItemValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="12.09.1996"
+                    android:text="@{loan.closingDate}"
                     app:layout_constraintBottom_toTopOf="@+id/divider_close"
                     app:layout_constraintStart_toStartOf="@+id/guideline"
                     app:layout_constraintTop_toBottomOf="@+id/divider_city" />
@@ -255,7 +255,7 @@
                     style="@style/LoanItemValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Жезкент"
+                    android:text="@{loan.office}"
                     app:layout_constraintBottom_toTopOf="@+id/divider_city"
                     app:layout_constraintStart_toStartOf="@+id/tv_close_value"
                     app:layout_constraintTop_toBottomOf="@+id/divider_ticket" />
@@ -265,7 +265,7 @@
                     style="@style/LoanItemValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="136415354"
+                    android:text="@{loan.numberTicket}"
                     app:layout_constraintBottom_toBottomOf="@+id/tv_ticket_order"
                     app:layout_constraintStart_toStartOf="@+id/tv_city_value" />
 

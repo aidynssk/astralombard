@@ -14,7 +14,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/tv_open_loans"
             android:layout_width="match_parent"
-            app:loans="@{viewModel.openLoans}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:items="@{viewModel.openLoans}"
             android:layout_height="match_parent" />
 
     </FrameLayout>

@@ -10,4 +10,5 @@ object Constants {
     const val DEFAULT_ALMATY_LAT = "43.212238"
     const val DEFAULT_ALMATY_LONG = "76.898244"
     const val AUTH_HEADER = "Authorization"
+    const val TOKEN_PREFIX = "Token "
 }

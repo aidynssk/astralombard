@@ -9,6 +9,8 @@ import kz.astralombard.home.menu.address.model.City
 import kz.astralombard.home.menu.address.model.Point
 import kz.astralombard.home.menu.login.data.SmsValidateResponse
 import kz.astralombard.home.menu.myloans.data.MyLoan
+import kz.astralombard.home.menu.myloans.model.MyLoanRequest
+import kz.astralombard.home.menu.profile.model.Profile
 import kz.astralombard.home.model.GetCodeRequestModel
 import kz.astralombard.home.model.GetCodeResponse
 import retrofit2.http.*
@@ -44,8 +46,15 @@ interface ApiService {
     @GET("about")
     suspend fun getAbout(): AboutCompanyResponse
 
-    @GET("loads")
+    @POST("loads/")
     suspend fun getLoans(
-        @Header(Constants.AUTH_HEADER) token: String = DataHolder.token!!
+        @Header(Constants.AUTH_HEADER) token: String = DataHolder.token!!,
+        @Body myLoanRequest: MyLoanRequest
     ): List<MyLoan>
+
+    @POST("auth/profile/")
+    suspend fun getProfile(
+        @Header(Constants.AUTH_HEADER) token: String = DataHolder.token!!,
+        @Body myLoanRequest: MyLoanRequest
+    ): Profile
 }

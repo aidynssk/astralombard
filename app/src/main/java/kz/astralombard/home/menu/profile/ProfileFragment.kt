@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 
 import kz.astralombard.R
 import kz.astralombard.base.ui.BaseFragment
@@ -33,21 +34,22 @@ class ProfileFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
-
+        initObservers()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initListeners()
+        viewModel.loadProfileData()
     }
 
     private fun initListeners() {
         binding.clChangeCode.setOnClickListener {
-            replaceFragment(CodeFragment.newInstance())
+            addFragment(CodeFragment.newInstance())
         }
         binding.clChooseCity.setOnClickListener {
-            replaceFragment(CityFragment.newInstance())
+            addFragment(CityFragment.newInstance())
         }
         binding.clLogout.setOnClickListener {
             dialog = LogoutDialog(requireContext())
@@ -62,5 +64,22 @@ class ProfileFragment : BaseFragment() {
                 .create(DialogSize.SmallFixedWidth)
               dialog?.show()
         }
+    }
+    private fun initObservers(){
+        viewModel.profileLD.observe(viewLifecycleOwner, Observer{
+            binding.tvFioValue.text = it.FullName
+            binding.tvCityValue.text = it.City
+            binding.tvAddressValue.text = it.Address
+            binding.tvIinValue.text = it.iin
+        })
+        viewModel.errorLD.observe(viewLifecycleOwner, Observer {
+            handleError(it)
+        })
+        viewModel.progressBarStatusLD.observe(viewLifecycleOwner, Observer {
+            if (it)
+                showProgress()
+            else
+                hideProgress()
+        })
     }
 }

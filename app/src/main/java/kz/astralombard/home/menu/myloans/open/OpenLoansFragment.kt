@@ -4,7 +4,6 @@ package kz.astralombard.home.menu.myloans.open
 import android.content.Intent
 import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,19 +14,19 @@ import kz.astralombard.base.ui.BaseFragment
 import kz.astralombard.base.ui.RecyclerBindingAdapter
 import kz.astralombard.databinding.FragmentOpenLoansBinding
 import kz.astralombard.home.menu.myloans.OpenLoansDetailsActivity
-import kz.astralombard.home.menu.myloans.model.Loan
+import kz.astralombard.home.menu.myloans.data.Item
 import kz.astralombard.home.menu.myloans.presentation.MyLoansViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 
-class OpenLoansFragment : BaseFragment(), RecyclerBindingAdapter.OnItemClickListener<Loan> {
+class OpenLoansFragment : BaseFragment(), RecyclerBindingAdapter.OnItemClickListener<Item> {
 
     private val viewModel: MyLoansViewModel by sharedViewModel()
     companion object{
         fun newInstance() = OpenLoansFragment()
     }
 
-    private var loansAdapter: RecyclerBindingAdapter<Loan>? = null
+    private var loansAdapter: RecyclerBindingAdapter<Item>? = null
     private lateinit var binding: FragmentOpenLoansBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,20 +52,17 @@ class OpenLoansFragment : BaseFragment(), RecyclerBindingAdapter.OnItemClickList
             false
         )
 
-
         binding.tvOpenLoans.adapter = loansAdapter
-        binding.tvOpenLoans.layoutManager = LinearLayoutManager(
-            context,
-            LinearLayoutManager.VERTICAL,
-            false
-        )
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
         return binding.root
     }
 
-    override fun onItemClick(position: Int, item: Loan) {
-        context?.startActivity(Intent(context, OpenLoansDetailsActivity::class.java))
+    override fun onItemClick(position: Int, item: Item) {
+        val detailsIntent = Intent(context, OpenLoansDetailsActivity::class.java).apply {
+            putExtra(OpenLoansDetailsActivity.LOAN_DETAILS, item)
+        }
+        context?.startActivity(detailsIntent)
     }
 
 }
