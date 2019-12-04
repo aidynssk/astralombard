@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.fragment_gold.*
 
 import kz.astralombard.R
 import kz.astralombard.base.ui.BaseFragment
+import kz.astralombard.home.menu.calculator.more.MoreFragment
 
 
 class GoldFragment : BaseFragment() {
@@ -26,14 +27,20 @@ class GoldFragment : BaseFragment() {
         return inflater.inflate(R.layout.fragment_gold, container, false)
     }
 
-    override fun onStart() {
-        super.onStart()
-       bindAdapter(spinner_period, R.array.period_array)
-       bindAdapter(spinner_sample, R.array.sample_array)
-       bindAdapter(spinner_weight, R.array.weight_array)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        bindAdapter(spinner_period, R.array.period_array)
+        bindAdapter(spinner_sample, R.array.sample_array)
+        bindAdapter(spinner_weight, R.array.weight_array)
+
+        initListeners()
     }
 
-
+    private fun initListeners(){
+        btn_more.setOnClickListener {
+            addFragment(MoreFragment.newInstance(MoreFragment.MORE_GOLD))
+        }
+    }
     private fun bindAdapter(spinner: Spinner, array: Int){
         ArrayAdapter.createFromResource(
             requireContext(),

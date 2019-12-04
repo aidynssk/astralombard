@@ -19,8 +19,8 @@ class AddressViewModel(
     private val repository: AddressRepository
 ) : CoroutineViewModel() {
 
-    private val _citiesLD = MutableLiveData<List<City>>()
-    val citiesLD: LiveData<List<City>> = _citiesLD
+    private val _citiesLD = MutableLiveData<MutableList<City>>()
+    val citiesLD: LiveData<MutableList<City>> = _citiesLD
 
     private val _addresses = MutableLiveData<List<Point>>()
     val addresses: LiveData<List<Point>> = _addresses
@@ -32,7 +32,7 @@ class AddressViewModel(
         _progressBarStatusLD.value = true
         when(val response = repository.getCities()){
             is Response.Success ->
-                _citiesLD.value = response.result
+                _citiesLD.value = response.result.toMutableList()
             is Response.Error ->
                 _errorLD.value = response.error
         }

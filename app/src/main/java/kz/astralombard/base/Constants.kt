@@ -11,4 +11,7 @@ object Constants {
     const val DEFAULT_ALMATY_LONG = "76.898244"
     const val AUTH_HEADER = "Authorization"
     const val TOKEN_PREFIX = "Token "
+
+    const val YYYY_DD_MM = "yyyy-MM-dd"
+    const val DD_MM_YYYY = "dd.MM.yyyy"
 }

@@ -39,6 +39,7 @@ class DefaultAddressRepository(
 
     override fun saveCity(city: City) {
         val cityJson = Gson().toJson(city)
+        city.chosen = true
         pref.edit()
             .putString(SharedPrefKeys.SAVED_CITY, cityJson)
             .apply()

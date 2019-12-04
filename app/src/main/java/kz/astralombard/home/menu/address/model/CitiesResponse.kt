@@ -12,5 +12,11 @@ data class CitiesResponse(
 
 data class City(
     val id: Int,
-    val name: String
+    val name: String,
+    val price1: Int,
+    val price2: Int,
+    val price3: Int,
+    val price4: Int,
+    val price5: Int,
+    var chosen: Boolean = false
 )

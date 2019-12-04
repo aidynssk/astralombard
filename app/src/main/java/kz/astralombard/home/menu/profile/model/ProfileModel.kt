@@ -10,5 +10,6 @@ data class Profile(
     val Phone: String,
     val FullName: String,
     val City: String,
-    val Address: String
+    val Address: String,
+    val BirthDate: String
 )

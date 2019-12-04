@@ -5,29 +5,28 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.activity_city.*
 import kz.astralombard.R
 import kz.astralombard.base.ui.BaseActivity
+import kz.astralombard.home.menu.address.presentation.AddressViewModel
 import kz.astralombard.home.presentation.HomeActivity
 import kz.astralombard.intro.INTRO_SHOWED
 import org.koin.android.ext.android.get
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CityActivity : BaseActivity() {
 
     var sharedPref: SharedPreferences = get()
 
+    private val viewModel by viewModel<AddressViewModel>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_city)
-    }
-
-    override fun onStart() {
-        super.onStart()
-        btn_further.setOnClickListener {
-            openHome()
-        }
-        bindAdapter(spinner, R.array.planets_array)
-
+        initObservers()
+        initListeners()
+        viewModel.loadCities()
     }
 
     private fun openHome(){
@@ -51,4 +50,40 @@ class CityActivity : BaseActivity() {
             spinner.adapter = adapter
         }
     }
+
+    private fun initListeners() {
+        btn_further.setOnClickListener {
+            if (spinner.selectedItemPosition >= 0) {
+                viewModel.saveCity(spinner.selectedItemPosition)
+            }
+            openHome()
+        }
+    }
+
+    private fun initObservers() {
+        viewModel.citiesLD.observe(this, Observer { cities ->
+            val citiesNames = mutableListOf<String>()
+            cities!!.forEach {
+                citiesNames.add(it.name)
+            }
+            val adapter = ArrayAdapter(
+                this,
+                android.R.layout.simple_spinner_item,
+                citiesNames
+            )
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spinner.adapter = adapter
+        })
+
+        viewModel.errorLD.observe(this, Observer {
+            handleError(it)
+        })
+        viewModel.progressBarStatusLD.observe(this, Observer {
+            if (it)
+                showProgress()
+            else
+                hideProgress()
+        })
+    }
+
 }

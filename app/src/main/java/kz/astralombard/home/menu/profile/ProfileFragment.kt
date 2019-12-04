@@ -10,11 +10,14 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 
 import kz.astralombard.R
+import kz.astralombard.base.Constants
 import kz.astralombard.base.ui.BaseFragment
 import kz.astralombard.databinding.FragmentProfileBinding
 import kz.astralombard.home.presentation.HomeViewModel
 import kz.astralombard.models.DialogSize
 import kz.astralombard.dialogs.LogoutDialog
+import kz.astralombard.ext.toDate
+import kz.astralombard.ext.toString
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class ProfileFragment : BaseFragment() {
@@ -71,6 +74,7 @@ class ProfileFragment : BaseFragment() {
             binding.tvCityValue.text = it.City
             binding.tvAddressValue.text = it.Address
             binding.tvIinValue.text = it.iin
+            binding.tvBirthdayValue.text = it.BirthDate.toDate(Constants.YYYY_DD_MM).toString(Constants.DD_MM_YYYY) + " г."
         })
         viewModel.errorLD.observe(viewLifecycleOwner, Observer {
             handleError(it)

@@ -1,6 +1,13 @@
 <resources>
     <string name="app_name">Astralombard</string>
+    <string name="back">Назад</string>
 
+
+    <!--Intro-->
+    <string name="intro_desc_1"></string>
+    <string name="intro_desc_2"></string>
+    <string name="intro_desc_3"></string>
+    <string name="city_tip">Город</string>
 
     <!--Navigation menu-->
     <string name="my_loans">Мои займы</string>
@@ -45,6 +52,7 @@
     Calculator
 -->
     <string name="calculator_choice_of_goods">Выбор товара</string>
+    <string name="calculator_title">КАЛЬКУЛЯТОР</string>
     <string name="calculator_gold">ЗОЛОТО</string>
     <string name="calculator_car">АВТОМОБИЛЬ</string>
     <string name="calculator_gr_weight">Вес в граммах</string>
@@ -58,7 +66,26 @@
     <string name="calculator_more">Подробнее</string>
     <string name="calculator_enter_market_price">Введите рыночную стоимость автомобиля, тг</string>
     <string name="calculator_with_drive_license">С правом вождения</string>
+    <string name="calculator_more_gold_title">Правила оценки и приема золотых изделий</string>
+    <string name="calculator_more_auto_title">Правила оценки и приема автотранспорта</string>
+    <string name="calculator_more_gold_text">Оценка залогового имущества производится индивидуально товароведом – оценщиком - кассиром, в зависимости от ювелирного изделия. При оценке учитывается:\n
+- состояние изделия (лом, пайка, отсутствие камней)\n
+- наличие пробы (именника, пробирного клейма)\n
+- изделия кустарного производства\n
+- изделия бисмарк (до 20 гр, и выше)\n
+- изделия турецкого производства\n
+- изделия низкопробного качества\n\nОкончательную сумму выдачи определяет оценщик - кассир на месте, в зависимости от состояния изделия, основываясь приказа “О расценках на принимаемые ювелирные изделия” и от должностных инструкций товароведа – оценщика.</string>
+    <string name="calculator_more_auto_text">К месту прибытия Вашего авто, Эксперт-оценщик производит оценку.\nМинимальный и максимальный период погашения долга от 30 дней до 1 года.\n
+        - Максимальная годовая процентная ставка 90% годовых\n\nПрием авто осуществляется, в двух формах.\n\n<b>С правом вождения</b>\n\nНаше преимущество – мы выдаем автокредит под залог автомобиля с правом управления, то есть Ваша машина остается у Вас!\n\n
 
+- 7,5 % в месяц (0,25 в день)\n
+        - машины год выпуска от 2014 года\n\n<b>Без права вождения</b>\n\nАвтомобиль остается в нашем закрытом охраняемом паркинге, где он в целости и сохранности.\nПри просрочке начисляется процент 0,5 в день. Оценка автомобиля проводится также индивидуально, при наличии фотографии.\n\n
+
+- 6,5 % в месяц (0,216 в день)\n
+- машины, год выпуска от 2014 года</string>
+
+    <string name="calculator_more_auto_with_right">С правом вождения</string>
+    <string name="calculator_more_auto_without_right">Без права вождения</string>
     <!--
     About
 -->
@@ -101,7 +128,7 @@
     <string name="profile_address">Адрес</string>
     <string name="profile_phone">Телефон</string>
     <string name="profile_chose_city">ВЫБРАТЬ ГОРОД</string>
-    <string name="profile_chose_your_city">ВЫБЕРИТЕ ВАШ ГОРОД</string>
+    <string name="profile_chose_your_city">ВЫБЕРИТЕ ВАШ ГОРОД:</string>
     <string name="profile_save">Сохранить</string>
     <string name="profile_change_pin">Изменить код доступа</string>
     <string name="profile_logout">Выйти с аккаунта</string>
@@ -124,6 +151,20 @@
         non, sagittis velit. Nullam auctor, mauris vel tincidunt varius, odio augue aliquet tellus, id tincidunt velit
         neque faucibus urna. </string>
 
+    <string name="title_activity_open_loans_details">OpenLoansDetailsActivity</string>
+
+    <string name="skip">ПРОПУСТИТЬ</string>
+
+    <string name="further">ДАЛЕЕ</string>
+
+    <string name="change_city_later">позже в настройках Вы можете изменить свой город</string>
+    <string name="enter_pin">ВВЕДИТЕ КОД</string>
+    <string name="loading">Подождите</string>
+    <string name="error">Ошибка</string>
+    <string name="error_general">Произошла ошибка</string>
+    <string name="ok">OK</string>
+
+
     <string-array name="planets_array">
         <item>Mercury</item>
         <item>Venus</item>
@@ -134,14 +175,13 @@
         <item>Uranus</item>
         <item>Neptune</item>
     </string-array>
-
     <string-array name="sample_array">
-        <item>999</item>
+        <item>999,9</item>
         <item>750</item>
         <item>585</item>
-        <item>333</item>
+        <item>583</item>
+        <item>375</item>
     </string-array>
-
     <string-array name="weight_array">
         <item>1</item>
         <item>1,5</item>
@@ -163,7 +203,6 @@
         <item>9,5</item>
         <item>10</item>
     </string-array>
-
     <string-array name="period_array">
         <item>5 дней</item>
         <item>10 дней</item>
@@ -172,15 +211,4 @@
         <item>25 дней</item>
         <item>30 дней</item>
     </string-array>
-    <string name="title_activity_open_loans_details">OpenLoansDetailsActivity</string>
-    <string name="skip">ПРОПУСТИТЬ</string>
-    <string name="further">ДАЛЕЕ</string>
-    <string name="change_city_later">позже в настройках Вы можете изменить свой город</string>
-    <string name="enter_pin">ВВЕДИТЕ КОД</string>
-
-
-    <string name="loading">Подождите</string>
-    <string name="error">Ошибка</string>
-    <string name="error_general">Произошла ошибка</string>
-    <string name="ok">OK</string>
 </resources>

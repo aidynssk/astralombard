@@ -9,5 +9,5 @@
     <dimen name="largeDialogWidth">300dp</dimen>
     <dimen name="largeDialogHeight">500dp</dimen>
 
-    <dimen name="titleFontSize">40sp</dimen>
+    <dimen name="titleFontSize">36sp</dimen>
 </resources>

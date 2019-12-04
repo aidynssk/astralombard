@@ -2,6 +2,7 @@ package kz.astralombard.home.menu.myloans.data
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
+import kz.astralombard.base.Constants
 import kz.astralombard.ext.toDate
 import kz.astralombard.ext.toString
 import java.util.*
@@ -34,8 +35,8 @@ data class Item(
     val NumberTicket: String
 ): Parcelable {
     var LoanDate: String = ""
-        get() = field.toDate("yyyy-MM-dd").toString("yyyy-MM-dd")
+        get() = field.toDate(Constants.YYYY_DD_MM).toString(Constants.YYYY_DD_MM)
 
     var ClosingDate: String = ""
-        get() = field.toDate("yyyy-MM-dd").toString("yyyy-MM-dd")
+        get() = field.toDate(Constants.YYYY_DD_MM).toString(Constants.YYYY_DD_MM)
 }

@@ -26,7 +26,6 @@ open class BaseFragment :
         )
     }
 
-
     fun showProgress() {
         progressBar.showDialog()
     }
@@ -35,28 +34,11 @@ open class BaseFragment :
         progressBar.hideDialog()
     }
 
-    fun handleError(exception: Exception, ok: (() -> Unit)? = null) {
-        val message = when (exception) {
-            is HttpException -> exception.response()?.errorBody()?.string()
-            is IOException -> "Возможно, проблемы с соединением"
-            is AstraException -> exception.message
-            else -> null
-        }
-        showErrorAlert(message, ok)
+    fun handleError(exception: Exception, ok: (() -> Unit)? = null)
+            = (requireActivity() as BaseActivity).handleError(exception, ok)
 
-    }
-
-    fun showErrorAlert(message: String? = null, ok: (() -> Unit)? = null) {
-        AlertDialog.Builder(requireContext())
-            .setCancelable(false)
-            .setTitle(requireContext().getString(R.string.error))
-            .setMessage(message ?: requireContext().getString(R.string.error_general))
-            .setPositiveButton(R.string.ok) { _, _ ->
-                ok?.invoke()
-            }
-            .create()
-            .show()
-    }
+    fun showErrorAlert(message: String? = null, ok: (() -> Unit)? = null)
+            = (requireActivity() as BaseActivity).showErrorAlert(message, ok)
 
     override fun addFragment(fragment: Fragment) = navigator.addFragment(fragment)
     override fun replaceFragment(fragment: Fragment) = navigator.replaceFragment(fragment)

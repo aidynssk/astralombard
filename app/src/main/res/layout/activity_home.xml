@@ -60,7 +60,7 @@
         android:paddingStart="3dp"
         android:paddingEnd="3dp"
         app:itemHorizontalTranslationEnabled="false"
-        app:itemIconSize="20dp"
+        app:itemIconSize="24dp"
         app:elevation="8dp"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"

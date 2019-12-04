@@ -32,6 +32,7 @@ import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.single.PermissionListener
 import kz.astralombard.base.Constants
 import kz.astralombard.base.PermisionStatus
+import kz.astralombard.home.menu.address.model.City
 import kz.astralombard.home.menu.address.model.Point
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlin.math.roundToInt
@@ -44,12 +45,14 @@ class AddressesFragment
     lateinit var fusedLocationClient: FusedLocationProviderClient
     private var isLocationDefined = false
     private var location: Location? = null
+
     companion object {
         fun newInstance() = AddressesFragment()
     }
 
     private var loansAdapter: RecyclerBindingAdapter<Point>? = null
     private lateinit var binding: FragmentAddressesBinding
+    private var chosenCity: City? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,6 +84,10 @@ class AddressesFragment
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.getSavedCity()?.let {
+            chosenCity = it
+            spn_choose_city.adapter = createSpinnerAdapter(listOf(it.name))
+        }
         with(binding) {
             rvAddress.adapter = loansAdapter
             rvAddress.layoutManager = LinearLayoutManager(
@@ -102,21 +109,22 @@ class AddressesFragment
     private fun initObservers() {
         viewModel.citiesLD.observe(viewLifecycleOwner, Observer { cities ->
             val citiesNames = mutableListOf<String>()
+
+            viewModel.getSavedCity()?.let { savedCity ->
+                cities?.removeIf { removable ->
+                    removable.id == savedCity.id
+                }
+                cities.add(0, savedCity)
+            }
             cities!!.forEach {
                 citiesNames.add(it.name)
             }
-            val adapter = ArrayAdapter<String>(
-                requireContext(),
-                android.R.layout.simple_spinner_item,
-                citiesNames
-            )
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            spn_choose_city.adapter = adapter
+            spn_choose_city.adapter = createSpinnerAdapter(citiesNames)
         })
     }
 
     private fun requestLocationPermission() {
-        if (checkPermission()){
+        if (checkPermission()) {
             requestLocation()
 
             return
@@ -156,17 +164,17 @@ class AddressesFragment
             startActivity(intent)
         }
 
-        binding.spnChooseCity.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
+        binding.spnChooseCity.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
                 view: View?,
                 position: Int,
                 id: Long
             ) = viewModel.onCitySelected(
-                    position,
-                    location?.latitude?.toString() ?: Constants.DEFAULT_ALMATY_LAT,
-                    location?.longitude?.toString() ?: Constants.DEFAULT_ALMATY_LONG
-                )
+                position,
+                location?.latitude?.toString() ?: Constants.DEFAULT_ALMATY_LAT,
+                location?.longitude?.toString() ?: Constants.DEFAULT_ALMATY_LONG
+            )
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
 
@@ -181,7 +189,7 @@ class AddressesFragment
                 viewModel.getAddresses(
                     lat = location.latitude.toString(),
                     long = location.longitude.toString(),
-                    id = "1"
+                    id = chosenCity?.id?.toString() ?: "1"
                 )
             }
         val locationCallback = object : LocationCallback() {
@@ -197,5 +205,16 @@ class AddressesFragment
     override fun onLocationChanged(newLocation: Location?) {
         isLocationDefined = true
         location = newLocation
+    }
+
+    private fun createSpinnerAdapter(citiesNames: List<String>): ArrayAdapter<String> {
+        val adapter = ArrayAdapter<String>(
+            requireContext(),
+            android.R.layout.simple_spinner_item,
+            citiesNames
+        )
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        return adapter
     }
 }

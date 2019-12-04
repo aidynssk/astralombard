@@ -9,6 +9,7 @@ object SharedPrefKeys {
     const val USER_TOKEN = "user_token"
     const val LOCATION_PERMISSION = "location_permission"
     const val SAVED_CITY = "saved_city"
+    const val SAVED_CITY_PRICES = "saved_city_prices"
 
     const val USER_USERNAME = "username"
     const val USER_IIN = "user_iin"
