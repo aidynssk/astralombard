@@ -77,7 +77,6 @@ class AddressesFragment
             container,
             false
         )
-        initListeners()
 
         return binding.root
     }
@@ -109,17 +108,18 @@ class AddressesFragment
     private fun initObservers() {
         viewModel.citiesLD.observe(viewLifecycleOwner, Observer { cities ->
             val citiesNames = mutableListOf<String>()
-
             viewModel.getSavedCity()?.let { savedCity ->
                 cities?.removeIf { removable ->
                     removable.id == savedCity.id
                 }
-                cities.add(0, savedCity)
+                cities?.add(0, savedCity)
             }
             cities!!.forEach {
                 citiesNames.add(it.name)
             }
+            initListeners()
             spn_choose_city.adapter = createSpinnerAdapter(citiesNames)
+            spn_choose_city.setSelection(0)
         })
     }
 
@@ -214,7 +214,6 @@ class AddressesFragment
             citiesNames
         )
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-
         return adapter
     }
 }

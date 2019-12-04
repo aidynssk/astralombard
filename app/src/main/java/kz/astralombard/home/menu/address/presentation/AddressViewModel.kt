@@ -45,8 +45,9 @@ class AddressViewModel(
         id: String
     ) = launch {
         when (val response = repository.getAddresses(lat, long, id)) {
-            is Response.Success ->
+            is Response.Success -> {
                 _addresses.value = response.result
+            }
             is Response.Error ->
                 _errorLD.value = response.error
         }
@@ -70,6 +71,7 @@ class AddressViewModel(
                 long = long,
                 id = it.id.toString()
             )
+            repository.saveCity(it)
         }
     }
     fun getSavedCity() = repository.getSavedCity()

@@ -1,182 +1,184 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".home.menu.calculator.car.CarFragment">
+<layout>
 
-    <ScrollView
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="30dp">
+        tools:context=".home.menu.calculator.car.CarFragment">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
+            android:layout_height="match_parent"
+            android:layout_marginBottom="30dp">
 
-            <TextView
-                android:id="@+id/tv_given_sum"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="@string/calculator_given_sum"
-                app:layout_constraintStart_toStartOf="@+id/tv_given_sum_value"
-                app:layout_constraintTop_toBottomOf="@+id/divider_top" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/tv_given_sum_value"
-                style="@style/CalcEditTextOutput"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                app:layout_constraintEnd_toStartOf="@+id/tv_repayment_value"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_given_sum" />
+                <Button
+                    android:id="@+id/img_calc_price"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="30dp"
+                    android:paddingStart="25dp"
+                    android:paddingEnd="25dp"
+                    android:text="@string/calculator_calculate"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_days_period_value"
+                    app:layout_constraintStart_toStartOf="@+id/tv_with_license"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_with_license" />
 
-            <TextView
-                android:id="@+id/tv_repayment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:text="@string/calculator_repayment_sum"
-                app:layout_constraintStart_toStartOf="@+id/tv_repayment_value"
-                app:layout_constraintTop_toBottomOf="@+id/divider_top" />
+                <CheckBox
+                    android:id="@+id/tv_with_license"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:paddingStart="8dp"
+                    android:text="@string/calculator_with_drive_license"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_days_period_value"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_days_period_value" />
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/tv_repayment_value"
-                style="@style/CalcEditTextOutput"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/tv_given_sum_value"
-                app:layout_constraintTop_toBottomOf="@+id/tv_repayment" />
+                <EditText
+                    android:id="@+id/tv_given_sum_value"
+                    style="@style/CalcEditTextOutput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintEnd_toStartOf="@+id/tv_repayment_value"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_given_sum" />
 
-            <View
-                android:id="@+id/divider_top"
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="8dp"
-                android:background="?android:attr/listDivider"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/img_calc_price" />
+                <EditText
+                    android:id="@+id/et_market_price"
+                    style="@style/CalcEditTexInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:ems="10"
+                    android:inputType="number"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_market_price" />
 
-            <View
-                android:id="@+id/divider_bottom"
-                android:layout_width="395dp"
-                android:layout_height="1dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:background="?android:attr/listDivider"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_given_sum_value" />
+                <TextView
+                    android:id="@+id/tv_given_sum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/calculator_given_sum"
+                    app:layout_constraintStart_toStartOf="@+id/tv_given_sum_value"
+                    app:layout_constraintTop_toBottomOf="@+id/divider_top" />
 
-            <TextView
-                android:id="@+id/tv_market_price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:text="@string/calculator_enter_market_price"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/tv_repayment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/calculator_repayment_sum"
+                    app:layout_constraintStart_toStartOf="@+id/tv_repayment_value"
+                    app:layout_constraintTop_toBottomOf="@+id/divider_top" />
 
-            <EditText
-                android:id="@+id/et_market_price"
-                style="@style/CalcEditTexInput"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:ems="10"
-                android:inputType="number"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_market_price" />
+                <TextView
+                    android:id="@+id/tv_market_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/calculator_enter_market_price"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/tv_days_period"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="@string/calculator_day_period"
-                app:layout_constraintEnd_toEndOf="@+id/et_market_price"
-                app:layout_constraintTop_toBottomOf="@+id/et_market_price" />
+                <TextView
+                    android:id="@+id/tv_days_period"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/calculator_day_period"
+                    app:layout_constraintEnd_toEndOf="@+id/et_market_price"
+                    app:layout_constraintTop_toBottomOf="@+id/et_market_price" />
 
-            <TextView
-                android:id="@+id/tv_days_period_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="30 дней"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="@+id/tv_days_period"
-                app:layout_constraintTop_toBottomOf="@+id/tv_days_period" />
+                <TextView
+                    android:id="@+id/tv_days_period_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="30 дней"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tv_days_period"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_days_period" />
 
-            <CheckBox
-                android:id="@+id/tv_with_license"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:paddingStart="8dp"
-                android:text="@string/calculator_with_drive_license"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_days_period_value"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tv_days_period_value" />
+                <TextView
+                    android:id="@+id/tv_gold_notes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="30dp"
+                    android:gravity="center"
+                    android:text="@string/calculator_car_notes"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divider_bottom" />
 
-            <Button
-                android:id="@+id/img_calc_price"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="30dp"
-                android:paddingStart="25dp"
-                android:paddingEnd="25dp"
-                android:text="@string/calculator_calculate"
-                app:layout_constraintEnd_toEndOf="@+id/tv_days_period_value"
-                app:layout_constraintStart_toStartOf="@+id/tv_with_license"
-                app:layout_constraintTop_toBottomOf="@+id/tv_with_license" />
+                <View
+                    android:id="@+id/divider_top"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/img_calc_price" />
 
-            <TextView
-                android:id="@+id/tv_gold_notes"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="30dp"
-                android:gravity="center"
-                android:text="@string/calculator_car_notes"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider_bottom" />
+                <View
+                    android:id="@+id/divider_bottom"
+                    android:layout_width="395dp"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_given_sum_value" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/btn_more"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:text="@string/calculator_more"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_gold_notes"
-                app:srcCompat="@drawable/more" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
-</FrameLayout>
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/tv_repayment_value"
+                    style="@style/CalcEditTextOutput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/tv_given_sum_value"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_repayment" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/btn_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/calculator_more"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_gold_notes"
+                    app:srcCompat="@drawable/more" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </FrameLayout>
+</layout>

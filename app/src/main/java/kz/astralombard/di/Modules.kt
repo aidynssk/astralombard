@@ -7,5 +7,6 @@ val modules = listOf(
     loansModule,
     aboutModule,
     addressModule,
-    companyModule
+    companyModule,
+    calculatorModule
 )

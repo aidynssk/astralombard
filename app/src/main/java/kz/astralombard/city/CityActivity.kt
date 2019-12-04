@@ -73,6 +73,7 @@ class CityActivity : BaseActivity() {
             )
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             spinner.adapter = adapter
+            spinner.setSelection(0)
         })
 
         viewModel.errorLD.observe(this, Observer {

@@ -7,11 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import androidx.databinding.DataBindingUtil
 import kotlinx.android.synthetic.main.fragment_gold.*
 
 import kz.astralombard.R
 import kz.astralombard.base.ui.BaseFragment
+import kz.astralombard.databinding.FragmentGoldBinding
+import kz.astralombard.home.menu.calculator.CalculatorViewModel
 import kz.astralombard.home.menu.calculator.more.MoreFragment
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import kotlin.math.roundToInt
 
 
 class GoldFragment : BaseFragment() {
@@ -19,12 +24,16 @@ class GoldFragment : BaseFragment() {
             fun newInstance() = GoldFragment()
     }
 
+    private val viewModel: CalculatorViewModel by viewModel()
+    private lateinit var binding: FragmentGoldBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_gold, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_gold, container, false)
+
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -40,8 +49,16 @@ class GoldFragment : BaseFragment() {
         btn_more.setOnClickListener {
             addFragment(MoreFragment.newInstance(MoreFragment.MORE_GOLD))
         }
+        binding.btnCalculate.setOnClickListener {
+            val handAmount = viewModel.calculateHandAmount(spinner_sample.selectedItemPosition, spinner_weight.selectedItem.toString())
+            val repaymentSum = viewModel.calculatePrice(spinner_period.selectedItem.toString(), handAmount)
+
+            binding.tvGivenSumValue.setText(handAmount.roundToInt().toString())
+            binding.tvRepaymentValue.setText(repaymentSum.roundToInt().toString())
+        }
     }
     private fun bindAdapter(spinner: Spinner, array: Int){
+        spinner.setSelection(0)
         ArrayAdapter.createFromResource(
             requireContext(),
             array,
