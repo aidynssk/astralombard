@@ -35,7 +35,6 @@ import kz.astralombard.base.PermisionStatus
 import kz.astralombard.home.menu.address.model.City
 import kz.astralombard.home.menu.address.model.Point
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import kotlin.math.roundToInt
 
 class AddressesFragment
     : BaseFragment(),
@@ -109,9 +108,10 @@ class AddressesFragment
         viewModel.citiesLD.observe(viewLifecycleOwner, Observer { cities ->
             val citiesNames = mutableListOf<String>()
             viewModel.getSavedCity()?.let { savedCity ->
-                cities?.removeIf { removable ->
-                    removable.id == savedCity.id
+                val removableCity = cities.find {
+                    it.id == savedCity.id
                 }
+                cities?.remove(removableCity)
                 cities?.add(0, savedCity)
             }
             cities!!.forEach {
@@ -158,7 +158,7 @@ class AddressesFragment
 
     private fun initListeners() {
         binding.imgPhone.setOnClickListener {
-            val uri = "tel:" + "911".trim()
+            val uri = "tel:" + "8 800 070 05 40".trim()
             val intent = Intent(Intent.ACTION_DIAL)
             intent.data = Uri.parse(uri)
             startActivity(intent)

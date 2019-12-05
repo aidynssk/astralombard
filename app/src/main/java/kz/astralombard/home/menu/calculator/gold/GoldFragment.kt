@@ -50,8 +50,8 @@ class GoldFragment : BaseFragment() {
             addFragment(MoreFragment.newInstance(MoreFragment.MORE_GOLD))
         }
         binding.btnCalculate.setOnClickListener {
-            val handAmount = viewModel.calculateHandAmount(spinner_sample.selectedItemPosition, spinner_weight.selectedItem.toString())
-            val repaymentSum = viewModel.calculatePrice(spinner_period.selectedItem.toString(), handAmount)
+            val handAmount = viewModel.calculateGoldHandAmount(spinner_sample.selectedItemPosition, spinner_weight.selectedItem.toString())
+            val repaymentSum = viewModel.calculateGoldPrice(spinner_period.selectedItem.toString(), handAmount)
 
             binding.tvGivenSumValue.setText(handAmount.roundToInt().toString())
             binding.tvRepaymentValue.setText(repaymentSum.roundToInt().toString())

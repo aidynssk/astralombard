@@ -43,9 +43,14 @@ class LoginFragment : BaseFragment() {
     private fun initListeners() {
         btn_request_code.setOnClickListener {
             if ((it as AppCompatButton).text == getString(R.string.login_request_code)) {
+                if(!checkBox.isChecked){
+                    Toast.makeText(activity, "Пожалуйста, ознакомьтесь с настоящим пользовательским соглашением", Toast.LENGTH_SHORT ).show()
+                    return@setOnClickListener
+                }
+
                 viewModel.onLoginButtonClicked(
-                    phone = et_iin.text.toString(),
-                    iin = et_phone.text.toString()
+                    phone = et_phone.text.toString(),
+                    iin = et_iin.text.toString()
                 )
             } else {
                 if (et_enter_code.text.toString().isNullOrBlank()){
@@ -67,6 +72,7 @@ class LoginFragment : BaseFragment() {
             showSmsView()
 
             Toast.makeText(activity, sms.code, Toast.LENGTH_SHORT ).show()
+            hideProgress()
         })
         viewModel.progressBarStatusLD.observe(viewLifecycleOwner, Observer {
             if (it)
@@ -83,6 +89,7 @@ class LoginFragment : BaseFragment() {
     private fun showSmsView() {
         et_iin.hide()
         et_phone.hide()
+        checkBox.hide()
 
         tv_enter_code.show()
         et_enter_code.show()

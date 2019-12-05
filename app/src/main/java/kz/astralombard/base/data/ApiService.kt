@@ -13,6 +13,7 @@ import kz.astralombard.home.menu.myloans.model.MyLoanRequest
 import kz.astralombard.home.menu.profile.model.Profile
 import kz.astralombard.home.model.GetCodeRequestModel
 import kz.astralombard.home.model.GetCodeResponse
+import kz.astralombard.home.model.ValidateCodeRequest
 import retrofit2.http.*
 
 /**
@@ -25,7 +26,7 @@ interface ApiService {
     suspend fun getCode(@Body loginBody: GetCodeRequestModel): GetCodeResponse
 
     @POST("auth/login/")
-    suspend fun validate(@Body validateBody: GetCodeResponse): SmsValidateResponse
+    suspend fun validate(@Body validateBody: ValidateCodeRequest): SmsValidateResponse
 
     @GET("cities")
     suspend fun getCities(): List<City>

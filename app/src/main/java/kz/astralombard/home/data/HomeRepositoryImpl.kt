@@ -11,6 +11,7 @@ import kz.astralombard.home.menu.myloans.model.MyLoanRequest
 import kz.astralombard.home.menu.profile.model.Profile
 import kz.astralombard.home.model.GetCodeRequestModel
 import kz.astralombard.home.model.GetCodeResponse
+import kz.astralombard.home.model.ValidateCodeRequest
 
 /**
  * Created by wokrey@gmail.com on 02.06.2019
@@ -22,7 +23,7 @@ class HomeRepositoryImpl(
     override suspend fun getCode(getCodeRequest: GetCodeRequestModel): Response<GetCodeResponse> =
         makeApiRequest { api.getCode(getCodeRequest) }
 
-    override suspend fun validate(validateRequest: GetCodeResponse): Response<SmsValidateResponse> =
+    override suspend fun validate(validateRequest: ValidateCodeRequest): Response<SmsValidateResponse> =
         makeApiRequest { api.validate(validateRequest) }
 
     override suspend fun getProfileData(myLoanRequest: MyLoanRequest): Response<Profile>  =

@@ -89,8 +89,9 @@
     <!--
     About
 -->
-    <string name="about_news_sales">Новости и акции</string>
-    <string name="about_write_us">Написать нам</string>
+    <string name="about_news_sales">НОВОСТИ И АКЦИИ</string>
+    <string name="about_write_us">НАПИСАТЬ НАМ</string>
+    <string name="about_company_title">О КОМПАНИИ</string>
     <string name="about_message_topic">Тема сообщения:</string>
     <string name="about_phone">Телефон:</string>
     <string name="about_message_text">Текст сообщения:</string>
@@ -116,7 +117,7 @@
     <string name="login_request_code">Запросить код</string>
     <string name="login_enter_code">Введите код</string>
     <string name="login_sms_code">СМС код</string>
-    <string name="login_user_agreement">Пользовательское соглашение</string>
+    <string name="login_user_agreement">Я прочитал и согласен с условиями <b>пользовательского соглашения</b></string>
 
     <!--
     Profile

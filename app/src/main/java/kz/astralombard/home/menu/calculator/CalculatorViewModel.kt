@@ -12,17 +12,27 @@ class CalculatorViewModel(
     private val repository: ICalculatorRepository
 ): CoroutineViewModel() {
     companion object{
-        private const val INTEREST_RATE = 0.0029
+        private const val GOLD_INTEREST_RATE = 0.0029
+        private const val CAR_WITH_RIGHT_RATE = 0.925
+        private const val CAR_WITHOUT_RIGHT_RATE = 0.935
     }
     fun getSavedCity() = repository.getSavedCity()
 
+    fun calculateCarHandAmount(
+        carPrice: Int,
+        hasDriveRight: Boolean
+    ): Double{
+        val k = if (hasDriveRight) CAR_WITH_RIGHT_RATE else CAR_WITHOUT_RIGHT_RATE
 
-    fun calculatePrice(
+        return k * carPrice
+    }
+
+    fun calculateGoldPrice(
         dayString: String,
         handAmount: Double
-    ) = handAmount * (getIntFromDays(dayString) * INTEREST_RATE + 1)
+    ) = handAmount * (getIntFromDays(dayString) * GOLD_INTEREST_RATE + 1)
 
-    fun calculateHandAmount(
+    fun calculateGoldHandAmount(
         sampleIndex: Int,
         weight: String
     ) = getDoubleWeight(weight) * getPrice(sampleIndex, getSavedCity()!!)

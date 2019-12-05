@@ -58,7 +58,7 @@ class HomeActivity : BaseActivity() {
                 main_navigation.menu.removeItem(R.id.nav_login)
                 main_navigation.menu
                     .add(Menu.NONE, R.id.nav_profile, 5, R.string.profile)
-                    .setIcon(R.drawable.profile_selector)
+                    .setIcon(R.drawable.ic_profile_black_24dp)
                     .setChecked(true).isVisible = true
                 supportFragmentManager.findFragmentByTag(LoginFragment.TAG)?.onDestroy()
 

@@ -8,10 +8,12 @@ import kz.astralombard.base.CoroutineViewModel
 import kz.astralombard.base.DataHolder
 import kz.astralombard.base.data.Response
 import kz.astralombard.home.data.HomeRepository
+import kz.astralombard.home.menu.login.data.SmsRequestModel
 import kz.astralombard.home.menu.myloans.model.MyLoanRequest
 import kz.astralombard.home.menu.profile.model.Profile
 import kz.astralombard.home.model.GetCodeRequestModel
 import kz.astralombard.home.model.GetCodeResponse
+import kz.astralombard.home.model.ValidateCodeRequest
 
 /**
  * Created by wokrey@gmail.com on 02.06.2019
@@ -37,7 +39,7 @@ class HomeViewModel(
             GetCodeRequestModel(
                 username = phone,
                 password = iin,
-                device_uuid = "4545325"
+                hash = "454532523"
             )
         )
 
@@ -57,19 +59,19 @@ class HomeViewModel(
         _progressBarStatusLD.value = true
 
         val response = repository.validate(
-            smsLD.value!!
-            /* SmsRequestModel(
-                 iin = iin,
-                 phone_number = phone,
-                 code = code
-             )*/
+            ValidateCodeRequest(
+                 password = iin,
+                 username = phone,
+                 code = code,
+                hash = "454532523"
+             )
         )
         _progressBarStatusLD.value = false
         when (response) {
             is Response.Success -> {
                 userLoggedLD.value = true
                 repository.saveToken(response.result.token)
-                repository.saveUsernameAndIIN(username = iin, iin = phone)
+                repository.saveUsernameAndIIN(username = phone, iin = iin)
                 DataHolder.token = response.result.token
             }
             is Response.Error -> {
