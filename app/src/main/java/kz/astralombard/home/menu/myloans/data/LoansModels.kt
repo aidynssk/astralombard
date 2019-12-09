@@ -17,6 +17,7 @@ data class MyLoan(
     val Number: String,
     val Items: List<Item>?
 )
+
 @Parcelize
 data class Item(
     val Id: String,
@@ -27,19 +28,31 @@ data class Item(
     val Weight: Double,
     val GramPrice: String,
     val Period: Int,
-    val GuaranteePeriod: String,
     val HandAmount: Int,
     val Office: String,
     val Merchant: String,
     val PayAmount: Int,
     val IdTicket: String,
-    val NumberTicket: String
-): Parcelable {
-    var LoanDate: String = ""
-        get() = field.toDate(Constants.YYYY_DD_MM).toString(Constants.YYYY_DD_MM)
+    val NumberTicket: String,
+    val LoanDate: String,
+    val GuaranteePeriod: String
+
+
+) : Parcelable {
+    fun getFormattedLoanDate(): String =
+        if (LoanDate.isNotBlank()) LoanDate.toDate(Constants.TIME_FORMAT).toString(Constants.YYYY_DD_MM)
+        else LoanDate
 
     var ClosingDate: String = ""
-        get() = field.toDate(Constants.YYYY_DD_MM).toString(Constants.YYYY_DD_MM)
+        get() = field.toDate(Constants.TIME_FORMAT).toString(Constants.YYYY_DD_MM)
+
+
+    fun getFormattedGuaranteePreiod(): String =
+        if (GuaranteePeriod.isNotBlank()) GuaranteePeriod.toDate(Constants.TIME_FORMAT).toString(
+            Constants.YYYY_DD_MM
+        )
+        else GuaranteePeriod
+
 
     var leftDays: Int = 0
     get(){

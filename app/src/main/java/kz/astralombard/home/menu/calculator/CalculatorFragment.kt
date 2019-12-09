@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_calculator.*
 
 import kz.astralombard.R
+import kz.astralombard.base.hideKeyboard
 import kz.astralombard.base.ui.BaseFragment
 import kz.astralombard.databinding.FragmentCalculatorBinding
 
@@ -41,6 +42,9 @@ class CalculatorFragment : BaseFragment() {
             }
 
             override fun onPageSelected(index: Int) {
+                if (index == 0) {
+                    activity?.hideKeyboard()
+                }
                 changeBg(index)
             }
 

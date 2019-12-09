@@ -126,7 +126,6 @@ class AddressesFragment
     private fun requestLocationPermission() {
         if (checkPermission()) {
             requestLocation()
-
             return
         }
         Dexter.withActivity(activity)

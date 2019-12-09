@@ -3,6 +3,7 @@ package kz.astralombard
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import com.facebook.stetho.Stetho
 import kz.astralombard.base.Constants
 import kz.astralombard.base.DataHolder
 import kz.astralombard.base.SharedPrefKeys
@@ -19,6 +20,7 @@ class MainAppActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_app)
+        Stetho.initializeWithDefaults(this)
     }
 
     override fun onResume() {

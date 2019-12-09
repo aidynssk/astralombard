@@ -1,5 +1,7 @@
 package kz.astralombard.base
 
+import java.text.SimpleDateFormat
+
 /**
  * Created by wokrey@gmail.com on 30.11.2019.
  * It's not wokrey, if the code smells bad. Somebody set me up.
@@ -14,4 +16,6 @@ object Constants {
 
     const val YYYY_DD_MM = "yyyy-MM-dd"
     const val DD_MM_YYYY = "dd.MM.yyyy"
+    const val TIME_FORMAT = "yyyy-MM-dd'T'HH:mm:ss"
+
 }

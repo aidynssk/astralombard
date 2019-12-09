@@ -37,8 +37,7 @@ class MyLoansFragment : BaseFragment() {
             container,
             false
         )
-        binding.pagerCalc.adapter =
-            MyLoanPagerAdapter(childFragmentManager)
+        binding.pagerCalc.adapter = MyLoanPagerAdapter(childFragmentManager)
         binding.pagerCalc.addOnPageChangeListener(object: ViewPager.OnPageChangeListener{
             override fun onPageScrolled(p0: Int, p1: Float, p2: Int) {
 

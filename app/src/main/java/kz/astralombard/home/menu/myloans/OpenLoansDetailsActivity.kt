@@ -29,7 +29,8 @@ class OpenLoansDetailsActivity : AppCompatActivity() {
             tvOffice.text = loan.Office
             tvSample.text = loan.Sample
             tvMerchandiser.text = loan.Merchant
-            tvZalogPeriod.text = loan.GuaranteePeriod
+            tvZalogPeriod.text = loan.getFormattedLoanDate()
+            tvGuaranteePeriod.text = loan.getFormattedGuaranteePreiod()
             tvSum.text = loan.PayAmount.toString()
             tvGivenSum.text = loan.HandAmount.toString()
             tvName.text = loan.Name

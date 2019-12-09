@@ -11,6 +11,7 @@ import androidx.databinding.DataBindingUtil
 import kotlinx.android.synthetic.main.fragment_gold.*
 
 import kz.astralombard.R
+import kz.astralombard.base.hideKeyboard
 import kz.astralombard.base.ui.BaseFragment
 import kz.astralombard.databinding.FragmentGoldBinding
 import kz.astralombard.home.menu.calculator.CalculatorViewModel
@@ -41,7 +42,6 @@ class GoldFragment : BaseFragment() {
         bindAdapter(spinner_period, R.array.period_array)
         bindAdapter(spinner_sample, R.array.sample_array)
         bindAdapter(spinner_weight, R.array.weight_array)
-
         initListeners()
     }
 

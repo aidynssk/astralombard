@@ -1,17 +1,14 @@
 package kz.astralombard.base.ui
 
 import android.content.Context
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
+import androidx.recyclerview.widget.RecyclerView
 import kz.astralombard.R
 import kz.astralombard.databinding.ItemNewsBinding
-
-
-import java.util.ArrayList
 
 /**
  * Created by wokrey@gmail.com on 7/13/19.

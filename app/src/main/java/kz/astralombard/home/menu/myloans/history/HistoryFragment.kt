@@ -1,6 +1,7 @@
 package kz.astralombard.home.menu.myloans.history
 
 
+import android.content.Intent
 import androidx.databinding.DataBindingUtil
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,6 +13,7 @@ import kz.astralombard.R
 import kz.astralombard.base.ui.BaseFragment
 import kz.astralombard.base.ui.RecyclerBindingAdapter
 import kz.astralombard.databinding.FragmentHistoryBinding
+import kz.astralombard.home.menu.myloans.OpenLoansDetailsActivity
 import kz.astralombard.home.menu.myloans.data.Item
 import kz.astralombard.home.menu.myloans.presentation.MyLoansViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
@@ -63,7 +65,10 @@ class HistoryFragment : BaseFragment(), RecyclerBindingAdapter.OnItemClickListen
     }
 
     override fun onItemClick(position: Int, item: Item) {
-
+        val detailsIntent = Intent(context, OpenLoansDetailsActivity::class.java).apply {
+            putExtra(OpenLoansDetailsActivity.LOAN_DETAILS, item)
+        }
+        context?.startActivity(detailsIntent)
     }
 
     private fun initObservers(){
