@@ -25,7 +25,11 @@ interface HomeRepository {
 
     fun getToken(): String
 
-    suspend fun getUsername(): String
-    suspend fun getIIN(): String
+    fun getUsername(): String
+    fun getIIN(): String
+    fun getPin(): String?
+    fun clearPin()
+    fun saveLang(lang: String)
+    fun getLang(): String
 
 }

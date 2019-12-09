@@ -40,6 +40,11 @@ open class BaseFragment :
     fun showErrorAlert(message: String? = null, ok: (() -> Unit)? = null)
             = (requireActivity() as BaseActivity).showErrorAlert(message, ok)
 
+    fun showAlert(title: String? = null, message: String? = null, ok: (() -> Unit)? = null)
+            = (requireActivity() as BaseActivity).showAlert(title, message, ok)
+
+    fun onBackPressed() = activity?.onBackPressed()
+
     override fun addFragment(fragment: Fragment) = navigator.addFragment(fragment)
     override fun replaceFragment(fragment: Fragment) = navigator.replaceFragment(fragment)
     override fun popFragment() = navigator.popFragment()

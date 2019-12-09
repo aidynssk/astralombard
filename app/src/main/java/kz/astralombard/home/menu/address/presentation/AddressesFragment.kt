@@ -187,8 +187,8 @@ class AddressesFragment
             .addOnSuccessListener { location ->
                 this.location = location
                 viewModel.getAddresses(
-                    lat = location.latitude.toString(),
-                    long = location.longitude.toString(),
+                    lat = location?.latitude?.toString() ?: Constants.DEFAULT_ALMATY_LAT,
+                    long = location?.longitude?.toString() ?: Constants.DEFAULT_ALMATY_LONG,
                     id = chosenCity?.id?.toString() ?: "1"
                 )
             }

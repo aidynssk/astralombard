@@ -23,4 +23,8 @@ data class Point(
     @SerializedName("close_time")
     val closeTime: String,
     val city: String
-)
+){
+
+    var workTime: String? = null
+    get() = openTime.substring(0, 5) + " - " + closeTime.substring(0, 5)
+}

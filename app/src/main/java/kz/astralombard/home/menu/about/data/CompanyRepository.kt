@@ -10,7 +10,7 @@ import kz.astralombard.base.data.Response
  */
 
 interface ICompanyRepository{
-    suspend fun leaveFeedback(request: FeedbackRequest): Response<Any>
+    suspend fun leaveFeedback(request: FeedbackRequest): Response<*>
     suspend fun getAboutCompanyText(): Response<AboutCompanyResponse>
     suspend fun getNews(): Response<List<News>>
 }

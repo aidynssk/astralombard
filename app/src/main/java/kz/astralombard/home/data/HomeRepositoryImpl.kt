@@ -2,6 +2,7 @@ package kz.astralombard.home.data
 
 import android.content.SharedPreferences
 import kz.astralombard.base.Constants
+import kz.astralombard.base.RUSSIAN_VALUE
 import kz.astralombard.base.data.ApiService
 import kz.astralombard.base.data.BaseRepository
 import kz.astralombard.base.data.Response
@@ -40,7 +41,17 @@ class HomeRepositoryImpl(
 
     override fun getToken() = pref.getString(SharedPrefKeys.USER_TOKEN, Constants.DEFAULT_STRING)!!
 
-    override suspend fun getIIN() = pref.getString(SharedPrefKeys.USER_IIN, Constants.DEFAULT_STRING)!!
+    override fun getIIN() = pref.getString(SharedPrefKeys.USER_IIN, Constants.DEFAULT_STRING)!!
 
-    override suspend fun getUsername() = pref.getString(SharedPrefKeys.USER_USERNAME, Constants.DEFAULT_STRING)!!
+    override fun getUsername() = pref.getString(SharedPrefKeys.USER_USERNAME, Constants.DEFAULT_STRING)!!
+
+    override fun getPin(): String? = pref.getString(SharedPrefKeys.SAVED_PIN_CODE, null)
+
+    override fun clearPin() = pref.edit().remove(SharedPrefKeys.SAVED_PIN_CODE).apply()
+
+    override fun getLang() = pref.getString(SharedPrefKeys.LANGUAGE, RUSSIAN_VALUE)
+
+    override fun saveLang(lang: String) = pref.edit()
+        .putString(SharedPrefKeys.LANGUAGE, lang)
+        .apply()
 }

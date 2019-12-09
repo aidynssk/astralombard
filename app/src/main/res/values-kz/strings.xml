@@ -21,17 +21,17 @@
     <!--
     My loans
 -->
-    <string name="my_loans_open_loans">ОТКРЫТЫЕ ЗАЙМЫ</string>
-    <string name="my_loans_city">Город</string>
-    <string name="my_loans_days_left">Остаток дней</string>
+    <string name="my_loans_open_loans">АШЫҚ ҚАРЫЗДАР</string>
+    <string name="my_loans_city">Қала</string>
+    <string name="my_loans_days_left">Күн қалдығы</string>
     <string name="my_loans_period_day">Срок залога</string>
     <string name="my_loans_tenge">Тенге</string>
-    <string name="my_loans_sum_to_pay">Сумма к оплате</string>
+    <string name="my_loans_sum_to_pay">Төленетін сома</string>
     <string name="my_loans_pay">Оплатить</string>
     <string name="my_loans_pledge_ticket">Залоговый билет №</string>
     <string name="my_loans_pay_before">Оплатить до</string>
     <string name="my_loans_close_date">Дата закрытия</string>
-    <string name="my_loans_history">ИСТОРИЯ ЗАЙМОВ</string>
+    <string name="my_loans_history">ҚАРЫЗ ТАРИХЫ</string>
     <string name="my_loans_order">ЗАЙМ №</string>
 
     <!--Details-->
@@ -93,8 +93,8 @@
 -->
     <string name="about_news_sales">НОВОСТИ И АКЦИИ</string>
     <string name="about_write_us">НАПИСАТЬ НАМ</string>
-    <string name="about_company_title">О КОМПАНИИ</string>
-    <string name="about_feedback_success_title">Уведомление</string>
+    <string name="about_company_title">КОМПАНИЯ ТУРАЛЫ</string>
+    <string name="about_feedback_success_title">Мекен-жайлары</string>
     <string name="about_feedback_success_message">Ваше сообщение успешно отправлено</string>
     <string name="about_message_topic">Тема сообщения:</string>
     <string name="about_phone">Телефон:</string>
@@ -129,7 +129,7 @@
     <string name="profile_city">Город</string>
     <string name="profile_fio">ФИО</string>
     <string name="profile_IIN">ИИН</string>
-    <string name="profile_birth_date">Дата рождения</string>
+    <string name="profile_birth_date">Туған күні</string>
     <string name="profile_address">Адрес</string>
     <string name="profile_phone">Телефон</string>
     <string name="profile_chose_city">ВЫБРАТЬ ГОРОД</string>

@@ -9,7 +9,10 @@ import androidx.lifecycle.Observer
 import kz.astralombard.R
 import kz.astralombard.base.ui.BaseFragment
 import kz.astralombard.databinding.FragmentCompanyBinding
+import kz.astralombard.ext.hide
+import kz.astralombard.ext.show
 import kz.astralombard.home.menu.about.CompanyViewModel
+import org.koin.android.ext.android.bind
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
@@ -37,6 +40,9 @@ class AboutCompanyFragment: BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initObservers()
+        binding.btnBack.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun initObservers(){
@@ -49,6 +55,13 @@ class AboutCompanyFragment: BaseFragment() {
                 showProgress()
             else
                 hideProgress()
+        })
+
+        viewModel.aboutCompanyLD.observe(viewLifecycleOwner, Observer {
+            if (it.isNullOrBlank())
+                binding.btnBack.hide()
+            else
+                binding.btnBack.show()
         })
     }
 }

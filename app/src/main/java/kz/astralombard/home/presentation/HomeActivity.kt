@@ -8,6 +8,8 @@ import android.view.Menu
 import kotlinx.android.synthetic.main.activity_home.*
 import kz.astralombard.R
 import kz.astralombard.base.ui.BaseActivity
+import kz.astralombard.code.PinManager
+import kz.astralombard.code.SetPinBottomDialog
 import kz.astralombard.home.menu.about.AboutFragment
 import kz.astralombard.home.menu.address.presentation.AddressesFragment
 import kz.astralombard.home.menu.calculator.CalculatorFragment
@@ -77,6 +79,13 @@ class HomeActivity : BaseActivity() {
             supportFragmentManager.findFragmentByTag(ProfileFragment.TAG)?.onDestroy()
             main_navigation.selectedItemId = R.id.nav_calculator
 
+        })
+
+        viewModel.userHasPinLD.observe(this, Observer {
+            if (it)
+                PinManager.showPinReader(supportFragmentManager)
+            else
+                PinManager.showPinSetter(supportFragmentManager)
         })
     }
 

@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import kz.astralombard.R
 import kz.astralombard.base.Navigator
 import kz.astralombard.base.data.AstraException
+import kz.astralombard.code.PinManager
 import retrofit2.HttpException
 import java.io.IOException
 import java.lang.Exception
@@ -24,7 +25,8 @@ abstract class BaseActivity
 
 
     fun showProgress() {
-        progressBar.showDialog()
+        if (!PinManager.isShowing)
+            progressBar.showDialog()
     }
 
     fun hideProgress() {
@@ -63,6 +65,18 @@ abstract class BaseActivity
         AlertDialog.Builder(this)
             .setCancelable(false)
             .setTitle(getString(R.string.error))
+            .setMessage(message ?: getString(R.string.error_general))
+            .setPositiveButton(R.string.ok) { _, _ ->
+                ok?.invoke()
+            }
+            .create()
+            .show()
+    }
+
+    fun showAlert(title: String? = null, message: String? = null, ok: (() -> Unit)? = null) {
+        AlertDialog.Builder(this)
+            .setCancelable(false)
+            .setTitle(title ?: getString(R.string.profile_success_change_code_title))
             .setMessage(message ?: getString(R.string.error_general))
             .setPositiveButton(R.string.ok) { _, _ ->
                 ok?.invoke()

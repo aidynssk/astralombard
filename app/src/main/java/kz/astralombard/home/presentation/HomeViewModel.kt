@@ -8,7 +8,6 @@ import kz.astralombard.base.CoroutineViewModel
 import kz.astralombard.base.DataHolder
 import kz.astralombard.base.data.Response
 import kz.astralombard.home.data.HomeRepository
-import kz.astralombard.home.menu.login.data.SmsRequestModel
 import kz.astralombard.home.menu.myloans.model.MyLoanRequest
 import kz.astralombard.home.menu.profile.model.Profile
 import kz.astralombard.home.model.GetCodeRequestModel
@@ -24,11 +23,15 @@ class HomeViewModel(
     private val smsLD = MutableLiveData<GetCodeResponse>()
     private val userLoggedLD = MutableLiveData<Boolean>()
 
+    private val _userHasPinLD = MutableLiveData<Boolean>()
+    val userHasPinLD: LiveData<Boolean> = _userHasPinLD
+
     private val _profileLD = MutableLiveData<Profile>()
     val profileLD: LiveData<Profile> = _profileLD
 
     init {
         DataHolder.token = repository.getToken()
+        checkPin(!DataHolder.token.isNullOrBlank())
         userLoggedLD.value = !DataHolder.token.isNullOrBlank()
     }
 
@@ -69,6 +72,7 @@ class HomeViewModel(
         _progressBarStatusLD.value = false
         when (response) {
             is Response.Success -> {
+                checkPin(true)
                 userLoggedLD.value = true
                 repository.saveToken(response.result.token)
                 repository.saveUsernameAndIIN(username = phone, iin = iin)
@@ -102,8 +106,19 @@ class HomeViewModel(
 
         fun logoutConfirmed() {
             repository.saveToken(Constants.DEFAULT_STRING)
+            repository.clearPin()
             userLoggedLD.value = false
         }
+
+    fun onLanguageChosen(languageType: String) = repository.saveLang(languageType)
+
+    fun getSavedLang() = repository.getLang()
+
+    private fun checkPin(isLogged: Boolean){
+        if (!isLogged) return
+
+        _userHasPinLD.value = !repository.getPin().isNullOrBlank()
+    }
 
         //getters
         fun getSmsLD(): LiveData<GetCodeResponse> = smsLD

@@ -17,8 +17,8 @@ class CompanyViewModel(
     private val repository: ICompanyRepository
 ) : CoroutineViewModel() {
 
-    private val _feedbackLD = MutableLiveData<FeedbackResponse>()
-    val feedbackLD: LiveData<FeedbackResponse> = _feedbackLD
+    private val _feedbackLD = MutableLiveData<Boolean>()
+    val feedbackLD: LiveData<Boolean> = _feedbackLD
     var subject: String = Constants.DEFAULT_STRING
     var username: String = Constants.DEFAULT_STRING
     var text: String = Constants.DEFAULT_STRING
@@ -70,7 +70,9 @@ class CompanyViewModel(
                 text = text
             )
             when (val response = repository.leaveFeedback(request)) {
-                is Response.Success -> {}
+                is Response.Success -> {
+                    _feedbackLD.value = true
+                }
                 is Response.Error ->
                     _errorLD.value = response.error
             }

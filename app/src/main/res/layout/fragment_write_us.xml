@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:mask="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable
@@ -89,6 +90,7 @@
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/login_et_bg"
                     android:ems="10"
+                    android:maxEms="125"
                     android:inputType="textPersonName"
                     android:padding="8dp"
                     android:text="@={viewModel.subject}"
@@ -106,13 +108,14 @@
                     android:gravity="top|start"
                     android:inputType="textMultiLine"
                     android:padding="4dp"
+                    android:maxEms="256"
                     android:text="@={viewModel.text}"
                     app:layout_constraintBottom_toTopOf="@+id/button"
                     app:layout_constraintEnd_toEndOf="@+id/et_phone"
                     app:layout_constraintStart_toStartOf="@+id/et_phone"
                     app:layout_constraintTop_toBottomOf="@+id/tv_message_text" />
 
-                <androidx.appcompat.widget.AppCompatEditText
+                <br.com.sapereaude.maskedEditText.MaskedEditText
                     android:id="@+id/et_phone"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -120,6 +123,8 @@
                     android:background="@drawable/login_et_bg"
                     android:inputType="phone"
                     android:padding="8dp"
+                    mask:allowed_chars="1234567890"
+                    mask:mask="+7 (###) ###-##-##"
                     android:text="@={viewModel.username}"
                     app:layout_constraintEnd_toEndOf="@+id/et_topic"
                     app:layout_constraintStart_toStartOf="@+id/et_topic"

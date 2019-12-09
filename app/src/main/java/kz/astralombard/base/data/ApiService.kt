@@ -39,7 +39,7 @@ interface ApiService {
     ): List<Point>
 
     @POST("feedback/")
-    suspend fun leaveFeedback(@Body request: FeedbackRequest): Any
+    suspend fun leaveFeedback(@Body request: FeedbackRequest)
 
     @GET("news")
     suspend fun getNews(): List<News>

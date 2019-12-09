@@ -18,7 +18,7 @@ import kz.astralombard.home.menu.myloans.model.Loan
  * It's not wokrey, if the code smells bad. Somebody set me up.
  */
 
-private const val IMAGE_URL_PREFIX = "https://astra-back.herokuapp.com/api"
+private const val IMAGE_URL_PREFIX = "https://astra-back.herokuapp.com"
 object BindingUtils {
     @JvmStatic
     @BindingAdapter("loans")
@@ -53,7 +53,7 @@ object BindingUtils {
 
         Glide.with(view)
             .load(IMAGE_URL_PREFIX + url)
-            .fitCenter()
+            .centerCrop()
             .placeholder(getProgresDrawable(view.context))
             .into(view)
     }

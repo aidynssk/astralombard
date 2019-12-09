@@ -2,7 +2,7 @@
 <resources>
     <dimen name="checkbox_size">20dp</dimen>
     <dimen name="code_size">20dp</dimen>
-    <dimen name="keyboard_digit_size">50dp</dimen>
+    <dimen name="keyboard_digit_size">60dp</dimen>
 
     <dimen name="smallDialogWidth">290dp</dimen>
     <dimen name="smallDialogHeight">310dp</dimen>

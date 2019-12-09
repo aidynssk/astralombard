@@ -65,8 +65,12 @@ class CityFragment : BaseFragment() {
 
     private fun initListeners(){
         binding.btnSave.setOnClickListener {
-            if(binding.spinner.selectedItemPosition >= 0)
+            if(binding.spinner.selectedItemPosition >= 0) {
                 viewModel.saveCity(binding.spinner.selectedItemPosition)
+                showAlert(message = getString(R.string.profile_city_was_saved)){
+                    onBackPressed()
+                }
+            }
         }
     }
 

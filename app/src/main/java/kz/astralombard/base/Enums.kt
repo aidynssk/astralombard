@@ -12,3 +12,6 @@ enum class PermisionStatus(
     ALLOWED(1),
     DENIED(-1)
 }
+
+const val RUSSIAN_VALUE = "ru"
+const val KAZAKH_VALUE = "kz"

@@ -40,7 +40,9 @@ class WriteUsFragment : BaseFragment() {
 
     private fun initObservers(){
         viewModel.feedbackLD.observe(viewLifecycleOwner, Observer {
-
+            showAlert(title = getString(R.string.about_feedback_success_title), message = getString(R.string.about_feedback_success_message)) {
+                onBackPressed()
+            }
         })
 
         viewModel.errorLD.observe(viewLifecycleOwner, Observer {

@@ -3,6 +3,7 @@ package kz.astralombard.home.menu.myloans.data
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 import kz.astralombard.base.Constants
+import kz.astralombard.ext.differenceInDays
 import kz.astralombard.ext.toDate
 import kz.astralombard.ext.toString
 import java.util.*
@@ -24,7 +25,7 @@ data class Item(
     val PaidFor: Boolean,
     val Name: String,
     val Weight: Double,
-    val GramPrice: Double,
+    val GramPrice: String,
     val Period: Int,
     val GuaranteePeriod: String,
     val HandAmount: Int,
@@ -39,4 +40,13 @@ data class Item(
 
     var ClosingDate: String = ""
         get() = field.toDate(Constants.YYYY_DD_MM).toString(Constants.YYYY_DD_MM)
+
+    var leftDays: Int = 0
+    get(){
+        val diff = Date().differenceInDays(ClosingDate.toDate(Constants.YYYY_DD_MM))
+        return if (diff < 0)
+            0
+        else
+            diff
+    }
 }
