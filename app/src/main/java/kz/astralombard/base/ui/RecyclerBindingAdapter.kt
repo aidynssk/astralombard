@@ -9,6 +9,8 @@ import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import kz.astralombard.R
 import kz.astralombard.databinding.ItemNewsBinding
+import kz.astralombard.ext.hide
+import kz.astralombard.ext.show
 
 /**
  * Created by wokrey@gmail.com on 7/13/19.
@@ -35,10 +37,10 @@ class RecyclerBindingAdapter<T>(
             val binding = holder.binding as ItemNewsBinding
             binding.imgArrow.setOnClickListener {
                 if (binding.text.visibility == View.VISIBLE) {
-                    binding.text.visibility = View.GONE
+                    binding.text.hide()
                     binding.imgArrow.setImageResource(R.drawable.spinner_arrow)
                 } else {
-                    binding.text.visibility = View.VISIBLE
+                    binding.text.show()
                     binding.imgArrow.setImageResource(R.drawable.arrow_up)
                 }
             }
@@ -51,14 +53,9 @@ class RecyclerBindingAdapter<T>(
         holder.binding.setVariable(variableId, item)
     }
 
-    override fun getItemViewType(position: Int): Int {
+    override fun getItemViewType(position: Int) = holderLayout
 
-        return holderLayout
-    }
-
-    override fun getItemCount(): Int {
-        return items.size
-    }
+    override fun getItemCount() = items.size
 
     fun setOnItemClickListener(onItemClickListener: OnItemClickListener<T>) {
         this.onItemClickListener = onItemClickListener
@@ -69,11 +66,7 @@ class RecyclerBindingAdapter<T>(
     }
 
     class BindingHolder internal constructor(v: View) : RecyclerView.ViewHolder(v) {
-        val binding: ViewDataBinding?
-
-        init {
-            binding = DataBindingUtil.bind(v)
-        }
+        val binding: ViewDataBinding? = DataBindingUtil.bind(v)
     }
 
     fun setItems(items: List<T>?) {
