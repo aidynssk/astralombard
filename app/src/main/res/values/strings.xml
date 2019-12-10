@@ -133,6 +133,7 @@
     <string name="profile_address">Адрес</string>
     <string name="profile_phone">Телефон</string>
     <string name="profile_chose_city">ВЫБРАТЬ ГОРОД</string>
+    <string name="profile_chose_city_settings">Выбрать город</string>
     <string name="profile_chose_your_city">ВЫБЕРИТЕ ВАШ ГОРОД:</string>
     <string name="profile_city_was_saved">Ваш город успешно изменён</string>
     <string name="profile_save">Сохранить</string>

@@ -16,12 +16,12 @@ import kz.astralombard.ext.show
  * Created by wokrey@gmail.com on 7/13/19.
  * It's not wokrey, if the code smells bad. Somebody set me up.
  */
-class RecyclerBindingAdapter<T>(
+open class RecyclerBindingAdapter<T>(
     private val holderLayout: Int,
     private val variableId: Int,
     private val context: Context
 ) : RecyclerView.Adapter<RecyclerBindingAdapter.BindingHolder>() {
-    private var items: List<T> = ArrayList<T>()
+    protected var bindingItems: List<T> = ArrayList<T>()
     private var onItemClickListener: OnItemClickListener<T>? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BindingHolder {
@@ -31,7 +31,7 @@ class RecyclerBindingAdapter<T>(
     }
 
     override fun onBindViewHolder(holder: BindingHolder, position: Int) {
-        val item = items[position]
+        val item = bindingItems[position]
 
         if (holderLayout == R.layout.item_news) {
             val binding = holder.binding as ItemNewsBinding
@@ -55,7 +55,7 @@ class RecyclerBindingAdapter<T>(
 
     override fun getItemViewType(position: Int) = holderLayout
 
-    override fun getItemCount() = items.size
+    override fun getItemCount() = bindingItems.size
 
     fun setOnItemClickListener(onItemClickListener: OnItemClickListener<T>) {
         this.onItemClickListener = onItemClickListener
@@ -69,9 +69,9 @@ class RecyclerBindingAdapter<T>(
         val binding: ViewDataBinding? = DataBindingUtil.bind(v)
     }
 
-    fun setItems(items: List<T>?) {
+    open fun setItems(items: List<T>?) {
         if (items != null) {
-            this.items = items
+            this.bindingItems = items
         }
         notifyDataSetChanged()
     }

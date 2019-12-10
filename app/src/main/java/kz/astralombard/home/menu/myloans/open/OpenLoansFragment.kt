@@ -1,32 +1,30 @@
 package kz.astralombard.home.menu.myloans.open
 
 
-import android.content.Intent
-import androidx.databinding.DataBindingUtil
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import kz.astralombard.BR
-
 import kz.astralombard.R
 import kz.astralombard.base.ui.BaseFragment
 import kz.astralombard.base.ui.RecyclerBindingAdapter
 import kz.astralombard.databinding.FragmentOpenLoansBinding
-import kz.astralombard.home.menu.myloans.OpenLoansDetailsActivity
-import kz.astralombard.home.menu.myloans.data.Item
+import kz.astralombard.home.menu.myloans.OpenLoansDetailsFragment
+import kz.astralombard.home.menu.myloans.data.MyLoan
 import kz.astralombard.home.menu.myloans.presentation.MyLoansViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 
-class OpenLoansFragment : BaseFragment(), RecyclerBindingAdapter.OnItemClickListener<Item> {
+class OpenLoansFragment : BaseFragment(), RecyclerBindingAdapter.OnItemClickListener<MyLoan> {
 
     private val viewModel: MyLoansViewModel by sharedViewModel()
     companion object{
         fun newInstance() = OpenLoansFragment()
     }
 
-    private var loansAdapter: RecyclerBindingAdapter<Item>? = null
+    private var loansAdapter: RecyclerBindingAdapter<MyLoan>? = null
     private lateinit var binding: FragmentOpenLoansBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,11 +56,10 @@ class OpenLoansFragment : BaseFragment(), RecyclerBindingAdapter.OnItemClickList
         return binding.root
     }
 
-    override fun onItemClick(position: Int, item: Item) {
-        val detailsIntent = Intent(context, OpenLoansDetailsActivity::class.java).apply {
-            putExtra(OpenLoansDetailsActivity.LOAN_DETAILS, item)
+    override fun onItemClick(position: Int, item: MyLoan) {
+        val bundle = Bundle().apply {
+            putParcelable(OpenLoansDetailsFragment.LOAN_DETAILS, item)
         }
-        context?.startActivity(detailsIntent)
+        addFragment(OpenLoansDetailsFragment.newInstance(bundle))
     }
-
 }
