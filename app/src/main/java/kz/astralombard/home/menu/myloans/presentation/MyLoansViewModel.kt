@@ -7,6 +7,7 @@ import kz.astralombard.base.CoroutineViewModel
 import kz.astralombard.base.data.Response
 import kz.astralombard.home.menu.myloans.data.Item
 import kz.astralombard.home.menu.myloans.data.LoansRepository
+import kz.astralombard.home.menu.myloans.data.MyLoan
 import kz.astralombard.home.menu.myloans.model.Loan
 import kz.astralombard.home.menu.myloans.model.MyLoanRequest
 
@@ -24,11 +25,11 @@ class MyLoansViewModel(
         Loan()
     )*/
 
-    private val _openLoans = MutableLiveData<List<Item>>()
-    val openLoans: LiveData<List<Item>> = _openLoans
+    private val _openLoans = MutableLiveData<List<MyLoan>>()
+    val openLoans: LiveData<List<MyLoan>> = _openLoans
 
-    private val _paidLoans = MutableLiveData<List<Item>>()
-    val paidLoans: LiveData<List<Item>> = _paidLoans
+    private val _paidLoans = MutableLiveData<List<MyLoan>>()
+    val paidLoans: LiveData<List<MyLoan>> = _paidLoans
 
     fun getMyLoans(){
         _progressBarStatusLD.value = true
@@ -40,14 +41,9 @@ class MyLoansViewModel(
             val response = repository.getMyLoans(request)
             when(response){
                 is Response.Success ->{
-                    val items = mutableListOf<Item?>().apply {
-                        response.result.forEach {
-                            add(it.Items?.firstOrNull())
-                        }
-                    }.filterNotNull()
-
-                    _openLoans.value = items.filter { !it.PaidFor }
-                    _paidLoans.value = items.filter { it.PaidFor }
+                    val myLoans = response.result
+                    _openLoans.value = myLoans.filter { !it.item!!.PaidFor }
+                    _paidLoans.value = myLoans.filter { it.item!!.PaidFor }
                 }
                 is Response.Error ->{
                     _errorLD.value = response.error

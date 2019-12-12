@@ -112,6 +112,8 @@ class HomeViewModel(
 
     fun onLanguageChosen(languageType: String) = repository.saveLang(languageType)
 
+    fun getUsername() = repository.getUsername()
+
     fun getSavedLang() = repository.getLang()
 
     private fun checkPin(isLogged: Boolean){

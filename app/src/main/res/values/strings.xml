@@ -49,6 +49,8 @@
     <string name="details_merchandiser_name">Имя товароведа</string>
     <string name="details_total_payment_sum">Общая сумма выплаты</string>
     <string name="details_pay">ОПЛАТИТЬ</string>
+    <string name="details_product">Изделие</string>
+    <string name="details_days">дней</string>
 
     <!--
     Calculator
@@ -152,6 +154,8 @@
     <string name="profile_code">КОД ДОСТУПА</string>
     <string name="profile_ru">РУССКИЙ</string>
     <string name="profile_kz">КАЗАХСКИЙ</string>
+    <string name="profile_restart_app_title">Перезапуск приложения</string>
+    <string name="profile_restart_app_text">Для смены языка приложение необходимо перезапустить</string>
     <string name="profile_success_change_code_title">Уведомление</string>
     <string name="profile_success_change_code_text">Код доступа успешно изменен</string>
     <string name="error_confirm_code_text">Введенный код не совпадает. Попробуйте заново</string>
@@ -177,6 +181,7 @@
     <string name="error">Ошибка</string>
     <string name="error_general">Произошла ошибка</string>
     <string name="ok">OK</string>
+    <string name="cancel">ОТМЕНА</string>
 
 
     <string-array name="planets_array">

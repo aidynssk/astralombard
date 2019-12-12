@@ -1,31 +1,28 @@
 package kz.astralombard.home.menu.myloans.history
 
-
-import android.content.Intent
 import androidx.databinding.DataBindingUtil
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
 import kz.astralombard.BR
 import kz.astralombard.R
 import kz.astralombard.base.ui.BaseFragment
 import kz.astralombard.base.ui.RecyclerBindingAdapter
 import kz.astralombard.databinding.FragmentHistoryBinding
-import kz.astralombard.home.menu.myloans.OpenLoansDetailsActivity
-import kz.astralombard.home.menu.myloans.data.Item
+import kz.astralombard.home.menu.myloans.OpenLoansDetailsFragment
+import kz.astralombard.home.menu.myloans.data.MyLoan
 import kz.astralombard.home.menu.myloans.presentation.MyLoansViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
-class HistoryFragment : BaseFragment(), RecyclerBindingAdapter.OnItemClickListener<Item> {
+class HistoryFragment : BaseFragment(), RecyclerBindingAdapter.OnItemClickListener<MyLoan> {
 
     companion object{
         fun newInstance() = HistoryFragment()
     }
     private val viewModel: MyLoansViewModel by sharedViewModel()
 
-    private var loansAdapter: RecyclerBindingAdapter<Item>? = null
+    private var loansAdapter: RecyclerBindingAdapter<MyLoan>? = null
     private lateinit var binding: FragmentHistoryBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,6 +33,7 @@ class HistoryFragment : BaseFragment(), RecyclerBindingAdapter.OnItemClickListen
             context = context!!
         )
         loansAdapter?.setOnItemClickListener(this)
+        viewModel.getMyLoans()
     }
 
 
@@ -50,7 +48,6 @@ class HistoryFragment : BaseFragment(), RecyclerBindingAdapter.OnItemClickListen
             container,
             false
         )
-        initObservers()
         with(binding) {
             rvHistory.adapter = loansAdapter
             lifecycleOwner = viewLifecycleOwner
@@ -59,25 +56,11 @@ class HistoryFragment : BaseFragment(), RecyclerBindingAdapter.OnItemClickListen
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        viewModel.getMyLoans()
-    }
-
-    override fun onItemClick(position: Int, item: Item) {
-        val detailsIntent = Intent(context, OpenLoansDetailsActivity::class.java).apply {
-            putExtra(OpenLoansDetailsActivity.LOAN_DETAILS, item)
+    override fun onItemClick(position: Int, item: MyLoan) {
+        val bundle = Bundle().apply {
+            putParcelable(OpenLoansDetailsFragment.LOAN_DETAILS, item)
         }
-        context?.startActivity(detailsIntent)
-    }
-
-    private fun initObservers(){
-        viewModel.progressBarStatusLD.observe(viewLifecycleOwner, Observer {
-            if (it)
-                showProgress()
-            else
-                hideProgress()
-        })
+        addFragment(OpenLoansDetailsFragment.newInstance(bundle))
     }
 
 }

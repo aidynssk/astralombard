@@ -11,6 +11,8 @@ import com.bumptech.glide.Glide
 import kz.astralombard.base.ui.RecyclerBindingAdapter
 import kz.astralombard.ext.hide
 import kz.astralombard.ext.show
+import kz.astralombard.home.menu.myloans.data.DetailableItem
+import kz.astralombard.home.menu.myloans.details.LoanDetailsAdapter
 import kz.astralombard.home.menu.myloans.model.Loan
 
 /**
@@ -37,9 +39,28 @@ object BindingUtils {
     }
 
     @JvmStatic
+    @BindingAdapter("items")
+    fun <T> RecyclerView.bindItemsList(items: List<T>?) {
+        items ?: return
+        val adapter = adapter as RecyclerBindingAdapter<T>
+        adapter.setItems(items)
+    }
+
+    @JvmStatic
     @BindingAdapter("gone")
     fun gone(view: View, show: Boolean) {
          if (show)
+            view.show()
+        else
+            view.hide()
+
+    }
+
+    @JvmStatic
+    @BindingAdapter("gone")
+    fun gone(view: View, show: LiveData<Boolean?>) {
+        show.value ?: return
+        if (show.value!!)
             view.show()
         else
             view.hide()

@@ -1,121 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/constraintLayout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".home.menu.login.presentation.LoginFragment">
-
-    <Button
-        android:id="@+id/btn_request_code"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingStart="25dp"
-        android:paddingEnd="25dp"
-        android:text="@string/login_request_code"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cl_content" />
+    xmlns:mask="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_content"
-        style="@style/WrapContent"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_marginTop="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <CheckBox
-            android:id="@+id/checkBox"
-            android:layout_width="0dp"
+        <Button
+            android:id="@+id/btn_request_code"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:paddingStart="8dp"
-            android:text="@string/login_user_agreement"
-            android:textSize="16sp"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintEnd_toEndOf="@+id/et_phone"
-            app:layout_constraintStart_toStartOf="@+id/et_phone"
-            app:layout_constraintTop_toBottomOf="@+id/et_phone" />
-
-        <EditText
-            android:id="@+id/et_phone"
-            style="@style/LoginEditText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="@string/login_phone"
-            android:inputType="phone"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:text="+77077971711"
-            app:layout_constraintEnd_toEndOf="@+id/et_iin"
-            app:layout_constraintStart_toStartOf="@+id/et_iin"
-            app:layout_constraintTop_toBottomOf="@+id/et_iin" />
-
-        <EditText
-            android:id="@+id/et_enter_code"
-            style="@style/LoginEditText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:gravity="center"
-            android:hint="@string/login_sms_code"
-            android:inputType="number"
-            android:maxLength="4"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="@+id/tv_enter_code"
-            app:layout_constraintStart_toStartOf="@+id/tv_enter_code"
-            app:layout_constraintTop_toBottomOf="@+id/tv_enter_code" />
-
-        <EditText
-            android:id="@+id/et_iin"
-            style="@style/LoginEditText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="70dp"
-            android:layout_marginEnd="24dp"
-            android:hint="@string/login_iin"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:inputType="number"
-            android:text="610219400877"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
+            android:text="@string/login_request_code"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/img_logo" />
+            app:layout_constraintTop_toBottomOf="@id/cl_content" />
 
-        <TextView
-            android:id="@+id/tv_enter_code"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_content"
+            style="@style/WrapContent"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="70dp"
-            android:layout_marginEnd="24dp"
-            android:hint="@string/login_enter_code"
-            android:padding="10dp"
-            android:textSize="20sp"
-            android:visibility="gone"
+            android:layout_margin="8dp"
+            android:layout_marginTop="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/img_logo" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/img_logo"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/astra_logo" />
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:paddingStart="8dp"
+                android:text="@string/login_user_agreement"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/et_phone"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="@+id/et_phone"
+                app:layout_constraintTop_toBottomOf="@+id/et_phone" />
+
+            <EditText
+                android:id="@+id/et_phone"
+                style="@style/LoginEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/login_phone"
+                android:inputType="phone"
+                app:layout_constraintEnd_toEndOf="@+id/et_iin"
+                app:layout_constraintStart_toStartOf="@+id/et_iin"
+                app:layout_constraintTop_toBottomOf="@+id/et_iin" />
+
+            <!--        android:text="+77077971711"-->
+
+
+            <EditText
+                android:id="@+id/et_enter_code"
+                style="@style/LoginEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:hint="@string/login_sms_code"
+                android:inputType="number"
+                android:maxLength="4"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@+id/tv_enter_code"
+                app:layout_constraintStart_toStartOf="@+id/tv_enter_code"
+                app:layout_constraintTop_toBottomOf="@+id/tv_enter_code">
+
+            </EditText>
+
+            <EditText
+                android:id="@+id/et_iin"
+                style="@style/LoginEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="70dp"
+                android:layout_marginEnd="24dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:hint="@string/login_iin"
+                android:inputType="number"
+                android:maxLength="12"
+                android:text="610219400877"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/img_logo">
+
+            </EditText>
+
+            <TextView
+                android:id="@+id/tv_enter_code"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="70dp"
+                android:layout_marginEnd="24dp"
+                android:hint="@string/login_enter_code"
+                android:padding="10dp"
+                android:textSize="20sp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/img_logo" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_logo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/astra_logo" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

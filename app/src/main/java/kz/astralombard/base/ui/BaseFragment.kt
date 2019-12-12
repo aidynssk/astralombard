@@ -1,13 +1,8 @@
 package kz.astralombard.base.ui
 
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
-import kz.astralombard.R
 import kz.astralombard.base.Navigator
-import kz.astralombard.base.data.AstraException
-import retrofit2.HttpException
-import java.io.IOException
-import java.lang.Exception
+import java.util.*
 
 /**
  * Created by wokrey@gmail.com on 03.06.2019
@@ -18,6 +13,10 @@ open class BaseFragment :
 
     open val navigator: Navigator by lazy {
         activity as Navigator
+    }
+
+    open val baseActivity by lazy {
+        activity as BaseActivity
     }
     open val progressBar: ProgressDialog by lazy {
         ProgressDialog(
@@ -44,6 +43,22 @@ open class BaseFragment :
             = (requireActivity() as BaseActivity).showAlert(title, message, ok)
 
     fun onBackPressed() = activity?.onBackPressed()
+
+    fun setLanguage(language: String) =
+        baseActivity.setLanguage(language)
+
+    fun setLanguage(locale: Locale) =
+        baseActivity.setLanguage(locale)
+
+    fun setDefaultLanguage(language: String) {
+        baseActivity.setDefaultLanguage(language)
+    }
+
+    fun setDefaultLanguage(locale: Locale) {
+        baseActivity.setDefaultLanguage(locale)
+    }
+
+    fun getCurrentLanguage(): Locale = baseActivity.getCurrentLanguage()
 
     override fun addFragment(fragment: Fragment) = navigator.addFragment(fragment)
     override fun replaceFragment(fragment: Fragment) = navigator.replaceFragment(fragment)

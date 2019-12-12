@@ -21,7 +21,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".city.CityActivity"></activity>
         <activity android:name=".intro.IntroActivity" />
-        <activity
+        <!--<activity
             android:name=".home.menu.myloans.OpenLoansDetailsActivity"
             android:label="@string/title_activity_open_loans_details"
             android:parentActivityName=".base.ui.BaseActivity"
@@ -30,7 +30,7 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="kz.astralombard.base.ui.BaseActivity" />
-        </activity>
+        </activity>-->
         <activity android:name=".MainAppActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

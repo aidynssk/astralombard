@@ -1,10 +1,7 @@
 package kz.astralombard.home.menu.profile
 
 
-import android.content.res.Configuration
-import android.os.Build
 import android.os.Bundle
-import android.os.LocaleList
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,14 +15,16 @@ import kz.astralombard.base.RUSSIAN_VALUE
 import kz.astralombard.base.ui.BaseFragment
 import kz.astralombard.databinding.FragmentProfileBinding
 import kz.astralombard.dialogs.LogoutDialog
+import kz.astralombard.ext.hide
+import kz.astralombard.ext.show
 import kz.astralombard.ext.toDate
 import kz.astralombard.ext.toString
 import kz.astralombard.home.menu.address.presentation.AddressViewModel
 import kz.astralombard.home.presentation.HomeViewModel
 import kz.astralombard.models.DialogSize
+import org.koin.android.ext.android.bind
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import java.util.*
 
 class ProfileFragment : BaseFragment() {
 
@@ -34,6 +33,7 @@ class ProfileFragment : BaseFragment() {
     private val addressViewModel: AddressViewModel by viewModel()
 
     private var dialog: AlertDialog? = null
+    private var confirmationDialog: AlertDialog? = null
 
     companion object {
         const val TAG = "ProfileFragment"
@@ -46,7 +46,7 @@ class ProfileFragment : BaseFragment() {
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
         initObservers()
-        defineLanguage()
+        defineChosenLanguage(viewModel.getSavedLang())
         return binding.root
     }
 
@@ -76,31 +76,14 @@ class ProfileFragment : BaseFragment() {
                 .create(DialogSize.SmallFixedWidth)
             dialog?.show()
         }
-        binding.rgLanguage.setOnCheckedChangeListener { group, checkedId ->
-            var languageToLoad = RUSSIAN_VALUE
-            when (checkedId) {
-                R.id.kzLang -> {
-                    viewModel.onLanguageChosen(KAZAKH_VALUE)
-                    languageToLoad = KAZAKH_VALUE
-                }
-                R.id.ruLang -> {
-                    viewModel.onLanguageChosen(RUSSIAN_VALUE)
-                    languageToLoad = RUSSIAN_VALUE
-                }
-            }
+        binding.ruLang.setOnClickListener {
+            viewModel.onLanguageChosen(RUSSIAN_VALUE)
+            showRestartConfirmation(RUSSIAN_VALUE)
+        }
 
-            // your language
-            val locale = Locale(languageToLoad)
-            Locale.setDefault(locale)
-            val config = Configuration()
-            if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M)
-                config.locales = LocaleList(locale)
-            else
-                config.locale = locale
-
-            activity!!.createConfigurationContext(config)
-            activity?.recreate()
-
+        binding.kzLang.setOnClickListener {
+            viewModel.onLanguageChosen(KAZAKH_VALUE)
+            showRestartConfirmation(KAZAKH_VALUE)
         }
     }
 
@@ -112,21 +95,43 @@ class ProfileFragment : BaseFragment() {
             binding.tvIinValue.text = it.iin
             binding.tvBirthdayValue.text =
                 it.BirthDate.toDate(Constants.YYYY_DD_MM).toString(Constants.DD_MM_YYYY) + " г."
+            binding.tvPhoneValue.text = it.Phone
         })
         viewModel.errorLD.observe(viewLifecycleOwner, Observer {
             handleError(it)
         })
         viewModel.progressBarStatusLD.observe(viewLifecycleOwner, Observer {
             if (it)
-                showProgress()
+                binding.progressBar.show()
             else
-                hideProgress()
+                binding.progressBar.hide()
         })
     }
 
-    private fun defineLanguage() = when (viewModel.getSavedLang()) {
-        RUSSIAN_VALUE -> binding.ruLang.performClick()
-        KAZAKH_VALUE -> binding.kzLang.performClick()
+    private fun defineChosenLanguage(lang: String) = when (lang) {
+        RUSSIAN_VALUE -> binding.ruLang.isChecked = true
+        KAZAKH_VALUE -> binding.kzLang.isChecked = true
         else -> {}
+    }
+
+    private fun showRestartConfirmation(lang: String) {
+        confirmationDialog = AlertDialog.Builder(requireContext())
+            .setCancelable(false)
+            .setTitle(getString(R.string.profile_restart_app_title))
+            .setMessage(getString(R.string.profile_restart_app_text))
+            .setPositiveButton(R.string.ok) { _, _ ->
+                onBackPressed()
+                setLanguage(lang)
+            }
+            .setNegativeButton(R.string.cancel){ dialog, which ->
+                dialog?.dismiss()
+                if (lang == RUSSIAN_VALUE)
+                    defineChosenLanguage(KAZAKH_VALUE)
+                else
+                    defineChosenLanguage(RUSSIAN_VALUE)
+            }
+            .create()
+
+        confirmationDialog?.show()
     }
 }

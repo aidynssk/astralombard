@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="index"
+            type="Integer" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@drawable/divider"
+        android:dividerPadding="0dp"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginTop="0dp"
+        android:showDividers="middle|end"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv_product_index"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/LoanDetailsTitle"
+            android:text="@{index +`.` + @string/details_product}" />
+    </LinearLayout>
+</layout>

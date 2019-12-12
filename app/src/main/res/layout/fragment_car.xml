@@ -69,7 +69,8 @@
                     android:inputType="number"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_market_price" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_market_price" >
+                </EditText>
 
                 <TextView
                     android:id="@+id/tv_given_sum"

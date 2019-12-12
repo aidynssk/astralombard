@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <import type="java.util.List"/>
+        <import type="kz.astralombard.home.menu.myloans.data.DetailableItem"/>
         <variable
             name="loan"
-            type="kz.astralombard.home.menu.myloans.data.MyLoan" />
+            type="List&lt;DetailableItem&gt;"/>
     </data>
 
     <ScrollView
@@ -46,10 +47,13 @@
                     android:id="@+id/rv_details"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:items="@{loan.items}"
+                    app:items="@{loan}"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    android:divider="@drawable/divider"
+                    android:dividerPadding="0dp"
+                    android:showDividers="middle|end"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatTextView

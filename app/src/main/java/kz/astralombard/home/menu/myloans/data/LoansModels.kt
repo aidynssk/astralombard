@@ -12,11 +12,22 @@ import java.util.*
  * Created by wokrey@gmail.com on 01.12.2019.
  * It's not wokrey, if the code smells bad. Somebody set me up.
  */
+@Parcelize
 data class MyLoan(
     val Id: String,
     val Number: String,
-    val Items: List<Item>?
-)
+    var Items: List<Item>?
+) : Parcelable {
+    var item: Item? = null
+        get() = Items?.first()
+}
+
+data class DetailsHeaderModel(
+    val index: Int
+) : DetailableItem
+
+//marker
+interface DetailableItem
 
 @Parcelize
 data class Item(
@@ -38,7 +49,7 @@ data class Item(
     val GuaranteePeriod: String
 
 
-) : Parcelable {
+) : Parcelable, DetailableItem {
     fun getFormattedLoanDate(): String =
         if (LoanDate.isNotBlank()) LoanDate.toDate(Constants.TIME_FORMAT).toString(Constants.YYYY_DD_MM)
         else LoanDate
@@ -55,11 +66,11 @@ data class Item(
 
 
     var leftDays: Int = 0
-    get(){
-        val diff = Date().differenceInDays(ClosingDate.toDate(Constants.YYYY_DD_MM))
-        return if (diff < 0)
-            0
-        else
-            diff
-    }
+        get() {
+            val diff = Date().differenceInDays(GuaranteePeriod.toDate(Constants.YYYY_DD_MM))
+            return if (diff < 0)
+                0
+            else
+                diff
+        }
 }

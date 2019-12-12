@@ -160,13 +160,14 @@
                     style="@style/KeyboardDigit"
                     android:layout_width="@dimen/keyboard_digit_size"
                     android:layout_height="@dimen/keyboard_digit_size"
-                    android:padding="8dp"
-                    android:scaleType="centerCrop"
+                    android:padding="12dp"
+                    android:paddingEnd="13dp"
+                    android:scaleType="fitCenter"
                     app:layout_constraintBottom_toBottomOf="@+id/rb_0"
                     app:layout_constraintEnd_toEndOf="@id/rb_9"
                     app:layout_constraintStart_toStartOf="@id/rb_9"
                     app:layout_constraintTop_toTopOf="@+id/rb_0"
-                    app:srcCompat="@drawable/delete" />
+                    app:srcCompat="@drawable/ic_backspace" />
 
                 <androidx.appcompat.widget.AppCompatRadioButton
                     android:id="@+id/rb_2"

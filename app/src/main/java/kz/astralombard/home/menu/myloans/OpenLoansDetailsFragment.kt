@@ -4,17 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kz.astralombard.BR
 import kz.astralombard.R
 import kz.astralombard.base.ui.BaseFragment
-import kz.astralombard.base.ui.RecyclerBindingAdapter
 import kz.astralombard.databinding.FragmentOpenLoansDetailsBinding
-import kz.astralombard.home.menu.myloans.data.Item
+import kz.astralombard.home.menu.myloans.data.DetailableItem
+import kz.astralombard.home.menu.myloans.data.DetailsHeaderModel
 import kz.astralombard.home.menu.myloans.data.MyLoan
+import kz.astralombard.home.menu.myloans.details.LoanDetailsAdapter
 
 class OpenLoansDetailsFragment : BaseFragment() {
 
@@ -29,11 +29,11 @@ class OpenLoansDetailsFragment : BaseFragment() {
         arguments!!.getParcelable<MyLoan>(LOAN_DETAILS)
     }
     private lateinit var binding: FragmentOpenLoansDetailsBinding
-    private lateinit var adapter: RecyclerBindingAdapter<Item>
+    private lateinit var adapter: LoanDetailsAdapter<DetailableItem>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        adapter = RecyclerBindingAdapter(
+        adapter = LoanDetailsAdapter(
             holderLayout = R.layout.item_loan_detail,
             variableId = BR.item,
             context = requireContext()
@@ -54,7 +54,20 @@ class OpenLoansDetailsFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.loan = loan
+        val loanItems = loan.Items
+        val detailItems = emptyList<DetailableItem>().toMutableList().apply {
+            if (loanItems!!.size > 1){
+                loanItems.forEachIndexed { index, item ->
+                    add(DetailsHeaderModel(index+1))
+                    add(item)
+                }
+            } else{
+                addAll(loanItems)
+            }
+
+        }
+
+        binding.loan = detailItems
     }
 
     private fun showLoans(){

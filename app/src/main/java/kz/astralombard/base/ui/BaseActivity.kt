@@ -1,8 +1,14 @@
 package kz.astralombard.base.ui
 
+import android.content.Context
+import android.content.res.Resources
+import android.os.Bundle
+import android.os.PersistableBundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.akexorcist.localizationactivity.core.LocalizationActivityDelegate
+import com.akexorcist.localizationactivity.core.OnLocaleChangedListener
 import kz.astralombard.R
 import kz.astralombard.base.Navigator
 import kz.astralombard.base.data.AstraException
@@ -10,17 +16,61 @@ import kz.astralombard.code.PinManager
 import retrofit2.HttpException
 import java.io.IOException
 import java.lang.Exception
+import java.util.*
 
 abstract class BaseActivity
     : AppCompatActivity(),
-    Navigator {
+    Navigator,
+    OnLocaleChangedListener {
 
+    private val localizationDelegate = LocalizationActivityDelegate(this)
 
     open val progressBar: ProgressDialog by lazy {
         ProgressDialog(
             this,
             this
         )
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
+        localizationDelegate.addOnLocaleChangedListener(this)
+        localizationDelegate.onCreate(savedInstanceState)
+        super.onCreate(savedInstanceState, persistentState)
+    }
+
+    override fun attachBaseContext(newBase: Context?) {
+        super.attachBaseContext(localizationDelegate.attachBaseContext(newBase))
+    }
+
+    override fun getApplicationContext(): Context =
+        localizationDelegate.getApplicationContext(super.getApplicationContext())
+
+    override fun getResources(): Resources = localizationDelegate.getResources(super.getResources())
+
+    fun setLanguage(language: String) {
+        localizationDelegate.setLanguage(this, language)
+    }
+
+    fun setLanguage(locale: Locale) {
+        localizationDelegate.setLanguage(this, locale)
+    }
+
+    fun setDefaultLanguage(language: String) {
+        localizationDelegate.setDefaultLanguage(language)
+    }
+
+    fun setDefaultLanguage(locale: Locale) {
+        localizationDelegate.setDefaultLanguage(locale)
+    }
+
+    fun getCurrentLanguage(): Locale = localizationDelegate.getLanguage(this)
+
+    override fun onBeforeLocaleChanged() {
+
+    }
+
+    override fun onAfterLocaleChanged() {
+
     }
 
 

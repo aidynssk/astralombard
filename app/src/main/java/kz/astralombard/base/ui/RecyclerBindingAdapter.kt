@@ -50,7 +50,7 @@ open class RecyclerBindingAdapter<T>(
             if (onItemClickListener != null)
                 onItemClickListener!!.onItemClick(position, item)
         }
-        holder.binding.setVariable(variableId, item)
+        holder.binding?.setVariable(variableId, item)
     }
 
     override fun getItemViewType(position: Int) = holderLayout
@@ -65,8 +65,8 @@ open class RecyclerBindingAdapter<T>(
         fun onItemClick(position: Int, item: T)
     }
 
-    class BindingHolder internal constructor(v: View) : RecyclerView.ViewHolder(v) {
-        val binding: ViewDataBinding? = DataBindingUtil.bind(v)
+    open class BindingHolder internal constructor(v: View) : RecyclerView.ViewHolder(v) {
+        open val binding: ViewDataBinding? = DataBindingUtil.bind(v)
     }
 
     open fun setItems(items: List<T>?) {
