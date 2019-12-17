@@ -24,14 +24,7 @@ import android.net.Uri
 import android.widget.AdapterView
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.*
-import com.karumi.dexter.Dexter
-import com.karumi.dexter.PermissionToken
-import com.karumi.dexter.listener.PermissionDeniedResponse
-import com.karumi.dexter.listener.PermissionGrantedResponse
-import com.karumi.dexter.listener.PermissionRequest
-import com.karumi.dexter.listener.single.PermissionListener
 import kz.astralombard.base.Constants
-import kz.astralombard.base.PermisionStatus
 import kz.astralombard.home.menu.address.model.City
 import kz.astralombard.home.menu.address.model.Point
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -46,6 +39,7 @@ class AddressesFragment
     private var location: Location? = null
 
     companion object {
+        private const val LOCATION_PERMISSION_REQUEST_CODE = 99
         fun newInstance() = AddressesFragment()
     }
 
@@ -98,10 +92,23 @@ class AddressesFragment
         }
         initObservers()
         viewModel.loadCities()
-        requestLocationPermission()
+        defineLocation()
     }
 
     override fun onItemClick(position: Int, item: Point) {
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        if (requestCode == LOCATION_PERMISSION_REQUEST_CODE && grantResults.size == 1){
+            if (grantResults.first() == PackageManager.PERMISSION_GRANTED){
+                requestLocation()
+            }
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
     private fun initObservers() {
@@ -123,30 +130,12 @@ class AddressesFragment
         })
     }
 
-    private fun requestLocationPermission() {
+    private fun defineLocation() {
         if (checkPermission()) {
             requestLocation()
             return
         }
-        Dexter.withActivity(activity)
-            .withPermission(Manifest.permission.ACCESS_FINE_LOCATION)
-            .withListener(object : PermissionListener {
-                override fun onPermissionGranted(response: PermissionGrantedResponse) {
-                    viewModel.saveLocationPermissionStatus(PermisionStatus.ALLOWED)
-                    requestLocation()
-                }
-
-                override fun onPermissionDenied(response: PermissionDeniedResponse) {
-                    viewModel.saveLocationPermissionStatus(PermisionStatus.DENIED)
-                }
-
-                override fun onPermissionRationaleShouldBeShown(
-                    permission: PermissionRequest,
-                    token: PermissionToken
-                ) {
-//                    token.continuePermissionRequest()
-                }
-            }).check()
+        locationPermissionRequest()
     }
 
     private fun checkPermission() = ActivityCompat.checkSelfPermission(
@@ -172,7 +161,8 @@ class AddressesFragment
             ) = viewModel.onCitySelected(
                 position,
                 location?.latitude?.toString() ?: Constants.DEFAULT_ALMATY_LAT,
-                location?.longitude?.toString() ?: Constants.DEFAULT_ALMATY_LONG
+                location?.longitude?.toString() ?: Constants.DEFAULT_ALMATY_LONG,
+                checkPermission()
             )
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -188,7 +178,8 @@ class AddressesFragment
                 viewModel.getAddresses(
                     lat = location?.latitude?.toString() ?: Constants.DEFAULT_ALMATY_LAT,
                     long = location?.longitude?.toString() ?: Constants.DEFAULT_ALMATY_LONG,
-                    id = chosenCity?.id?.toString() ?: "1"
+                    id = chosenCity?.id?.toString() ?: "1",
+                    showDistance = checkPermission()
                 )
             }
         val locationCallback = object : LocationCallback() {
@@ -206,13 +197,34 @@ class AddressesFragment
         location = newLocation
     }
 
-    private fun createSpinnerAdapter(citiesNames: List<String>): ArrayAdapter<String> {
-        val adapter = ArrayAdapter<String>(
+    private fun createSpinnerAdapter(citiesNames: List<String>): ArrayAdapter<String> =
+        ArrayAdapter(
             requireContext(),
             android.R.layout.simple_spinner_item,
             citiesNames
-        )
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        return adapter
-    }
+        ).apply {
+            setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        }
+
+    /*  public void requestPermissionWithRationale() {
+   if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+           Manifest.permission.READ_EXTERNAL_STORAGE)) {
+       final String message = "Storage permission is needed to show files count";
+       Snackbar.make(view_, message, Snackbar.LENGTH_LONG)
+               .setAction("GRANT", new View.OnClickListener() {
+                   @Override
+                   public void onClick(View v) {
+                       requestReadExtStorage();
+                   }
+               })
+               .show();
+   } else {
+       requestReadExtStorage();
+   }
+   }*/
+
+    private fun locationPermissionRequest() = requestPermissions(
+        arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+        LOCATION_PERMISSION_REQUEST_CODE
+    )
 }

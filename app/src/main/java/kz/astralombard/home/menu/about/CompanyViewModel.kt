@@ -29,10 +29,10 @@ class CompanyViewModel(
     private val _newsLD = MutableLiveData<List<News>>()
     val newsLD: LiveData<List<News>> = _newsLD
 
-    fun getAboutCompany(){
+    fun getAboutCompany(language: String){
         _progressBarStatusLD.value = true
         launch {
-            when(val response = repository.getAboutCompanyText()){
+            when(val response = repository.getAboutCompanyText(language)){
                 is Response.Success ->
                     _aboutCompanyLD.value = response.result.text ?: "kdhkadfvfk"
                 is Response.Error ->

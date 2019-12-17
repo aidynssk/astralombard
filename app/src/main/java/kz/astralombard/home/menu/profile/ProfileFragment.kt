@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import kz.astralombard.R
 import kz.astralombard.base.Constants
+import kz.astralombard.base.DataHolder
 import kz.astralombard.base.KAZAKH_VALUE
 import kz.astralombard.base.RUSSIAN_VALUE
 import kz.astralombard.base.ui.BaseFragment
@@ -120,8 +121,11 @@ class ProfileFragment : BaseFragment() {
             .setTitle(getString(R.string.profile_restart_app_title))
             .setMessage(getString(R.string.profile_restart_app_text))
             .setPositiveButton(R.string.ok) { _, _ ->
-                onBackPressed()
+                DataHolder.languageWasChange = true
+                DataHolder.currentLang = lang
+                fragmentManager?.fragments?.clear()
                 setLanguage(lang)
+//                activity?.recreate()
             }
             .setNegativeButton(R.string.cancel){ dialog, which ->
                 dialog?.dismiss()

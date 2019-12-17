@@ -7,6 +7,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import android.view.Menu
 import kotlinx.android.synthetic.main.activity_home.*
 import kz.astralombard.R
+import kz.astralombard.base.DataHolder
 import kz.astralombard.base.ui.BaseActivity
 import kz.astralombard.code.PinManager
 import kz.astralombard.code.SetPinBottomDialog
@@ -56,6 +57,11 @@ class HomeActivity : BaseActivity() {
             isLogged ?: return@Observer
 
             if (isLogged) {
+                if (!supportFragmentManager.fragments.isNullOrEmpty()) {
+                    supportFragmentManager.beginTransaction()
+                        .remove(supportFragmentManager.fragments.last())
+                        .commit()
+                }
                 main_navigation.menu.findItem(R.id.nav_my_loans).isVisible = true
                 main_navigation.menu.removeItem(R.id.nav_login)
                 main_navigation.menu
@@ -81,6 +87,12 @@ class HomeActivity : BaseActivity() {
         })
 
         viewModel.userHasPinLD.observe(this, Observer {
+            it ?: return@Observer
+            if (DataHolder.languageWasChange) {
+                PinManager.showPinReader(supportFragmentManager)
+                DataHolder.languageWasChange = false
+                return@Observer
+            }
             if (it)
                 PinManager.showPinReader(supportFragmentManager)
             else

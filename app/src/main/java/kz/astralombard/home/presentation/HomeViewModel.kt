@@ -23,8 +23,8 @@ class HomeViewModel(
     private val smsLD = MutableLiveData<GetCodeResponse>()
     private val userLoggedLD = MutableLiveData<Boolean>()
 
-    private val _userHasPinLD = MutableLiveData<Boolean>()
-    val userHasPinLD: LiveData<Boolean> = _userHasPinLD
+    private val _userHasPinLD = MutableLiveData<Boolean?>()
+    val userHasPinLD: LiveData<Boolean?> = _userHasPinLD
 
     private val _profileLD = MutableLiveData<Profile>()
     val profileLD: LiveData<Profile> = _profileLD

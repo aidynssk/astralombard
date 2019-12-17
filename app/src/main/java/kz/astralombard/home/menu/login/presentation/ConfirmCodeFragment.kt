@@ -26,6 +26,13 @@ class ConfirmCodeFragment : BaseFragment() {
     }
     private val viewModel: HomeViewModel by sharedViewModel()
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel.getUserLoggedLD().observe(this, Observer {
+            if (it)
+                onDestroy()
+        })
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

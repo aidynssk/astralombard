@@ -7,16 +7,16 @@
     <string name="intro_desc_1"></string>
     <string name="intro_desc_2"></string>
     <string name="intro_desc_3"></string>
-    <string name="city_tip">Город</string>
+    <string name="city_tip">Қала</string>
 
     <!--Navigation menu-->
-    <string name="my_loans">Мои займы</string>
+    <string name="my_loans">Менің қарызым</string>
     <string name="calculator">Калькулятор</string>
-    <string name="about_company">О компании</string>
-    <string name="addresses">Адреса</string>
+    <string name="about_company">Компания туралы</string>
+    <string name="addresses">Мекен-жайлары</string>
     <string name="profile">Профиль</string>
-    <string name="login">Войти</string>
-    <string name="login_pin">ВОЙТИ</string>
+    <string name="login">Кіру</string>
+    <string name="login_pin">КІРУ</string>
 
     <!--
     My loans
@@ -24,136 +24,140 @@
     <string name="my_loans_open_loans">АШЫҚ ҚАРЫЗДАР</string>
     <string name="my_loans_city">Қала</string>
     <string name="my_loans_days_left">Күн қалдығы</string>
-    <string name="my_loans_period_day">Срок залога</string>
-    <string name="my_loans_tenge">Тенге</string>
+    <string name="my_loans_period_day">Кепіл мерзімі</string>
+    <string name="my_loans_tenge">Теңге</string>
     <string name="my_loans_sum_to_pay">Төленетін сома</string>
-    <string name="my_loans_pay">Оплатить</string>
-    <string name="my_loans_pledge_ticket">Залоговый билет №</string>
+    <string name="my_loans_pay">Төлеу</string>
+    <string name="my_loans_pledge_ticket">Кепіл билеті №</string>
     <string name="my_loans_pay_before">Оплатить до</string>
-    <string name="my_loans_close_date">Дата закрытия</string>
+    <string name="my_loans_close_date">Жабылу күні</string>
     <string name="my_loans_history">ҚАРЫЗ ТАРИХЫ</string>
-    <string name="my_loans_order">ЗАЙМ №</string>
+    <string name="my_loans_order">ҚАРЫЗ №</string>
 
     <!--Details-->
-    <string name="details_name">Наименование</string>
-    <string name="details_sample">Проба</string>
-    <string name="details_item_weight">Вес изделия</string>
-    <string name="details_price_for_1g">Цена за 1 грамм</string>
-    <string name="details_loan_date">Дата займа</string>
-    <string name="details_pledge_period">Срок залога</string>
-    <string name="details_guarantee_period">Гарантийный срок</string>
-    <string name="details_close_date">Дата закрытия</string>
-    <string name="details_given_sum">Сумма на руки</string>
-    <string name="details_sum_to_pay">СУММА К ОПЛАТЕ</string>
+    <string name="details_name">Атауы</string>
+    <string name="details_sample">Үлгі</string>
+    <string name="details_item_weight">Бұйымның салмағы</string>
+    <string name="details_price_for_1g">1 грамм үшін баға</string>
+    <string name="details_loan_date">Қарыз күні</string>
+    <string name="details_pledge_period">Кепіл мерзімі</string>
+    <string name="details_guarantee_period">Кепілдік мерзімі</string>
+    <string name="details_close_date">Жабылу күні</string>
+    <string name="details_given_sum">Қолға берілетін сумма</string>
+    <string name="details_sum_to_pay">ТӨЛЕНЕТІН СОМА</string>
     <string name="details_branch_office">Филиал</string>
-    <string name="details_merchandiser_name">Имя товароведа</string>
-    <string name="details_total_payment_sum">Общая сумма выплаты</string>
-    <string name="details_pay">ОПЛАТИТЬ</string>
-    <string name="details_product">Изделие</string>
-    <string name="details_days">дней</string>
+    <string name="details_merchandiser_name">Тауартанушының аты</string>
+    <string name="details_total_payment_sum">Төлемнің жалпы сомасы</string>
+    <string name="details_pay">ТӨЛЕУ</string>
+    <string name="details_product">Бұйым</string>
+    <string name="details_days">күн</string>
+    <string name="details_percent">Сумма процентов</string>
+    <string name="details_fine">Сумма штрафа</string>
+    <string name="details_total">Общая сумма</string>
+    <string name="details_credit">Сумма на руки</string>
 
     <!--
     Calculator
 -->
     <string name="calculator_choice_of_goods">Выбор товара</string>
     <string name="calculator_title">КАЛЬКУЛЯТОР</string>
-    <string name="calculator_gold">ЗОЛОТО</string>
-    <string name="calculator_car">АВТОМОБИЛЬ</string>
-    <string name="calculator_gr_weight">Вес в граммах</string>
-    <string name="calculator_day_period">Срок в днях</string>
-    <string name="calculator_calculate">Рассчитать стоимость</string>
-    <string name="calculator_given_sum">Сумма на руки</string>
-    <string name="calculator_repayment_sum">Сумма к возврату</string>
+    <string name="calculator_gold">АЛТЫН</string>
+    <string name="calculator_car">АВТОКӨЛІК</string>
+    <string name="calculator_gr_weight">Салмағы грамммен</string>
+    <string name="calculator_day_period">Мерзімі, күндермен</string>
+    <string name="calculator_calculate">Құнын есептеу</string>
+    <string name="calculator_given_sum">Қолға берілетін сумма</string>
+    <string name="calculator_repayment_sum">Қайтарым суммасы</string>
     <string name="calculator_tg">тг.</string>
-    <string name="calculator_gold_notes">Оценка изделия будет варьироваться от просчёта товароведа в филиале</string>
+    <string name="calculator_gold_notes">Өнімнің бағасы филиалдағы сатушының есептеулеріне байланысты өзгереді</string>
     <string name="calculator_car_notes">Оценка транспорта будет варьироваться от просчёта товароведа в филиале</string>
-    <string name="calculator_more">Подробнее</string>
+    <string name="calculator_more">Толығырақ</string>
     <string name="calculator_enter_market_price">Введите рыночную стоимость автомобиля, тг</string>
-    <string name="calculator_with_drive_license">С правом вождения</string>
+    <string name="calculator_with_drive_license">Жүргізу құқығымен</string>
     <string name="calculator_more_gold_title">Правила оценки и приема золотых изделий</string>
     <string name="calculator_more_auto_title">Правила оценки и приема автотранспорта</string>
-    <string name="calculator_more_gold_text">Оценка залогового имущества производится индивидуально товароведом – оценщиком - кассиром, в зависимости от ювелирного изделия. При оценке учитывается:\n
-- состояние изделия (лом, пайка, отсутствие камней)\n
-- наличие пробы (именника, пробирного клейма)\n
-- изделия кустарного производства\n
-- изделия бисмарк (до 20 гр, и выше)\n
-- изделия турецкого производства\n
-- изделия низкопробного качества\n\nОкончательную сумму выдачи определяет оценщик - кассир на месте, в зависимости от состояния изделия, основываясь приказа “О расценках на принимаемые ювелирные изделия” и от должностных инструкций товароведа – оценщика.</string>
-    <string name="calculator_more_auto_text">К месту прибытия Вашего авто, Эксперт-оценщик производит оценку.\nМинимальный и максимальный период погашения долга от 30 дней до 1 года.\n
-        - Максимальная годовая процентная ставка 90% годовых\n\nПрием авто осуществляется, в двух формах.\n\n<b>С правом вождения</b>\n\nНаше преимущество – мы выдаем автокредит под залог автомобиля с правом управления, то есть Ваша машина остается у Вас!\n\n
+    <string name="calculator_more_gold_text">Кепіл мүлкін бағалауды зергерлік бұйымға байланысты жеке тауар жүргізуші – бағалаушы - кассир жүргізеді. Бағалау кезінде ескеріледі:\n
+- бұйымның жағдайы (сынық, дәнекерлеу, тастардың болмауы)\n
+- сынаманың болуы (аты, сыналатын таңба)\n
+- қолдан жасалған бұйымдар\n
+- бисмарк бұйымдары (20 гр дейін және одан жоғары)\n
+- түрік өндірісінің бұйымдары\n
+- сапасы төмен бұйымдар\n\nБерудің соңғы сомасын "қабылданатын зергерлік бұйымдарға баға беру туралы" бұйрықты және бағалаушы - тауартанушы лауазымдық нұсқаулықтарын негізге ала отырып, бұйымның жай – күйіне байланысты сол жердегі бағалаушы-кассир анықтайды.</string>
+    <string name="calculator_more_auto_text">Сіздің көлігіңіз келген жерге бағалаушы сараптама жасайды.\nҚарызды өтеудің минималды және максималды мерзімі - 30 күннен 1 жылға дейін.\n
+        - Максимальная годовая процентная ставка 90% годовых\n\nАвто қабылдау екі түрде жүзеге асырылады.\n\n<b>Көлік жүргізу құқығымен</b>\n\nБіздің артықшылығымыз - көлік жүргізу құқығымен автомобильмен кепілдендірілген автокредит беру, яғни сіздің көлігіңіз өзіңізде қалады!\n\n
 
-- 7,5 % в месяц (0,25 в день)\n
-        - машины год выпуска от 2014 года\n\n<b>Без права вождения</b>\n\nАвтомобиль остается в нашем закрытом охраняемом паркинге, где он в целости и сохранности.\nПри просрочке начисляется процент 0,5 в день. Оценка автомобиля проводится также индивидуально, при наличии фотографии.\n\n
+- айына 7,5% (күніне 0,25)\n
+        - 2014 жылдан бастап шығарылған автомобильдер\n\n<b>Жүргізуші куәлігі жоқ жагдайда</b>\n\nКөлік қауіпсіз және қауіпсіз жерде жабық күзетілетін автотұрақта қалады.\nКешіктірілген жағдайда күніне 0,5 пайыз алынады. Көлікті бағалау жеке-жеке, фотосуретпен жүргізіледі.\n\n
 
-- 6,5 % в месяц (0,216 в день)\n
-- машины, год выпуска от 2014 года</string>
+- айына 6,5% (күніне 0,126)\n
+- автомобильдер, шығарылған жылы - 2014 ж</string>
 
-    <string name="calculator_more_auto_with_right">С правом вождения</string>
-    <string name="calculator_more_auto_without_right">Без права вождения</string>
+    <string name="calculator_more_auto_with_right">Жүргізу құқығымен</string>
+    <string name="calculator_more_auto_without_right">Жүргізуші куәлігі жоқ жагдайда</string>
     <!--
     About
 -->
-    <string name="about_news_sales">НОВОСТИ И АКЦИИ</string>
-    <string name="about_write_us">НАПИСАТЬ НАМ</string>
+    <string name="about_news_sales">ЖАҢАЛЫҚТАР МЕН АКЦИЯЛАР</string>
+    <string name="about_write_us">БІЗГЕ ЖАЗУ</string>
     <string name="about_company_title">КОМПАНИЯ ТУРАЛЫ</string>
     <string name="about_feedback_success_title">Мекен-жайлары</string>
     <string name="about_feedback_success_message">Ваше сообщение успешно отправлено</string>
-    <string name="about_message_topic">Тема сообщения:</string>
+    <string name="about_message_topic">Хабарлама тақырыбы:</string>
     <string name="about_phone">Телефон:</string>
-    <string name="about_message_text">Текст сообщения:</string>
-    <string name="about_send">ОТПРАВИТЬ</string>
+    <string name="about_message_text">Хабарлама мәтіні:</string>
+    <string name="about_send">ЖІБЕРУ</string>
 
     <!--
     Addresses
 -->
-    <string name="addresses_city">Город</string>
+    <string name="addresses_city">Қала</string>
     <string name="addresses_of_branches">Адреса филиалов</string>
-    <string name="addresses_choose_city">Выберите город</string>
+    <string name="addresses_choose_city">Қаланы таңдаңыз</string>
     <string name="addresses_phones">Телефон</string>
-    <string name="addresses_work_time">Время работы</string>
-    <string name="addresses_address">Адрес</string>
-    <string name="addresses_call_us">Позвоните нам. Звонок бесплатный</string>
-    <string name="addresses_have_questions">Есть вопросы?</string>
+    <string name="addresses_work_time">Жұмыс уақыты</string>
+    <string name="addresses_address">Мекен жайы</string>
+    <string name="addresses_call_us">Бізге қоңырау шалыңыз. Қоңырау тегін</string>
+    <string name="addresses_have_questions">Сұрақ бар ма?</string>
 
     <!--
     Login
 -->
-    <string name="login_iin">ИИН</string>
+    <string name="login_iin">ЖСН</string>
     <string name="login_phone">Телефон</string>
-    <string name="login_request_code">Запросить код</string>
+    <string name="login_request_code">Кодты сұрау</string>
     <string name="login_enter_code">Введите код</string>
-    <string name="login_sms_code">СМС код</string>
+    <string name="login_sms_code">СМС коды</string>
     <string name="login_user_agreement">Я прочитал и согласен с условиями <b>пользовательского соглашения</b></string>
 
     <!--
     Profile
 -->
-    <string name="profile_city">Город</string>
+    <string name="profile_city">Қала</string>
     <string name="profile_fio">ФИО</string>
-    <string name="profile_IIN">ИИН</string>
+    <string name="profile_IIN">ЖСН</string>
     <string name="profile_birth_date">Туған күні</string>
-    <string name="profile_address">Адрес</string>
+    <string name="profile_address">Мекен жайы</string>
     <string name="profile_phone">Телефон</string>
-    <string name="profile_chose_city">ВЫБРАТЬ ГОРОД</string>
-    <string name="profile_chose_city_settings">Выбрать город</string>
-    <string name="profile_chose_your_city">ВЫБЕРИТЕ ВАШ ГОРОД:</string>
+    <string name="profile_chose_city">ҚАЛАНЫ ТАҢДАУ</string>
+    <string name="profile_chose_city_settings">Қаланы таңдау</string>
+    <string name="profile_chose_your_city">ӨЗ ҚАЛАҢЫЗДЫ ТАҢДАҢЫЗ:</string>
     <string name="profile_city_was_saved">Ваш город успешно изменён</string>
-    <string name="profile_save">Сохранить</string>
-    <string name="profile_confirm">Подтвердить</string>
-    <string name="profile_change_pin">Изменить код доступа</string>
-    <string name="profile_logout">Выйти с аккаунта</string>
-    <string name="profile_ask_logout">ВЫ УВЕРЕНЫ, ЧТО\nХОТИТЕ ВЫЙТИ ИЗ АККАУНТА</string>
-    <string name="profile_no">НЕТ</string>
-    <string name="profile_yes">ДА</string>
-    <string name="profile_enter_new_pin">Введите новый код доступа\nдля входа в приложение</string>
+    <string name="profile_save">Сақтау</string>
+    <string name="profile_confirm">Растау</string>
+    <string name="profile_change_pin">Кіру кодын өзгерту</string>
+    <string name="profile_logout">Тіркелгіден шығу</string>
+    <string name="profile_ask_logout">ШЫНЫМЕН ШЫҚҚЫҢЫЗ\N КЕЛЕ МЕ?</string>
+    <string name="profile_no">ЖОҚ</string>
+    <string name="profile_yes">ИӘ</string>
+    <string name="profile_enter_new_pin">Қолданбаға кіру үшін\n жаңа кіру кодын енгізіңіз</string>
     <string name="profile_set_new_pin">УСТАНОВИТЕ КОД ДОСТУПА\nДЛЯ БЫСТРОГО ВХОДА</string>
     <string name="profile_confirm_new_pin">ПОВТОРИТЕ КОД ДОСТУПА\nДЛЯ ПОДТВЕРЖДЕНИЯ</string>
-    <string name="profile_request_pin">Введите новый код доступа для входа в приложение</string>
+    <string name="profile_request_pin">Қолданбаға кіру үшін жаңа кіру кодын енгізіңіз</string>
     <string name="profile_enter_pin">ВВЕДИТЕ КОД ДОСТУПА</string>
     <string name="profile_forgot_pin">Забыли код доступа</string>
     <string name="profile_code">КОД ДОСТУПА</string>
-    <string name="profile_ru">РУССКИЙ</string>
-    <string name="profile_kz">КАЗАХСКИЙ</string>
+    <string name="profile_ru">ОРЫСША</string>
+    <string name="profile_kz">ҚАЗАҚША</string>
     <string name="profile_restart_app_title">Перезапуск приложения</string>
     <string name="profile_restart_app_text">Для смены языка приложение необходимо перезапустить</string>
     <string name="profile_success_change_code_title">Уведомление</string>
@@ -171,11 +175,11 @@
 
     <string name="title_activity_open_loans_details">OpenLoansDetailsFragment</string>
 
-    <string name="skip">ПРОПУСТИТЬ</string>
+    <string name="skip">ӨТКІЗУ</string>
 
-    <string name="further">ДАЛЕЕ</string>
+    <string name="further">КЕЛЕСІ</string>
 
-    <string name="change_city_later">позже в настройках Вы можете изменить свой город</string>
+    <string name="change_city_later">кейінірек параметрлерде қалаңызды өзгерте аласыз</string>
     <string name="enter_pin">ВВЕДИТЕ КОД</string>
     <string name="loading">Подождите</string>
     <string name="error">Ошибка</string>
@@ -223,11 +227,11 @@
         <item>10</item>
     </string-array>
     <string-array name="period_array">
-        <item>5 дней</item>
-        <item>10 дней</item>
-        <item>15 дней</item>
-        <item>20 дней</item>
-        <item>25 дней</item>
-        <item>30 дней</item>
+        <item>5 күн</item>
+        <item>10 күн</item>
+        <item>15 күн</item>
+        <item>20 күн</item>
+        <item>25 күн</item>
+        <item>30 күн</item>
     </string-array>
 </resources>

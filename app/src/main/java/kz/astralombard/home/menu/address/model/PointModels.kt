@@ -22,7 +22,8 @@ data class Point(
     val openTime: String,
     @SerializedName("close_time")
     val closeTime: String,
-    val city: String
+    val city: String,
+    var showDistance: Boolean = true
 ){
 
     var workTime: String? = null

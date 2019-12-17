@@ -74,3 +74,26 @@ data class Item(
                 diff
         }
 }
+//Prolongate
+data class ProlongateResponse(
+    val Id: String,
+    val Number: String,
+    val Calculation: Calculation
+)
+
+data class Calculation(
+    val CreditAmount: String,
+    val PercentAmount: String,
+    val PercentDays: String,
+    val PercentDaysAmount: String,
+    val FineAmount: String,
+    val FineDays: String,
+    val FineDaysAmount: String,
+    val TotalAmount: String
+)
+
+data class ProlongateRequest(
+    val number: String,
+    val username: String,
+    val password: String
+)

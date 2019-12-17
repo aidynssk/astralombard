@@ -1,12 +1,14 @@
 package kz.astralombard.base
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.cancelChildren
+import kz.astralombard.base.data.LiveEvent
 import kotlin.coroutines.CoroutineContext
 
 abstract class CoroutineViewModel(
@@ -17,7 +19,7 @@ abstract class CoroutineViewModel(
     protected val _progressBarStatusLD = MutableLiveData<Boolean>()
     val progressBarStatusLD: LiveData<Boolean> = _progressBarStatusLD
 
-    protected val _errorLD = MutableLiveData<Exception>()
+    protected val _errorLD = LiveEvent<Exception>()
     val errorLD: LiveData<Exception> = _errorLD
     private val job = Job()
 

@@ -57,7 +57,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/appCompatTextView"
+                    android:id="@+id/tv_sumTitle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -79,10 +79,68 @@
                     android:text="100 000 тг"
                     android:textColor="@android:color/holo_red_dark"
                     android:textSize="15sp"
-                    app:layout_constraintBottom_toBottomOf="@id/appCompatTextView"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_sumTitle"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/appCompatTextView"
-                    app:layout_constraintTop_toTopOf="@id/appCompatTextView" />
+                    app:layout_constraintStart_toEndOf="@+id/tv_sumTitle"
+                    app:layout_constraintTop_toTopOf="@id/tv_sumTitle" />
+
+                <TextView
+                    android:id="@+id/tv_creditAmount"
+                    app:layout_constraintStart_toStartOf="@id/tv_sumTitle"
+                    app:layout_constraintEnd_toEndOf="@id/tv_sumTitle"
+                    app:layout_constraintTop_toBottomOf="@id/tv_sumTitle"
+                    android:layout_width="0dp"
+                    android:text="@string/details_credit"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tv_creditAmountValue"
+                    app:layout_constraintStart_toStartOf="@id/tv_sum"
+                    app:layout_constraintEnd_toEndOf="@id/tv_sum"
+                    app:layout_constraintTop_toBottomOf="@id/tv_sum"
+                    android:layout_width="0dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tv_percentAmount"
+                    app:layout_constraintStart_toStartOf="@id/tv_sumTitle"
+                    app:layout_constraintEnd_toEndOf="@id/tv_sumTitle"
+                    app:layout_constraintTop_toBottomOf="@id/tv_creditAmount"
+                    android:layout_width="0dp"
+                    android:text="@string/details_percent"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tv_percentAmountValue"
+                    app:layout_constraintStart_toStartOf="@id/tv_creditAmountValue"
+                    app:layout_constraintEnd_toEndOf="@id/tv_creditAmountValue"
+                    app:layout_constraintTop_toBottomOf="@id/tv_creditAmountValue"
+                    android:layout_width="0dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tv_fineAmount"
+                    app:layout_constraintStart_toStartOf="@id/tv_percentAmount"
+                    app:layout_constraintEnd_toEndOf="@id/tv_percentAmount"
+                    app:layout_constraintTop_toBottomOf="@id/tv_percentAmount"
+                    android:layout_width="0dp"
+                    android:text="@string/details_fine"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tv_fineAmountValue"
+                    app:layout_constraintStart_toStartOf="@id/tv_percentAmountValue"
+                    app:layout_constraintEnd_toEndOf="@id/tv_percentAmountValue"
+                    app:layout_constraintTop_toBottomOf="@id/tv_percentAmountValue"
+                    android:layout_width="0dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"/>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.appcompat.widget.AppCompatButton

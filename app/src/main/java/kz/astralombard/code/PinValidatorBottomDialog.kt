@@ -34,7 +34,7 @@ class PinValidatorBottomDialog : BasePinFragmentDialog(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.dialog_pin_validator, container, false)
-
+        isCancelable = false
         return binding.root
     }
 

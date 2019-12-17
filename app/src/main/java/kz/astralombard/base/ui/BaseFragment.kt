@@ -1,7 +1,11 @@
 package kz.astralombard.base.ui
 
+import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import kz.astralombard.base.Navigator
+import kz.astralombard.ext.hideKeyboard
 import java.util.*
 
 /**

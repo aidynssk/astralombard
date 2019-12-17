@@ -7,17 +7,21 @@ import android.os.PersistableBundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.akexorcist.localizationactivity.core.LocalizationActivityDelegate
 import com.akexorcist.localizationactivity.core.OnLocaleChangedListener
 import kz.astralombard.R
+import kz.astralombard.base.DataHolder
 import kz.astralombard.base.Navigator
 import kz.astralombard.base.data.AstraException
 import kz.astralombard.code.PinManager
+import org.json.JSONObject
 import retrofit2.HttpException
 import java.io.IOException
 import java.lang.Exception
 import java.util.*
 
+private const val ERROR_DETAIL_KEY = "error"
 abstract class BaseActivity
     : AppCompatActivity(),
     Navigator,
@@ -36,6 +40,7 @@ abstract class BaseActivity
         localizationDelegate.addOnLocaleChangedListener(this)
         localizationDelegate.onCreate(savedInstanceState)
         super.onCreate(savedInstanceState, persistentState)
+        DataHolder.currentLang = getCurrentLanguage().language
     }
 
     override fun attachBaseContext(newBase: Context?) {
@@ -102,13 +107,12 @@ abstract class BaseActivity
 
     fun handleError(exception: Exception, ok: (() -> Unit)? = null) {
         val message = when (exception) {
-            is HttpException -> exception.response()?.errorBody()?.string()
+            is HttpException -> getServerErrorMessage(exception)
             is IOException -> "Возможно, проблемы с соединением"
             is AstraException -> exception.message
             else -> null
         }
         showErrorAlert(message, ok)
-
     }
 
     fun showErrorAlert(message: String? = null, ok: (() -> Unit)? = null) {
@@ -133,5 +137,15 @@ abstract class BaseActivity
             }
             .create()
             .show()
+    }
+
+    private fun getServerErrorMessage(error: HttpException): String? {
+        error.response()?.errorBody()?.string()?.let {
+            val errorObj = JSONObject(it)
+            if (errorObj.has(ERROR_DETAIL_KEY)) {
+                return errorObj.getJSONArray(ERROR_DETAIL_KEY).getString(0)
+            }
+        }
+        return null
     }
 }

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="address"
             type="kz.astralombard.home.menu.address.model.Point" />
@@ -20,9 +21,9 @@
             android:layout_width="395dp"
             android:layout_height="1dp"
             android:background="?android:attr/listDivider"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/tv_address"
@@ -44,8 +45,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="@{address.address}"
             android:layout_marginEnd="4dp"
+            android:text="@{address.address}"
             app:layout_constraintEnd_toStartOf="@+id/tv_phones"
             app:layout_constraintStart_toStartOf="@+id/tv_address"
             app:layout_constraintTop_toBottomOf="@+id/tv_address" />
@@ -66,11 +67,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            app:layout_constraintBottom_toTopOf="@id/divider"
             android:layout_marginBottom="8dp"
+            android:text="@{address.workTime}"
+            app:layout_constraintBottom_toTopOf="@id/divider"
             app:layout_constraintStart_toStartOf="@+id/tv_work_time"
-            app:layout_constraintTop_toBottomOf="@+id/tv_work_time"
-            android:text="@{address.workTime}" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_work_time" />
 
         <TextView
             android:id="@+id/tv_phone"
@@ -87,13 +88,14 @@
         <TextView
             android:id="@+id/tv_distance"
             style="@style/AddressValue"
+            app:invis="@{address.showDistance}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@{address.distance + `м`}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/tv_phone"
-            app:layout_constraintTop_toTopOf="@id/tv_phone"
-            android:text="@{address.distance + `м`}" />
+            app:layout_constraintTop_toTopOf="@id/tv_phone" />
 
         <TextView
             android:id="@+id/tv_phones"
@@ -101,9 +103,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:text="@{address.phone1 + `\n` + address.phone2 + `\n` + address.phone3}"
             app:layout_constraintStart_toStartOf="@+id/tv_phone"
-            app:layout_constraintTop_toBottomOf="@+id/tv_phone"
-            android:text="@{address.phone1 + `\n` + address.phone2 + `\n` + address.phone3}" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_phone" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

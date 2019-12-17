@@ -34,14 +34,17 @@ class SetPinBottomDialog : BasePinFragmentDialog(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.dialog_set_pin, container, false)
+        isCancelable = false
+        initListeners()
 
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        initListeners()
+    override fun onStart() {
+        super.onStart()
+        codeStack.forEachIndexed { index, s ->
+            setDigitsBackground(true, index)
+        }
     }
 
     override fun onClick(v: View?) {
@@ -49,7 +52,7 @@ class SetPinBottomDialog : BasePinFragmentDialog(), View.OnClickListener {
 
         if (v.id == R.id.rb_delete && codeStack.isNotEmpty()) {
             codeStack.pop()
-            setDigitsBackground(false)
+            setDigitsBackground(false, codeStack.size)
             return
         }
         if (codeStack.size == 4) return
@@ -67,7 +70,7 @@ class SetPinBottomDialog : BasePinFragmentDialog(), View.OnClickListener {
             R.id.rb_9 -> "9"
             else -> return
         }
-        setDigitsBackground(true)
+        setDigitsBackground(true, codeStack.size)
         codeStack.push(pressedDigit)
     }
 
@@ -130,7 +133,7 @@ class SetPinBottomDialog : BasePinFragmentDialog(), View.OnClickListener {
         binding.fourthDigit.isPressed = false
     }
 
-    private fun setDigitsBackground(makeFilled: Boolean) = when (codeStack.size) {
+    private fun setDigitsBackground(makeFilled: Boolean, btnNum: Int) = when (btnNum) {
         0 -> binding.firstDigit.isPressed = makeFilled
         1 -> binding.secondDigit.isPressed = makeFilled
         2 -> binding.thirdDigit.isPressed = makeFilled

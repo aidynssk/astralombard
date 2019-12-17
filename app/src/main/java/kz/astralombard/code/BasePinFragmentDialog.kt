@@ -11,7 +11,7 @@ import kz.astralombard.R
  * Created by wokrey@gmail.com on 08.12.2019.
  * It's not wokrey, if the code smells bad. Somebody set me up.
  */
-open class BasePinFragmentDialog: DialogFragment() {
+ open class BasePinFragmentDialog: DialogFragment() {
 
     override fun onStart() {
         super.onStart()
@@ -30,10 +30,6 @@ open class BasePinFragmentDialog: DialogFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         dialog?.window?.attributes?.windowAnimations = R.style.DialogBottomAnimation
-    }
-
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        return super.onCreateDialog(savedInstanceState)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

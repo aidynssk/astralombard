@@ -1,6 +1,6 @@
 package kz.astralombard.home.menu.myloans.model
 
-import androidx.lifecycle.MutableLiveData
+import kz.astralombard.base.DataHolder
 
 /**
  * Created by wokrey@gmail.com on 7/13/19.
@@ -12,5 +12,6 @@ data class Loan(
 
 data class MyLoanRequest(
     val username: String,
-    val password: String
+    val password: String,
+    val lang: String = DataHolder.currentLang
 )

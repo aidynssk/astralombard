@@ -5,9 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.launch
 import kz.astralombard.base.CoroutineViewModel
 import kz.astralombard.base.data.Response
-import kz.astralombard.home.menu.myloans.data.Item
-import kz.astralombard.home.menu.myloans.data.LoansRepository
-import kz.astralombard.home.menu.myloans.data.MyLoan
+import kz.astralombard.home.menu.myloans.data.*
 import kz.astralombard.home.menu.myloans.model.Loan
 import kz.astralombard.home.menu.myloans.model.MyLoanRequest
 
@@ -17,7 +15,7 @@ import kz.astralombard.home.menu.myloans.model.MyLoanRequest
  */
 class MyLoansViewModel(
     private val repository: LoansRepository
-): CoroutineViewModel() {
+) : CoroutineViewModel() {
 
     /*var openLoans: List<Loan> = arrayListOf(
         Loan(),
@@ -31,7 +29,10 @@ class MyLoansViewModel(
     private val _paidLoans = MutableLiveData<List<MyLoan>>()
     val paidLoans: LiveData<List<MyLoan>> = _paidLoans
 
-    fun getMyLoans(){
+    private val _prolongateResponseLD = MutableLiveData<ProlongateResponse>()
+    val prolongateResponseLD: LiveData<ProlongateResponse> = _prolongateResponseLD
+
+    fun getMyLoans() {
         _progressBarStatusLD.value = true
         launch {
             val request = MyLoanRequest(
@@ -39,15 +40,35 @@ class MyLoansViewModel(
                 password = repository.getIIN()
             )
             val response = repository.getMyLoans(request)
-            when(response){
-                is Response.Success ->{
+            when (response) {
+                is Response.Success -> {
                     val myLoans = response.result
                     _openLoans.value = myLoans.filter { !it.item!!.PaidFor }
                     _paidLoans.value = myLoans.filter { it.item!!.PaidFor }
                 }
-                is Response.Error ->{
+                is Response.Error -> {
                     _errorLD.value = response.error
                 }
+            }
+            _progressBarStatusLD.value = false
+        }
+    }
+
+    fun prolongate(number: String) {
+        _progressBarStatusLD.value = true
+
+        launch {
+            val request = ProlongateRequest(
+                number = number,
+                username = repository.getUsername(),
+                password = repository.getIIN()
+            )
+
+            when (val response = repository.prolongate(request)) {
+                is Response.Success ->
+                    _prolongateResponseLD.value = response.result
+                is Response.Error ->
+                    _errorLD.value = response.error
             }
             _progressBarStatusLD.value = false
         }

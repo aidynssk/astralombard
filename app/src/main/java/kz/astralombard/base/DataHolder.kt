@@ -13,4 +13,8 @@ object DataHolder : KoinComponent {
             Constants.TOKEN_PREFIX + field
         else
             null
+
+    var languageWasChange = false
+
+    var currentLang = "ru"
 }

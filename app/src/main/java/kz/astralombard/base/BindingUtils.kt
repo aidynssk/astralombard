@@ -10,6 +10,7 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import kz.astralombard.base.ui.RecyclerBindingAdapter
 import kz.astralombard.ext.hide
+import kz.astralombard.ext.invis
 import kz.astralombard.ext.show
 import kz.astralombard.home.menu.myloans.data.DetailableItem
 import kz.astralombard.home.menu.myloans.details.LoanDetailsAdapter
@@ -54,6 +55,15 @@ object BindingUtils {
         else
             view.hide()
 
+    }
+
+    @JvmStatic
+    @BindingAdapter("invis")
+    fun invis(view: View, show: Boolean) {
+        if (show)
+            view.show()
+        else
+            view.invis()
     }
 
     @JvmStatic

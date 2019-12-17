@@ -42,11 +42,19 @@ class AddressViewModel(
     fun getAddresses(
         lat: String,
         long: String,
-        id: String
+        id: String,
+        showDistance: Boolean
     ) = launch {
         when (val response = repository.getAddresses(lat, long, id)) {
             is Response.Success -> {
-                _addresses.value = response.result
+                _addresses.value = response.result.apply {
+                    forEach {
+                        it.showDistance = showDistance
+                    }
+                    if (showDistance){
+                        sortedBy { it.distance.toInt() }
+                    }
+                }
             }
             is Response.Error ->
                 _errorLD.value = response.error
@@ -64,12 +72,13 @@ class AddressViewModel(
         repository.saveCity(_citiesLD.value!![position])
     }
 
-    fun onCitySelected(position: Int, lat: String, long: String){
+    fun onCitySelected(position: Int, lat: String, long: String, showDistance: Boolean){
         _citiesLD.value?.getOrNull(position)?.let {
             getAddresses(
                 lat = lat,
                 long = long,
-                id = it.id.toString()
+                id = it.id.toString(),
+                showDistance = showDistance
             )
             repository.saveCity(it)
         }

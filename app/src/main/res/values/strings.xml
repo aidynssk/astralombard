@@ -51,6 +51,10 @@
     <string name="details_pay">ОПЛАТИТЬ</string>
     <string name="details_product">Изделие</string>
     <string name="details_days">дней</string>
+    <string name="details_percent">Сумма процентов</string>
+    <string name="details_fine">Сумма штрафа</string>
+    <string name="details_total">Общая сумма</string>
+    <string name="details_credit">Сумма на руки</string>
 
     <!--
     Calculator

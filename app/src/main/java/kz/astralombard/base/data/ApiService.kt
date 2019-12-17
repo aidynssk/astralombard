@@ -9,6 +9,8 @@ import kz.astralombard.home.menu.address.model.City
 import kz.astralombard.home.menu.address.model.Point
 import kz.astralombard.home.menu.login.data.SmsValidateResponse
 import kz.astralombard.home.menu.myloans.data.MyLoan
+import kz.astralombard.home.menu.myloans.data.ProlongateRequest
+import kz.astralombard.home.menu.myloans.data.ProlongateResponse
 import kz.astralombard.home.menu.myloans.model.MyLoanRequest
 import kz.astralombard.home.menu.profile.model.Profile
 import kz.astralombard.home.model.GetCodeRequestModel
@@ -45,7 +47,9 @@ interface ApiService {
     suspend fun getNews(): List<News>
 
     @GET("about")
-    suspend fun getAbout(): AboutCompanyResponse
+    suspend fun getAbout(
+        @Query("lang") language: String
+    ): AboutCompanyResponse
 
     @POST("loads/")
     suspend fun getLoans(
@@ -58,4 +62,10 @@ interface ApiService {
         @Header(Constants.AUTH_HEADER) token: String = DataHolder.token!!,
         @Body myLoanRequest: MyLoanRequest
     ): Profile
+
+    @POST("loads/prolongate/")
+    suspend fun getProlongate(
+        @Header(Constants.AUTH_HEADER) token: String = DataHolder.token!!,
+        @Body request: ProlongateRequest
+    ): ProlongateResponse
 }

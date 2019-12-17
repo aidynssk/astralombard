@@ -59,6 +59,7 @@ class HistoryFragment : BaseFragment(), RecyclerBindingAdapter.OnItemClickListen
     override fun onItemClick(position: Int, item: MyLoan) {
         val bundle = Bundle().apply {
             putParcelable(OpenLoansDetailsFragment.LOAN_DETAILS, item)
+            putBoolean(OpenLoansDetailsFragment.HIDE_PAY_INF, true)
         }
         addFragment(OpenLoansDetailsFragment.newInstance(bundle))
     }

@@ -1,5 +1,7 @@
 package kz.astralombard.home.menu.about.data
 
+import kz.astralombard.base.DataHolder
+
 /**
  * Created by wokrey@gmail.com on 30.11.2019.
  * It's not wokrey, if the code smells bad. Somebody set me up.
@@ -20,7 +22,8 @@ data class AboutCompanyResponse(
 data class FeedbackRequest(
     val subject: String,
     val username: String,
-    val text: String
+    val text: String,
+    val lang: String = DataHolder.currentLang
 )
 
 data class FeedbackResponse(
