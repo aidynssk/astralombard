@@ -14,7 +14,10 @@ import kz.astralombard.R
 import kz.astralombard.base.Constants
 import kz.astralombard.base.SharedPrefKeys
 import kz.astralombard.databinding.DialogPinValidatorBinding
+import kz.astralombard.home.presentation.HomeViewModel
 import org.koin.android.ext.android.get
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
 
 /**
@@ -25,6 +28,7 @@ class PinValidatorBottomDialog : BasePinFragmentDialog(), View.OnClickListener {
 
     private lateinit var binding: DialogPinValidatorBinding
     private val shared = get<SharedPreferences>()
+    private val viewModel: HomeViewModel by sharedViewModel()
     private val codeStack = Stack<String>()
     private var code = StringBuilder()
 
@@ -94,6 +98,11 @@ class PinValidatorBottomDialog : BasePinFragmentDialog(), View.OnClickListener {
             rb8.setOnClickListener(this@PinValidatorBottomDialog)
             rb9.setOnClickListener(this@PinValidatorBottomDialog)
             rbDelete.setOnClickListener(this@PinValidatorBottomDialog)
+        }
+
+        binding.tvForgotPassword.setOnClickListener {
+            viewModel.logoutConfirmed()
+            dismiss()
         }
     }
 

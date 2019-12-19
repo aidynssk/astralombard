@@ -223,7 +223,7 @@
                     android:layout_marginTop="4dp"
                     android:layout_marginBottom="8dp"
                     android:fontFamily="@font/helveticaneuecyr_4"
-                    android:text="@{String.valueOf(loan.item.payAmount)}"
+                    android:text="@{loan.item.paidFor ? String.valueOf(loan.item.payAmount) : String.valueOf(loan.item.handAmount)}"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/guideline"

@@ -13,6 +13,7 @@
         android:fontFamily="@font/helveticaneuecyr_1"
         android:text="@string/about_company_title"
         android:textSize="40sp"
+        android:gravity="center_horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -2,11 +2,11 @@ package kz.astralombard.home.menu.login.presentation
 
 
 import android.os.Bundle
+import android.telephony.PhoneNumberFormattingTextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.widget.AppCompatButton
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.fragment_login.*
@@ -50,29 +50,35 @@ class LoginFragment : BaseFragment() {
 
     private fun initListeners() {
         btn_request_code.setOnClickListener {
-                if(!checkBox.isChecked){
-                    Toast.makeText(activity, "Пожалуйста, ознакомьтесь с настоящим пользовательским соглашением", Toast.LENGTH_SHORT ).show()
-                    return@setOnClickListener
-                }
-
-                viewModel.onLoginButtonClicked(
-                    phone = binding.etPhone.text.toString(),
-                    iin = binding.etIin.text.toString()
-                )
+            if (!checkBox.isChecked) {
+                Toast.makeText(
+                    activity,
+                    "Пожалуйста, ознакомьтесь с настоящим пользовательским соглашением",
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
             }
+
+            viewModel.onLoginButtonClicked(
+                phone = binding.etPhone.text.toString(),
+                iin = binding.etIin.text.toString()
+            )
+        }
+
+        et_phone.addTextChangedListener(PhoneNumberFormattingTextWatcher())
     }
 
     private fun initSMSObserver() {
         viewModel.getSmsLD().observe(this, Observer { sms ->
             addFragment(ConfirmCodeFragment.newInstance())
 
-            Toast.makeText(activity, sms.code, Toast.LENGTH_SHORT ).show()
+            Toast.makeText(activity, sms.code, Toast.LENGTH_SHORT).show()
             hideProgress()
         })
 
     }
 
-    private fun initObservers(){
+    private fun initObservers() {
         viewModel.progressBarStatusLD.observe(viewLifecycleOwner, Observer {
             if (it)
                 showProgress()
@@ -94,7 +100,7 @@ class LoginFragment : BaseFragment() {
         et_enter_code.show()
     }
 
-    private fun hideSmsView(){
+    private fun hideSmsView() {
         et_iin.show()
         binding.etPhone.show()
         checkBox.show()

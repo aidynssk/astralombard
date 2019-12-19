@@ -11,6 +11,7 @@
 
     <!--Navigation menu-->
     <string name="my_loans">Мои займы</string>
+    <string name="my_loans_title">МОИ ЗАЙМЫ</string>
     <string name="calculator">Калькулятор</string>
     <string name="about_company">О компании</string>
     <string name="addresses">Адреса</string>

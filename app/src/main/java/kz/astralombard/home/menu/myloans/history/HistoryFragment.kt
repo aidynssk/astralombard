@@ -33,7 +33,6 @@ class HistoryFragment : BaseFragment(), RecyclerBindingAdapter.OnItemClickListen
             context = context!!
         )
         loansAdapter?.setOnItemClickListener(this)
-        viewModel.getMyLoans()
     }
 
 
@@ -53,6 +52,7 @@ class HistoryFragment : BaseFragment(), RecyclerBindingAdapter.OnItemClickListen
             lifecycleOwner = viewLifecycleOwner
             viewModel = this@HistoryFragment.viewModel
         }
+        viewModel.getMyLoans()
         return binding.root
     }
 

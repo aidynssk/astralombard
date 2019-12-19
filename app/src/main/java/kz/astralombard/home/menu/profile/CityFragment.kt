@@ -8,10 +8,10 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import kotlinx.android.synthetic.main.fragment_city.*
 import kz.astralombard.R
 import kz.astralombard.base.ui.BaseFragment
 import kz.astralombard.databinding.FragmentCityBinding
-import kz.astralombard.home.menu.address.model.City
 import kz.astralombard.home.menu.address.presentation.AddressViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -41,6 +41,9 @@ class CityFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.getSavedCity()?.let {
+            spinner.adapter = createSpinnerAdapter(listOf(it.name))
+        }
         initListeners()
         initObservers()
         viewModel.loadCities()
@@ -48,7 +51,20 @@ class CityFragment : BaseFragment() {
 
     private fun initObservers(){
         viewModel.citiesLD.observe(viewLifecycleOwner, Observer { cities ->
-            setDropDownList(cities)
+            val citiesNames = mutableListOf<String>()
+            viewModel.getSavedCity()?.let { savedCity ->
+                val removableCity = cities.find {
+                    it.id == savedCity.id
+                }
+                cities?.remove(removableCity)
+                cities?.add(0, savedCity)
+            }
+            cities!!.forEach {
+                citiesNames.add(it.name)
+            }
+            initListeners()
+            spinner.adapter = createSpinnerAdapter(citiesNames)
+            spinner.setSelection(0)
         })
 
         viewModel.errorLD.observe(viewLifecycleOwner, Observer {
@@ -74,17 +90,21 @@ class CityFragment : BaseFragment() {
         }
     }
 
-    private fun setDropDownList(cities: List<City>){
-        val citiesNames = mutableListOf<String>()
-        cities.forEach {
-            citiesNames.add(it.name)
-        }
+    private fun setDropDownList(cities: List<String>){
         val adapter = ArrayAdapter(
             requireContext(),
             android.R.layout.simple_spinner_item,
-            citiesNames
+            cities
         )
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spinner.adapter = adapter
     }
+    private fun createSpinnerAdapter(citiesNames: List<String>): ArrayAdapter<String> =
+        ArrayAdapter(
+            requireContext(),
+            android.R.layout.simple_spinner_item,
+            citiesNames
+        ).apply {
+            setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        }
 }

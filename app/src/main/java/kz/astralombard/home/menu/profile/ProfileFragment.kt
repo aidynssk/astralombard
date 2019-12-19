@@ -78,12 +78,14 @@ class ProfileFragment : BaseFragment() {
             dialog?.show()
         }
         binding.ruLang.setOnClickListener {
-            viewModel.onLanguageChosen(RUSSIAN_VALUE)
+            if (viewModel.getSavedLang() == RUSSIAN_VALUE) return@setOnClickListener
+
             showRestartConfirmation(RUSSIAN_VALUE)
         }
 
         binding.kzLang.setOnClickListener {
-            viewModel.onLanguageChosen(KAZAKH_VALUE)
+            if (viewModel.getSavedLang() == KAZAKH_VALUE) return@setOnClickListener
+
             showRestartConfirmation(KAZAKH_VALUE)
         }
     }
@@ -123,16 +125,19 @@ class ProfileFragment : BaseFragment() {
             .setPositiveButton(R.string.ok) { _, _ ->
                 DataHolder.languageWasChange = true
                 DataHolder.currentLang = lang
-                fragmentManager?.fragments?.clear()
+                viewModel.onLanguageChosen(lang)
                 setLanguage(lang)
+                fragmentManager?.fragments?.clear()
 //                activity?.recreate()
             }
             .setNegativeButton(R.string.cancel){ dialog, which ->
                 dialog?.dismiss()
-                if (lang == RUSSIAN_VALUE)
+                if (lang == RUSSIAN_VALUE) {
                     defineChosenLanguage(KAZAKH_VALUE)
-                else
+                }
+                else {
                     defineChosenLanguage(RUSSIAN_VALUE)
+                }
             }
             .create()
 

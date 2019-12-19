@@ -13,8 +13,6 @@ import kotlinx.android.synthetic.main.fragment_calculator.cl_content
 import kz.astralombard.R
 import kz.astralombard.base.ui.BaseFragment
 import kz.astralombard.databinding.FragmentMyLoansBinding
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
-
 
 private const val OPEN_PAGE_INDEX = 0
 private const val HISTORY_PAGE_INDEX = 1
@@ -23,8 +21,6 @@ class MyLoansFragment : BaseFragment() {
     companion object {
         fun newInstance() = MyLoansFragment()
     }
-
-    private val viewModel: MyLoansViewModel by sharedViewModel()
 
     lateinit var binding: FragmentMyLoansBinding
     override fun onCreateView(

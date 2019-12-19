@@ -40,7 +40,7 @@ class HomeViewModel(
 
         val response = repository.getCode(
             GetCodeRequestModel(
-                username = phone,
+                username = phone.replace(" ", ""),
                 password = iin,
                 hash = "454532523"
             )

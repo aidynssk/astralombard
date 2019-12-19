@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Astralombard</string>
-    <string name="back">Назад</string>
+    <string name="back">Артқа</string>
 
 
     <!--Intro-->
@@ -11,6 +11,7 @@
 
     <!--Navigation menu-->
     <string name="my_loans">Менің қарызым</string>
+    <string name="my_loans_title">МЕНІҢ ҚАРЫЗЫМ</string>
     <string name="calculator">Калькулятор</string>
     <string name="about_company">Компания туралы</string>
     <string name="addresses">Мекен-жайлары</string>
@@ -29,7 +30,7 @@
     <string name="my_loans_sum_to_pay">Төленетін сома</string>
     <string name="my_loans_pay">Төлеу</string>
     <string name="my_loans_pledge_ticket">Кепіл билеті №</string>
-    <string name="my_loans_pay_before">Оплатить до</string>
+    <string name="my_loans_pay_before">Төлеу</string>
     <string name="my_loans_close_date">Жабылу күні</string>
     <string name="my_loans_history">ҚАРЫЗ ТАРИХЫ</string>
     <string name="my_loans_order">ҚАРЫЗ №</string>
@@ -59,7 +60,7 @@
     <!--
     Calculator
 -->
-    <string name="calculator_choice_of_goods">Выбор товара</string>
+    <string name="calculator_choice_of_goods">Өнімді таңдау</string>
     <string name="calculator_title">КАЛЬКУЛЯТОР</string>
     <string name="calculator_gold">АЛТЫН</string>
     <string name="calculator_car">АВТОКӨЛІК</string>
@@ -70,12 +71,12 @@
     <string name="calculator_repayment_sum">Қайтарым суммасы</string>
     <string name="calculator_tg">тг.</string>
     <string name="calculator_gold_notes">Өнімнің бағасы филиалдағы сатушының есептеулеріне байланысты өзгереді</string>
-    <string name="calculator_car_notes">Оценка транспорта будет варьироваться от просчёта товароведа в филиале</string>
+    <string name="calculator_car_notes"> Көлікті бағалау филиалдағы сатушының есептеулеріне байланысты өзгереді</string>
     <string name="calculator_more">Толығырақ</string>
-    <string name="calculator_enter_market_price">Введите рыночную стоимость автомобиля, тг</string>
+    <string name="calculator_enter_market_price"> Көліктің нарықтық құнын енгізіңіз, тг</string>
     <string name="calculator_with_drive_license">Жүргізу құқығымен</string>
-    <string name="calculator_more_gold_title">Правила оценки и приема золотых изделий</string>
-    <string name="calculator_more_auto_title">Правила оценки и приема автотранспорта</string>
+    <string name="calculator_more_gold_title"> Алтыннан жасалған бұйымдарды бағалау және қабылдау ережелері</string>
+    <string name="calculator_more_auto_title"> Көлік құралдарын бағалау және қабылдау ережелері</string>
     <string name="calculator_more_gold_text">Кепіл мүлкін бағалауды зергерлік бұйымға байланысты жеке тауар жүргізуші – бағалаушы - кассир жүргізеді. Бағалау кезінде ескеріледі:\n
 - бұйымның жағдайы (сынық, дәнекерлеу, тастардың болмауы)\n
 - сынаманың болуы (аты, сыналатын таңба)\n
@@ -84,7 +85,7 @@
 - түрік өндірісінің бұйымдары\n
 - сапасы төмен бұйымдар\n\nБерудің соңғы сомасын "қабылданатын зергерлік бұйымдарға баға беру туралы" бұйрықты және бағалаушы - тауартанушы лауазымдық нұсқаулықтарын негізге ала отырып, бұйымның жай – күйіне байланысты сол жердегі бағалаушы-кассир анықтайды.</string>
     <string name="calculator_more_auto_text">Сіздің көлігіңіз келген жерге бағалаушы сараптама жасайды.\nҚарызды өтеудің минималды және максималды мерзімі - 30 күннен 1 жылға дейін.\n
-        - Максимальная годовая процентная ставка 90% годовых\n\nАвто қабылдау екі түрде жүзеге асырылады.\n\n<b>Көлік жүргізу құқығымен</b>\n\nБіздің артықшылығымыз - көлік жүргізу құқығымен автомобильмен кепілдендірілген автокредит беру, яғни сіздің көлігіңіз өзіңізде қалады!\n\n
+         - Жылдық 90% жылдық ең жоғары сыйақы мөлшерлемесі\n\nАвто қабылдау екі түрде жүзеге асырылады.\n\n<b>Көлік жүргізу құқығымен</b>\n\nБіздің артықшылығымыз - көлік жүргізу құқығымен автомобильмен кепілдендірілген автокредит беру, яғни сіздің көлігіңіз өзіңізде қалады!\n\n
 
 - айына 7,5% (күніне 0,25)\n
         - 2014 жылдан бастап шығарылған автомобильдер\n\n<b>Жүргізуші куәлігі жоқ жагдайда</b>\n\nКөлік қауіпсіз және қауіпсіз жерде жабық күзетілетін автотұрақта қалады.\nКешіктірілген жағдайда күніне 0,5 пайыз алынады. Көлікті бағалау жеке-жеке, фотосуретпен жүргізіледі.\n\n
@@ -101,7 +102,7 @@
     <string name="about_write_us">БІЗГЕ ЖАЗУ</string>
     <string name="about_company_title">КОМПАНИЯ ТУРАЛЫ</string>
     <string name="about_feedback_success_title">Мекен-жайлары</string>
-    <string name="about_feedback_success_message">Ваше сообщение успешно отправлено</string>
+    <string name="about_feedback_success_message">Сіздің хабарламаңыз сәтті жіберілді.</string>
     <string name="about_message_topic">Хабарлама тақырыбы:</string>
     <string name="about_phone">Телефон:</string>
     <string name="about_message_text">Хабарлама мәтіні:</string>
@@ -111,7 +112,7 @@
     Addresses
 -->
     <string name="addresses_city">Қала</string>
-    <string name="addresses_of_branches">Адреса филиалов</string>
+    <string name="addresses_of_branches"> Филиалдың мекен-жайы</string>
     <string name="addresses_choose_city">Қаланы таңдаңыз</string>
     <string name="addresses_phones">Телефон</string>
     <string name="addresses_work_time">Жұмыс уақыты</string>
@@ -125,9 +126,9 @@
     <string name="login_iin">ЖСН</string>
     <string name="login_phone">Телефон</string>
     <string name="login_request_code">Кодты сұрау</string>
-    <string name="login_enter_code">Введите код</string>
+    <string name="login_enter_code">Кодты енгізіңіз</string>
     <string name="login_sms_code">СМС коды</string>
-    <string name="login_user_agreement">Я прочитал и согласен с условиями <b>пользовательского соглашения</b></string>
+    <string name="login_user_agreement"> <b>Пайдаланушы келісімінің</b> шарттарымен таныстым және келісемін</string>
 
     <!--
     Profile
@@ -141,28 +142,28 @@
     <string name="profile_chose_city">ҚАЛАНЫ ТАҢДАУ</string>
     <string name="profile_chose_city_settings">Қаланы таңдау</string>
     <string name="profile_chose_your_city">ӨЗ ҚАЛАҢЫЗДЫ ТАҢДАҢЫЗ:</string>
-    <string name="profile_city_was_saved">Ваш город успешно изменён</string>
+    <string name="profile_city_was_saved">Сіздің қалаңыз сәтті өзгертілді.</string>
     <string name="profile_save">Сақтау</string>
     <string name="profile_confirm">Растау</string>
     <string name="profile_change_pin">Кіру кодын өзгерту</string>
     <string name="profile_logout">Тіркелгіден шығу</string>
-    <string name="profile_ask_logout">ШЫНЫМЕН ШЫҚҚЫҢЫЗ\N КЕЛЕ МЕ?</string>
+    <string name="profile_ask_logout">ШЫНЫМЕН ШЫҚҚЫҢЫЗ\n КЕЛЕ МЕ?</string>
     <string name="profile_no">ЖОҚ</string>
     <string name="profile_yes">ИӘ</string>
     <string name="profile_enter_new_pin">Қолданбаға кіру үшін\n жаңа кіру кодын енгізіңіз</string>
-    <string name="profile_set_new_pin">УСТАНОВИТЕ КОД ДОСТУПА\nДЛЯ БЫСТРОГО ВХОДА</string>
-    <string name="profile_confirm_new_pin">ПОВТОРИТЕ КОД ДОСТУПА\nДЛЯ ПОДТВЕРЖДЕНИЯ</string>
+    <string name="profile_set_new_pin">ЖЕДЕЛ ҚОЛ ЖЕТІМДІЛІК\nКОДЫН ОРНАТЫҢЫЗ</string>
+    <string name="profile_confirm_new_pin">РАСТАУ ҮШІН КІРУ\nКОДЫН ҚАЙТАЛАҢЫЗ</string>
     <string name="profile_request_pin">Қолданбаға кіру үшін жаңа кіру кодын енгізіңіз</string>
-    <string name="profile_enter_pin">ВВЕДИТЕ КОД ДОСТУПА</string>
-    <string name="profile_forgot_pin">Забыли код доступа</string>
-    <string name="profile_code">КОД ДОСТУПА</string>
+    <string name="profile_enter_pin">КІРІСПЕ КОДЫН ЕНГІЗІҢІЗ</string>
+    <string name="profile_forgot_pin">КІРУ КОДЫН ҰМЫТЫП ҚАЛДЫҢЫЗ</string>
+    <string name="profile_code">КІРІС КОДЕКСІ</string>
     <string name="profile_ru">ОРЫСША</string>
     <string name="profile_kz">ҚАЗАҚША</string>
-    <string name="profile_restart_app_title">Перезапуск приложения</string>
-    <string name="profile_restart_app_text">Для смены языка приложение необходимо перезапустить</string>
-    <string name="profile_success_change_code_title">Уведомление</string>
-    <string name="profile_success_change_code_text">Код доступа успешно изменен</string>
-    <string name="error_confirm_code_text">Введенный код не совпадает. Попробуйте заново</string>
+    <string name="profile_restart_app_title">Қолданбаны қайта қосу</string>
+    <string name="profile_restart_app_text">Тілді өзгерту үшін қосымшаны қайта қосу керек</string>
+    <string name="profile_success_change_code_title">Ескерту</string>
+    <string name="profile_success_change_code_text"> Кіру коды сәтті өзгертілді</string>
+    <string name="error_confirm_code_text"> Сіз енгізген код сәйкес келмейді.  Әрекетті қайталаңыз</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -180,12 +181,12 @@
     <string name="further">КЕЛЕСІ</string>
 
     <string name="change_city_later">кейінірек параметрлерде қалаңызды өзгерте аласыз</string>
-    <string name="enter_pin">ВВЕДИТЕ КОД</string>
-    <string name="loading">Подождите</string>
-    <string name="error">Ошибка</string>
-    <string name="error_general">Произошла ошибка</string>
-    <string name="ok">OK</string>
-    <string name="cancel">ОТМЕНА</string>
+    <string name="enter_pin">КОДТЫ ЕНГІЗІҢІЗ</string>
+    <string name="loading">Күте тұрыңыз</string>
+    <string name="error">Қате</string>
+    <string name="error_general">Қате орын алды</string>
+    <string name="ok"> ЖАРАЙДЫ</string>
+    <string name="cancel">ЖОЮ</string>
 
 
     <string-array name="planets_array">
