@@ -1,18 +1,15 @@
 package kz.astralombard.base.ui
 
 import android.content.Context
-import android.content.res.Resources
-import android.os.Bundle
-import android.os.PersistableBundle
+import android.os.Build
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import com.akexorcist.localizationactivity.core.LocalizationActivityDelegate
-import com.akexorcist.localizationactivity.core.OnLocaleChangedListener
 import kz.astralombard.R
-import kz.astralombard.base.DataHolder
+import kz.astralombard.base.WriteUsError
+import kz.astralombard.base.LanguageController
 import kz.astralombard.base.Navigator
+import kz.astralombard.base.data.AboutException
 import kz.astralombard.base.data.AstraException
 import kz.astralombard.code.PinManager
 import org.json.JSONObject
@@ -22,12 +19,10 @@ import java.lang.Exception
 import java.util.*
 
 private const val ERROR_DETAIL_KEY = "error"
+
 abstract class BaseActivity
     : AppCompatActivity(),
-    Navigator,
-    OnLocaleChangedListener {
-
-    private val localizationDelegate = LocalizationActivityDelegate(this)
+    Navigator{
 
     open val progressBar: ProgressDialog by lazy {
         ProgressDialog(
@@ -36,48 +31,9 @@ abstract class BaseActivity
         )
     }
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        localizationDelegate.addOnLocaleChangedListener(this)
-        localizationDelegate.onCreate(savedInstanceState)
-        super.onCreate(savedInstanceState, persistentState)
-        DataHolder.currentLang = getCurrentLanguage().language
-    }
+    fun setDefaultLanguage(language: String) = LanguageController.setLocale(this, language)
 
-    override fun attachBaseContext(newBase: Context?) {
-        super.attachBaseContext(localizationDelegate.attachBaseContext(newBase))
-    }
-
-    override fun getApplicationContext(): Context =
-        localizationDelegate.getApplicationContext(super.getApplicationContext())
-
-    override fun getResources(): Resources = localizationDelegate.getResources(super.getResources())
-
-    fun setLanguage(language: String) {
-        localizationDelegate.setLanguage(this, language)
-    }
-
-    fun setLanguage(locale: Locale) {
-        localizationDelegate.setLanguage(this, locale)
-    }
-
-    fun setDefaultLanguage(language: String) {
-        localizationDelegate.setDefaultLanguage(language)
-    }
-
-    fun setDefaultLanguage(locale: Locale) {
-        localizationDelegate.setDefaultLanguage(locale)
-    }
-
-    fun getCurrentLanguage(): Locale = localizationDelegate.getLanguage(this)
-
-    override fun onBeforeLocaleChanged() {
-
-    }
-
-    override fun onAfterLocaleChanged() {
-
-    }
-
+    fun getCurrentLanguage(): Locale = LanguageController.getLanguageLocale(this)
 
     fun showProgress() {
         if (!PinManager.isShowing)
@@ -87,6 +43,14 @@ abstract class BaseActivity
     fun hideProgress() {
         progressBar.hideDialog()
     }
+
+    /*override fun attachBaseContext(newBase: Context?) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            super.attachBaseContext(LanguageController.updateResources(newBase, ))
+            return
+        }
+        super.attachBaseContext(newBase)
+    }*/
 
     override fun addFragment(fragment: Fragment) {
         supportFragmentManager
@@ -108,12 +72,21 @@ abstract class BaseActivity
     fun handleError(exception: Exception, ok: (() -> Unit)? = null) {
         val message = when (exception) {
             is HttpException -> getServerErrorMessage(exception)
-            is IOException -> "Возможно, проблемы с соединением"
+            is IOException -> getString(R.string.no_connection_error)
             is AstraException -> exception.message
+            is AboutException -> getWriteUsErrorMessage(exception.type)
             else -> null
         }
         showErrorAlert(message, ok)
     }
+
+    private fun getWriteUsErrorMessage(type: WriteUsError) = getString(
+        when(type){
+            WriteUsError.EMPTY_SUBJECT -> R.string.about_subject_empty_error
+            WriteUsError.EMPTY_TEXT -> R.string.about_text_empty_error
+            WriteUsError.EMPTY_PHONE -> R.string.about_phone_empty_error
+        }
+    )
 
     fun showErrorAlert(message: String? = null, ok: (() -> Unit)? = null) {
         AlertDialog.Builder(this)

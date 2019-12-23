@@ -1,6 +1,7 @@
 package kz.astralombard.home.menu.profile
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,14 +17,11 @@ import kz.astralombard.base.RUSSIAN_VALUE
 import kz.astralombard.base.ui.BaseFragment
 import kz.astralombard.databinding.FragmentProfileBinding
 import kz.astralombard.dialogs.LogoutDialog
-import kz.astralombard.ext.hide
-import kz.astralombard.ext.show
-import kz.astralombard.ext.toDate
-import kz.astralombard.ext.toString
+import kz.astralombard.ext.*
 import kz.astralombard.home.menu.address.presentation.AddressViewModel
+import kz.astralombard.home.presentation.HomeActivity
 import kz.astralombard.home.presentation.HomeViewModel
 import kz.astralombard.models.DialogSize
-import org.koin.android.ext.android.bind
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -57,6 +55,11 @@ class ProfileFragment : BaseFragment() {
         viewModel.loadProfileData()
     }
 
+    override fun onResume() {
+        super.onResume()
+        (activity as? HomeActivity?)?.setCurrentMenuItem(R.id.nav_profile)
+    }
+
     private fun initListeners() {
         binding.clChangeCode.setOnClickListener {
             addFragment(CodeFragment.newInstance())
@@ -69,6 +72,8 @@ class ProfileFragment : BaseFragment() {
                 .apply {
                     yesClickListener {
                         viewModel.logoutConfirmed()
+                        startActivity(Intent(requireContext(), HomeActivity::class.java))
+                        activity?.finish()
                     }
                     noClickListener {
                         dialog?.dismiss()
@@ -107,7 +112,7 @@ class ProfileFragment : BaseFragment() {
             if (it)
                 binding.progressBar.show()
             else
-                binding.progressBar.hide()
+                binding.progressBar.invis()
         })
     }
 
@@ -127,8 +132,8 @@ class ProfileFragment : BaseFragment() {
                 DataHolder.currentLang = lang
                 viewModel.onLanguageChosen(lang)
                 setLanguage(lang)
-                fragmentManager?.fragments?.clear()
-//                activity?.recreate()
+                startActivity(Intent(requireContext(), HomeActivity::class.java))
+                activity?.finish()
             }
             .setNegativeButton(R.string.cancel){ dialog, which ->
                 dialog?.dismiss()

@@ -33,7 +33,12 @@ class AboutCompanyFragment: BaseFragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_company, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
-        viewModel.getAboutCompany(getCurrentLanguage().language)
+        viewModel.getAboutCompany(
+            if (getCurrentLanguage().language == "en")
+                "ru"
+            else
+                getCurrentLanguage().language
+        )
         return binding.root
     }
 

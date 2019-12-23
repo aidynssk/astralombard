@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <dimen name="checkbox_size">20dp</dimen>
     <dimen name="code_size">20dp</dimen>
     <dimen name="keyboard_digit_size">60dp</dimen>
@@ -8,6 +8,9 @@
     <dimen name="smallDialogHeight">310dp</dimen>
     <dimen name="largeDialogWidth">300dp</dimen>
     <dimen name="largeDialogHeight">500dp</dimen>
+
+    <dimen name="design_bottom_navigation_text_size" tools:override="true">12sp</dimen>
+    <dimen name="design_bottom_navigation_active_text_size" tools:override="true">12sp</dimen>
 
     <dimen name="titleFontSize">36sp</dimen>
 </resources>

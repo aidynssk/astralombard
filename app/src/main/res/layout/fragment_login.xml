@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:mask="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -45,7 +44,7 @@
                 app:layout_constraintStart_toStartOf="@+id/et_phone"
                 app:layout_constraintTop_toBottomOf="@+id/et_phone" />
 
-            <EditText
+          <!--  <EditText
                 android:id="@+id/et_phone"
                 style="@style/LoginEditText"
                 android:layout_width="0dp"
@@ -53,8 +52,22 @@
                 android:layout_marginTop="16dp"
                 android:hint="@string/login_phone"
                 android:inputType="phone"
-                android:text="+7 "
                 android:maxLength="15"
+                android:text="+7 "
+                app:layout_constraintEnd_toEndOf="@+id/et_iin"
+                app:layout_constraintStart_toStartOf="@+id/et_iin"
+                app:layout_constraintTop_toBottomOf="@+id/et_iin" />-->
+
+            <br.com.sapereaude.maskedEditText.MaskedEditText
+                android:id="@+id/et_phone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/login_et_bg"
+                android:inputType="phone"
+                android:padding="8dp"
+                mask:allowed_chars="1234567890"
+                mask:mask="+7 (###) ###-##-##"
                 app:layout_constraintEnd_toEndOf="@+id/et_iin"
                 app:layout_constraintStart_toStartOf="@+id/et_iin"
                 app:layout_constraintTop_toBottomOf="@+id/et_iin" />

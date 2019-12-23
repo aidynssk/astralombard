@@ -10,11 +10,11 @@
     <string name="city_tip">Қала</string>
 
     <!--Navigation menu-->
-    <string name="my_loans">Менің қарызым</string>
+    <string name="my_loans">Борыш</string>
     <string name="my_loans_title">МЕНІҢ ҚАРЫЗЫМ</string>
     <string name="calculator">Калькулятор</string>
-    <string name="about_company">Компания туралы</string>
-    <string name="addresses">Мекен-жайлары</string>
+    <string name="about_company">Біз туралы</string>
+    <string name="addresses">Адрес</string>
     <string name="profile">Профиль</string>
     <string name="login">Кіру</string>
     <string name="login_pin">КІРУ</string>
@@ -25,6 +25,7 @@
     <string name="my_loans_open_loans">АШЫҚ ҚАРЫЗДАР</string>
     <string name="my_loans_city">Қала</string>
     <string name="my_loans_days_left">Күн қалдығы</string>
+    <string name="my_loan_day_passed">Күндер өтті</string>
     <string name="my_loans_period_day">Кепіл мерзімі</string>
     <string name="my_loans_tenge">Теңге</string>
     <string name="my_loans_sum_to_pay">Төленетін сома</string>
@@ -39,6 +40,7 @@
     <string name="details_name">Атауы</string>
     <string name="details_sample">Үлгі</string>
     <string name="details_item_weight">Бұйымның салмағы</string>
+    <string name="details_item_weight_without">Тассыз салмағы</string>
     <string name="details_price_for_1g">1 грамм үшін баға</string>
     <string name="details_loan_date">Қарыз күні</string>
     <string name="details_pledge_period">Кепіл мерзімі</string>
@@ -52,10 +54,10 @@
     <string name="details_pay">ТӨЛЕУ</string>
     <string name="details_product">Бұйым</string>
     <string name="details_days">күн</string>
-    <string name="details_percent">Сумма процентов</string>
-    <string name="details_fine">Сумма штрафа</string>
+    <string name="details_percent">Сыйақы мөлшері</string>
+    <string name="details_fine">Айыппұл мөлшері</string>
     <string name="details_total">Общая сумма</string>
-    <string name="details_credit">Сумма на руки</string>
+    <string name="details_credit">Қолдағы сома</string>
 
     <!--
     Calculator
@@ -72,7 +74,8 @@
     <string name="calculator_tg">тг.</string>
     <string name="calculator_gold_notes">Өнімнің бағасы филиалдағы сатушының есептеулеріне байланысты өзгереді</string>
     <string name="calculator_car_notes"> Көлікті бағалау филиалдағы сатушының есептеулеріне байланысты өзгереді</string>
-    <string name="calculator_more">Толығырақ</string>
+    <string name="calculator_car_30_days">30 күн</string>
+    <string name="calculator_more_text">Толығырақ</string>
     <string name="calculator_enter_market_price"> Көліктің нарықтық құнын енгізіңіз, тг</string>
     <string name="calculator_with_drive_license">Жүргізу құқығымен</string>
     <string name="calculator_more_gold_title"> Алтыннан жасалған бұйымдарды бағалау және қабылдау ережелері</string>
@@ -98,7 +101,7 @@
     <!--
     About
 -->
-    <string name="about_news_sales">ЖАҢАЛЫҚТАР МЕН АКЦИЯЛАР</string>
+    <string name="about_news_sales">ЖАҢАЛЫҚТАР</string>
     <string name="about_write_us">БІЗГЕ ЖАЗУ</string>
     <string name="about_company_title">КОМПАНИЯ ТУРАЛЫ</string>
     <string name="about_feedback_success_title">Мекен-жайлары</string>
@@ -107,6 +110,9 @@
     <string name="about_phone">Телефон:</string>
     <string name="about_message_text">Хабарлама мәтіні:</string>
     <string name="about_send">ЖІБЕРУ</string>
+    <string name="about_text_empty_error">Хабарлама мәтінін толтырыңыз</string>
+    <string name="about_phone_empty_error">Телефон нөмірі көрсетілмеген</string>
+    <string name="about_subject_empty_error">Хабар тақырыбы көрсетілмеген</string>
 
     <!--
     Addresses
@@ -128,13 +134,14 @@
     <string name="login_request_code">Кодты сұрау</string>
     <string name="login_enter_code">Кодты енгізіңіз</string>
     <string name="login_sms_code">СМС коды</string>
-    <string name="login_user_agreement"> <b>Пайдаланушы келісімінің</b> шарттарымен таныстым және келісемін</string>
+    <string name="login_read_user_agreement">Осы пайдаланушы келісімімен танысыңыз</string>
+    <string name="login_user_agreement"><b>Пайдаланушы келісімінің</b> шарттарымен таныстым және келісемін</string>
 
     <!--
     Profile
 -->
     <string name="profile_city">Қала</string>
-    <string name="profile_fio">ФИО</string>
+    <string name="profile_fio">Аты-жөні</string>
     <string name="profile_IIN">ЖСН</string>
     <string name="profile_birth_date">Туған күні</string>
     <string name="profile_address">Мекен жайы</string>
@@ -188,6 +195,8 @@
     <string name="ok"> ЖАРАЙДЫ</string>
     <string name="cancel">ЖОЮ</string>
 
+    <!--Error-->
+    <string name="no_connection_error">Ықтимал қосылым ақаулары</string>
 
     <string-array name="planets_array">
         <item>Mercury</item>

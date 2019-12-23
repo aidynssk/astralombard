@@ -3,6 +3,8 @@ package kz.astralombard.home.menu.login.presentation
 
 import android.os.Bundle
 import android.telephony.PhoneNumberFormattingTextWatcher
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +16,9 @@ import kz.astralombard.R
 import kz.astralombard.base.ui.BaseFragment
 import kz.astralombard.databinding.FragmentLoginBinding
 import kz.astralombard.ext.hide
+import kz.astralombard.ext.hideKeyboard
 import kz.astralombard.ext.show
+import kz.astralombard.home.presentation.HomeActivity
 import kz.astralombard.home.presentation.HomeViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
@@ -48,19 +52,37 @@ class LoginFragment : BaseFragment() {
         initObservers()
     }
 
+    override fun onResume() {
+        super.onResume()
+        (activity as? HomeActivity?)?.setCurrentMenuItem(R.id.nav_login)
+    }
+
     private fun initListeners() {
+        et_phone.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                s ?: return
+                if (s.length == 18) hideKeyboard()
+            }
+        })
         btn_request_code.setOnClickListener {
             if (!checkBox.isChecked) {
                 Toast.makeText(
                     activity,
-                    "Пожалуйста, ознакомьтесь с настоящим пользовательским соглашением",
+                    getString(R.string.login_read_user_agreement),
                     Toast.LENGTH_SHORT
                 ).show()
                 return@setOnClickListener
             }
 
             viewModel.onLoginButtonClicked(
-                phone = binding.etPhone.text.toString(),
+                phone = "+7" + binding.etPhone.rawText,
                 iin = binding.etIin.text.toString()
             )
         }

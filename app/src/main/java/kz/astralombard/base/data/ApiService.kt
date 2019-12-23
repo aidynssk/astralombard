@@ -25,10 +25,16 @@ interface ApiService {
     /**
      * add single slash for POST method endpoint*/
     @POST("auth/get-otp/")
-    suspend fun getCode(@Body loginBody: GetCodeRequestModel): GetCodeResponse
+    suspend fun getCode(
+        @Query("lang") lang: String,
+        @Body loginBody: GetCodeRequestModel
+    ): GetCodeResponse
 
     @POST("auth/login/")
-    suspend fun validate(@Body validateBody: ValidateCodeRequest): SmsValidateResponse
+    suspend fun validate(
+        @Query("lang") lang: String,
+        @Body validateBody: ValidateCodeRequest
+    ): SmsValidateResponse
 
     @GET("cities")
     suspend fun getCities(): List<City>
@@ -41,7 +47,10 @@ interface ApiService {
     ): List<Point>
 
     @POST("feedback/")
-    suspend fun leaveFeedback(@Body request: FeedbackRequest)
+    suspend fun leaveFeedback(
+        @Query("lang") lang: String,
+        @Body request: FeedbackRequest
+    )
 
     @GET("news")
     suspend fun getNews(): List<News>
@@ -54,18 +63,21 @@ interface ApiService {
     @POST("loads/")
     suspend fun getLoans(
         @Header(Constants.AUTH_HEADER) token: String = DataHolder.token!!,
+        @Query("lang") lang: String,
         @Body myLoanRequest: MyLoanRequest
     ): List<MyLoan>
 
     @POST("auth/profile/")
     suspend fun getProfile(
         @Header(Constants.AUTH_HEADER) token: String = DataHolder.token!!,
+        @Query("lang") lang: String,
         @Body myLoanRequest: MyLoanRequest
     ): Profile
 
     @POST("loads/prolongate/")
     suspend fun getProlongate(
         @Header(Constants.AUTH_HEADER) token: String = DataHolder.token!!,
+        @Query("lang") lang: String,
         @Body request: ProlongateRequest
     ): ProlongateResponse
 }

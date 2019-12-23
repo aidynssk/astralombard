@@ -2,6 +2,7 @@ package kz.astralombard.home.menu.address.presentation
 
 
 import android.Manifest
+import android.content.Context
 import androidx.lifecycle.Observer
 import androidx.databinding.DataBindingUtil
 import android.os.Bundle
@@ -28,6 +29,11 @@ import kz.astralombard.base.Constants
 import kz.astralombard.home.menu.address.model.City
 import kz.astralombard.home.menu.address.model.Point
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import android.text.TextUtils
+import android.provider.Settings
+import android.provider.Settings.SettingNotFoundException
+import android.os.Build
+import kz.astralombard.home.presentation.HomeActivity
 
 class AddressesFragment
     : BaseFragment(),
@@ -93,6 +99,11 @@ class AddressesFragment
         initObservers()
         viewModel.loadCities()
         defineLocation()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as? HomeActivity?)?.setCurrentMenuItem(R.id.nav_addresses)
     }
 
     override fun onItemClick(position: Int, item: Point) {
@@ -162,7 +173,7 @@ class AddressesFragment
                 position,
                 location?.latitude?.toString() ?: Constants.DEFAULT_ALMATY_LAT,
                 location?.longitude?.toString() ?: Constants.DEFAULT_ALMATY_LONG,
-                checkPermission()
+                checkPermission() && isLocationEnabled(requireContext())
             )
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -179,7 +190,7 @@ class AddressesFragment
                     lat = location?.latitude?.toString() ?: Constants.DEFAULT_ALMATY_LAT,
                     long = location?.longitude?.toString() ?: Constants.DEFAULT_ALMATY_LONG,
                     id = chosenCity?.id?.toString() ?: "1",
-                    showDistance = checkPermission()
+                    showDistance = checkPermission() && isLocationEnabled(requireContext())
                 )
             }
         val locationCallback = object : LocationCallback() {
@@ -227,4 +238,33 @@ class AddressesFragment
         arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
         LOCATION_PERMISSION_REQUEST_CODE
     )
+
+    fun isLocationEnabled(context: Context): Boolean {
+        var locationMode = 0
+        val locationProviders: String
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            try {
+                locationMode = Settings.Secure.getInt(
+                    context.contentResolver,
+                    Settings.Secure.LOCATION_MODE
+                )
+
+            } catch (e: SettingNotFoundException) {
+                e.printStackTrace()
+                return false
+            }
+
+            return locationMode != Settings.Secure.LOCATION_MODE_OFF
+
+        } else {
+            locationProviders = Settings.Secure.getString(
+                context.contentResolver,
+                Settings.Secure.LOCATION_PROVIDERS_ALLOWED
+            )
+            return !TextUtils.isEmpty(locationProviders)
+        }
+
+
+    }
 }

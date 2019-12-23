@@ -5,12 +5,15 @@ import android.os.Bundle
 import androidx.annotation.IdRes
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import android.view.Menu
+import android.view.View
+import android.widget.TextView
+import com.google.android.material.bottomnavigation.BottomNavigationItemView
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import kotlinx.android.synthetic.main.activity_home.*
 import kz.astralombard.R
 import kz.astralombard.base.DataHolder
 import kz.astralombard.base.ui.BaseActivity
 import kz.astralombard.code.PinManager
-import kz.astralombard.code.SetPinBottomDialog
 import kz.astralombard.home.menu.about.AboutFragment
 import kz.astralombard.home.menu.address.presentation.AddressesFragment
 import kz.astralombard.home.menu.calculator.CalculatorFragment
@@ -38,6 +41,7 @@ class HomeActivity : BaseActivity() {
     private var currentTag: String = CALCULATOR_FRAGMENT_KEY
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        overridePendingTransition(R.anim.enter_from_left, R.anim.exit_on_right)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         initNavListener()
@@ -45,8 +49,8 @@ class HomeActivity : BaseActivity() {
     }
 
     override fun onBackPressed() {
-        if(supportFragmentManager.backStackEntryCount==0) {
-            super.onBackPressed()
+        if(supportFragmentManager.backStackEntryCount < 2) {
+            finish()
         }else{
             supportFragmentManager.popBackStack()
         }
@@ -57,17 +61,12 @@ class HomeActivity : BaseActivity() {
             isLogged ?: return@Observer
 
             if (isLogged) {
-                if (!supportFragmentManager.fragments.isNullOrEmpty()) {
-                    supportFragmentManager.beginTransaction()
-                        .remove(supportFragmentManager.fragments.last())
-                        .commit()
-                }
                 main_navigation.menu.findItem(R.id.nav_my_loans).isVisible = true
                 main_navigation.menu.removeItem(R.id.nav_login)
                 main_navigation.menu
                     .add(Menu.NONE, R.id.nav_profile, 5, R.string.profile)
                     .setIcon(R.drawable.ic_profile_black_24dp)
-                supportFragmentManager.findFragmentByTag(LoginFragment.TAG)?.onDestroy()
+                supportFragmentManager.findFragmentByTag(LOGIN_FRAGMENT_KEY)?.onDestroy()
 
                 main_navigation.selectedItemId = R.id.nav_my_loans
                 return@Observer
@@ -101,11 +100,22 @@ class HomeActivity : BaseActivity() {
     }
 
     private fun initNavListener() {
+        val menuView = main_navigation?.getChildAt(0) as BottomNavigationMenuView?
 
+        for (i in 0 until menuView!!.childCount) {
+            val item = menuView.getChildAt(i) as BottomNavigationItemView
+            val activeLabel: View = item.findViewById(R.id.largeLabel)
+            if (activeLabel is TextView) {
+                activeLabel.setPadding(0, 0, 0, 0)
+            }
+        }
         navigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-            onBottomNavigationSelected(id = item.itemId)
+            var selectedFragment = supportFragmentManager.findFragmentByTag(getTag(item.itemId))
 
-            var selectedFragment = supportFragmentManager.findFragmentByTag(currentTag)
+            if (item.itemId == main_navigation.selectedItemId && selectedFragment != null)
+                return@OnNavigationItemSelectedListener false
+
+            onBottomNavigationSelected(id = item.itemId)
 
             if (selectedFragment == null) {
                 selectedFragment = when (currentTag) {
@@ -117,13 +127,11 @@ class HomeActivity : BaseActivity() {
                     else -> ProfileFragment.newInstance()
                 }
             }
-
             supportFragmentManager.beginTransaction()
                 .replace(R.id.current_menu_container, selectedFragment, currentTag)
                 .addToBackStack(currentTag)
                 .commit()
 
-            supportFragmentManager.executePendingTransactions()
             title = currentTag
 
             return@OnNavigationItemSelectedListener true
@@ -149,6 +157,10 @@ class HomeActivity : BaseActivity() {
         R.id.nav_addresses -> ADDRESSES_FRAGMENT_KEY
         R.id.nav_profile -> PROFILE_FRAGMENT_KEY
         else -> LOGIN_FRAGMENT_KEY
+    }
+
+    fun setCurrentMenuItem(@IdRes id: Int){
+        main_navigation.menu.findItem(id)?.setChecked(true)
     }
 
 }

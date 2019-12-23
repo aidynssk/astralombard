@@ -2,10 +2,7 @@ package kz.astralombard.code
 
 import android.content.Context.VIBRATOR_SERVICE
 import android.content.SharedPreferences
-import android.os.Build
-import android.os.Bundle
-import android.os.VibrationEffect
-import android.os.Vibrator
+import android.os.*
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -52,8 +49,8 @@ class PinValidatorBottomDialog : BasePinFragmentDialog(), View.OnClickListener {
         v ?: return
 
         if (v.id == R.id.rb_delete && codeStack.isNotEmpty()) {
-            codeStack.pop()
             setDigitsBackground(false)
+            codeStack.pop()
             return
         }
 
@@ -70,18 +67,21 @@ class PinValidatorBottomDialog : BasePinFragmentDialog(), View.OnClickListener {
             R.id.rb_9 -> "9"
             else -> return
         }
-        setDigitsBackground(true)
         codeStack.push(pressedDigit)
-        if (codeStack.size == 4){
+        setDigitsBackground(true)
+        if (codeStack.size == 4) {
             codeStack.toList().forEach {
                 code.append(it)
             }
-            if (code.toString() != getPin()){
-                callWrongPinAction()
-            } else {
-                dismiss()
-            }
-            return
+            Handler().postDelayed(Runnable {
+
+                if (code.toString() != getPin()) {
+                    callWrongPinAction()
+                } else {
+                    dismiss()
+                }
+                return@Runnable
+            }, 100)
         }
     }
 
@@ -114,12 +114,11 @@ class PinValidatorBottomDialog : BasePinFragmentDialog(), View.OnClickListener {
     }
 
     private fun setDigitsBackground(makeFilled: Boolean) = when (codeStack.size) {
-        0 -> binding.firstDigit.isPressed = makeFilled
-        1 -> binding.secondDigit.isPressed = makeFilled
-        2 -> binding.thirdDigit.isPressed = makeFilled
-        3 -> binding.fourthDigit.isPressed = makeFilled
-        else -> {
-        }
+        1 -> binding.firstDigit.isPressed = makeFilled
+        2 -> binding.secondDigit.isPressed = makeFilled
+        3 -> binding.thirdDigit.isPressed = makeFilled
+        4 -> binding.fourthDigit.isPressed = makeFilled
+        else ->{}
     }
 
     private fun callWrongPinAction(){

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable
@@ -7,8 +8,10 @@
             type="kz.astralombard.home.menu.myloans.data.Item" />
     </data>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
         android:id="@+id/ll_inf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,8 +30,9 @@
             android:layout_weight="1"
             android:divider="@drawable/divider"
             android:dividerPadding="0dp"
+            android:layout_marginTop="0dp"
             android:orientation="vertical"
-            android:showDividers="middle|end">
+            android:showDividers="middle">
 
             <androidx.appcompat.widget.AppCompatTextView
                 style="@style/LoanDetailsTitle"
@@ -53,43 +57,19 @@
                 style="@style/LoanDetailsTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/details_item_weight_without" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/LoanDetailsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="@string/details_price_for_1g" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 style="@style/LoanDetailsTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/details_loan_date" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                style="@style/LoanDetailsTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/details_pledge_period" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                style="@style/LoanDetailsTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/details_guarantee_period" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                style="@style/LoanDetailsTitle"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/calculator_given_sum" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                style="@style/LoanDetailsTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/details_branch_office" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                style="@style/LoanDetailsTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/details_merchandiser_name" />
 
         </LinearLayout>
 
@@ -101,7 +81,7 @@
             android:dividerPadding="0dp"
             android:layout_marginTop="0dp"
             android:orientation="vertical"
-            android:showDividers="middle|end">
+            android:showDividers="middle">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_name"
@@ -127,6 +107,13 @@
                 android:text="@{String.valueOf(item.Weight)}" />
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_weight_without_stone"
+                style="@style/LoanDetailsValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(item.WeightWithoutStone)}" />
+
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_gramPrice"
                 style="@style/LoanDetailsValue"
                 android:layout_width="wrap_content"
@@ -134,49 +121,20 @@
                 android:text="@{item.GramPrice}" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_loanDate"
-                style="@style/LoanDetailsValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{item.getFormattedLoanDate()}" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_zalogPeriod"
-                style="@style/LoanDetailsValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{String.valueOf(item.Period) + ` ` + @string/details_days}" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_guaranteePeriod"
-                style="@style/LoanDetailsValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{item.getFormattedGuaranteePreiod()}" />
-
-            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_givenSum"
                 style="@style/LoanDetailsValue"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
+                android:maxLines="1"
                 android:layout_height="wrap_content"
                 android:text="@{String.valueOf(item.HandAmount)}" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_office"
-                style="@style/LoanDetailsValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{item.Office}" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_merchandiser"
-                style="@style/LoanDetailsValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:maxLines="1"
-                android:text="@{item.Merchant}" />
 
         </LinearLayout>
 
     </LinearLayout>
+        <View
+            app:layout_constraintTop_toBottomOf="@id/ll_inf"
+            android:layout_width="match_parent"
+            android:background="@drawable/divider"
+            android:layout_height="1dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

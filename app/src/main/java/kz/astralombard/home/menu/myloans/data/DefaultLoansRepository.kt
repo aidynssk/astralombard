@@ -26,7 +26,7 @@ class DefaultLoansRepository(
 ) : BaseRepository(), LoansRepository {
 
     override suspend fun getMyLoans(myLoanRequest: MyLoanRequest): Response<List<MyLoan>> =
-        makeApiRequest { api.getLoans(myLoanRequest = myLoanRequest) }
+        makeApiRequest { api.getLoans(myLoanRequest = myLoanRequest, lang = myLoanRequest.lang) }
 
     override suspend fun getIIN() =
         prefs.getString(SharedPrefKeys.USER_IIN, Constants.DEFAULT_STRING)!!
@@ -35,5 +35,5 @@ class DefaultLoansRepository(
         prefs.getString(SharedPrefKeys.USER_USERNAME, Constants.DEFAULT_STRING)!!
 
     override suspend fun prolongate(request: ProlongateRequest): Response<ProlongateResponse> =
-        makeApiRequest { api.getProlongate(request = request) }
+        makeApiRequest { api.getProlongate(request = request, lang = request.lang) }
 }

@@ -22,17 +22,19 @@ class HomeRepositoryImpl(
     private val pref: SharedPreferences
 ) : BaseRepository(), HomeRepository {
     override suspend fun getCode(getCodeRequest: GetCodeRequestModel): Response<GetCodeResponse> =
-        makeApiRequest { api.getCode(getCodeRequest) }
+        makeApiRequest { api.getCode(lang = getCodeRequest.lang, loginBody = getCodeRequest) }
 
     override suspend fun validate(validateRequest: ValidateCodeRequest): Response<SmsValidateResponse> =
-        makeApiRequest { api.validate(validateRequest) }
+        makeApiRequest { api.validate(validateRequest.lang, validateRequest) }
 
     override suspend fun getProfileData(myLoanRequest: MyLoanRequest): Response<Profile>  =
-        makeApiRequest { api.getProfile(myLoanRequest = myLoanRequest) }
+        makeApiRequest { api.getProfile(myLoanRequest = myLoanRequest, lang = myLoanRequest.lang) }
 
-    override fun saveToken(token: String) = pref.edit()
-        .putString(SharedPrefKeys.USER_TOKEN, token)
-        .apply()
+    override fun saveToken(token: String) {
+        pref.edit()
+            .putString(SharedPrefKeys.USER_TOKEN, token)
+            .apply()
+    }
 
     override fun saveUsernameAndIIN(username: String, iin: String) = pref.edit()
         .putString(SharedPrefKeys.USER_USERNAME, username)

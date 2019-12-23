@@ -8,14 +8,14 @@
         android:title="@string/my_loans"
         android:visible="false"
         android:enabled="true"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="withText" />
     <item
         android:id="@+id/nav_calculator"
         android:icon="@drawable/calculator_selector"
         android:orderInCategory="2"
         android:enabled="true"
         android:title="@string/calculator"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="withText" />
 
     <item
         android:id="@+id/nav_about_company"
@@ -23,7 +23,7 @@
         android:orderInCategory="3"
         android:enabled="true"
         android:title="@string/about_company"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="withText" />
 
     <item
         android:id="@+id/nav_addresses"
@@ -31,7 +31,7 @@
         android:enabled="true"
         android:orderInCategory="4"
         android:title="@string/addresses"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="withText" />
 
 
     <item
@@ -40,7 +40,7 @@
         android:icon="@drawable/login"
         android:orderInCategory="5"
         android:title="@string/login"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="withText" />
 
 
     <!-- <item

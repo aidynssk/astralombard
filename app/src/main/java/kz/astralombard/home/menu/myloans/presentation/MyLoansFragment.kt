@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.fragment_calculator.cl_content
 import kz.astralombard.R
 import kz.astralombard.base.ui.BaseFragment
 import kz.astralombard.databinding.FragmentMyLoansBinding
+import kz.astralombard.home.presentation.HomeActivity
 
 private const val OPEN_PAGE_INDEX = 0
 private const val HISTORY_PAGE_INDEX = 1
@@ -51,6 +52,11 @@ class MyLoansFragment : BaseFragment() {
         initListeners()
 
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as? HomeActivity?)?.setCurrentMenuItem(R.id.nav_my_loans)
     }
 
     private fun initListeners(){

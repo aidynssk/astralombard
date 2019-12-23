@@ -4,21 +4,135 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="java.util.List"/>
-        <import type="kz.astralombard.home.menu.myloans.data.DetailableItem"/>
+        <import type="java.util.List" />
+        <import type="kz.astralombard.home.menu.myloans.data.DetailableItem" />
+
         <variable
             name="loan"
-            type="List&lt;DetailableItem&gt;"/>
+            type="List&lt;DetailableItem&gt;" />
+
+        <variable
+            name="item"
+            type="kz.astralombard.home.menu.myloans.data.Item" />
     </data>
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:scrollbarAlwaysDrawVerticalTrack="false"
+        android:scrollbars="none">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="30dp">
+            android:background="@drawable/bg_white_rounded_rect"
+            android:paddingBottom="50dp">
+
+            <LinearLayout
+                android:id="@+id/ll_inf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_loan_number">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:divider="@drawable/divider"
+                    android:dividerPadding="0dp"
+                    android:orientation="vertical"
+                    android:showDividers="middle">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/LoanDetailsTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/details_loan_date" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/LoanDetailsTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/details_pledge_period" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/LoanDetailsTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{item.paidFor ? @string/details_close_date : @string/details_guarantee_period}" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/LoanDetailsTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/details_branch_office" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/LoanDetailsTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/details_merchandiser_name" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:divider="@drawable/divider"
+                    android:dividerPadding="0dp"
+                    android:orientation="vertical"
+                    android:showDividers="middle">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_loanDate"
+                        style="@style/LoanDetailsValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{item.getFormattedLoanDate()}" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_zalogPeriod"
+                        style="@style/LoanDetailsValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{String.valueOf(item.Period) + ` ` + @string/details_days}" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_guaranteePeriod"
+                        style="@style/LoanDetailsValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{item.paidFor ? item.ClosingDate : item.getFormattedGuaranteePreiod()}" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_office"
+                        style="@style/LoanDetailsValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{item.Office}" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_merchandiser"
+                        style="@style/LoanDetailsValue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{item.Merchant}" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                app:layout_constraintTop_toBottomOf="@id/ll_inf"
+                android:layout_width="match_parent"
+                android:background="@drawable/divider"
+                android:layout_height="1dp"/>
 
             <TextView
                 android:id="@+id/tv_loan_number"
@@ -26,7 +140,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:fontFamily="@font/helveticaneuecyr_1"
+                android:fontFamily="@font/fira_sansot_1"
                 android:textSize="@dimen/titleFontSize"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -37,23 +151,21 @@
                 android:id="@+id/cl_inf_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/content_bg"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:paddingBottom="10dp"
-                app:layout_constraintTop_toBottomOf="@id/tv_loan_number" >
+                app:layout_constraintTop_toBottomOf="@id/ll_inf" >
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_details"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:items="@{loan}"
+                    android:nestedScrollingEnabled="false"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:divider="@drawable/divider"
-                    android:dividerPadding="0dp"
-                    android:showDividers="middle|end"
+                    android:clipToPadding="false"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -65,7 +177,7 @@
                     android:layout_marginEnd="0dp"
                     android:maxLines="1"
                     android:text="@string/details_sum_to_pay"
-                    android:textSize="15sp"
+                    android:textSize="14sp"
                     app:layout_constraintEnd_toStartOf="@+id/tv_sum"
                     app:layout_constraintStart_toStartOf="@id/rv_details"
                     app:layout_constraintTop_toBottomOf="@id/rv_details" />
@@ -156,5 +268,5 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </layout>

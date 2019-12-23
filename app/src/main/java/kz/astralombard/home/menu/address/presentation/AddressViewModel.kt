@@ -47,13 +47,15 @@ class AddressViewModel(
     ) = launch {
         when (val response = repository.getAddresses(lat, long, id)) {
             is Response.Success -> {
-                _addresses.value = response.result.apply {
+                val result = response.result.apply {
                     forEach {
                         it.showDistance = showDistance
                     }
-                    if (showDistance){
-                        sortedBy { it.distance.toInt() }
-                    }
+                }
+                _addresses.value = if (showDistance){
+                    result.sortedBy { it.distance.toInt() }
+                } else {
+                    result
                 }
             }
             is Response.Error ->

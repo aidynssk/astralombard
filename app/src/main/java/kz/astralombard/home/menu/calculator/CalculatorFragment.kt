@@ -14,6 +14,7 @@ import kz.astralombard.R
 import kz.astralombard.base.hideKeyboard
 import kz.astralombard.base.ui.BaseFragment
 import kz.astralombard.databinding.FragmentCalculatorBinding
+import kz.astralombard.home.presentation.HomeActivity
 
 private const val GOLD_PAGE_INDEX = 0
 private const val CAR_PAGE_INDEX = 1
@@ -56,6 +57,11 @@ class CalculatorFragment : BaseFragment() {
         initListeners()
 
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as? HomeActivity?)?.setCurrentMenuItem(R.id.nav_calculator)
     }
 
     private fun initListeners(){

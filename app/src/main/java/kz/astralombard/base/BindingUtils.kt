@@ -12,8 +12,6 @@ import kz.astralombard.base.ui.RecyclerBindingAdapter
 import kz.astralombard.ext.hide
 import kz.astralombard.ext.invis
 import kz.astralombard.ext.show
-import kz.astralombard.home.menu.myloans.data.DetailableItem
-import kz.astralombard.home.menu.myloans.details.LoanDetailsAdapter
 import kz.astralombard.home.menu.myloans.model.Loan
 
 /**

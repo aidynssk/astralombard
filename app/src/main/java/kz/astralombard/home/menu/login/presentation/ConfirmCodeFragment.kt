@@ -1,7 +1,10 @@
 package kz.astralombard.home.menu.login.presentation
 
 
+import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +16,8 @@ import kotlinx.android.synthetic.main.fragment_confirm_code.*
 
 import kz.astralombard.R
 import kz.astralombard.base.ui.BaseFragment
+import kz.astralombard.ext.hideKeyboard
+import kz.astralombard.home.presentation.HomeActivity
 import kz.astralombard.home.presentation.HomeViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
@@ -48,6 +53,19 @@ class ConfirmCodeFragment : BaseFragment() {
     }
 
     private fun initListeners() {
+        et_enter_code.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                s ?: return
+                if (s.length == 4) hideKeyboard()
+            }
+        })
         btn_request_code.setOnClickListener {
                 if (et_enter_code.text.toString().isNullOrBlank()){
                     return@setOnClickListener
@@ -61,6 +79,10 @@ class ConfirmCodeFragment : BaseFragment() {
     }
 
     private fun initObservers() {
+        viewModel.userSuccesLogged.observe(viewLifecycleOwner, Observer {
+            startActivity(Intent(requireContext(), HomeActivity::class.java))
+            activity?.finish()
+        })
         viewModel.progressBarStatusLD.observe(viewLifecycleOwner, Observer {
             if (it)
                 showProgress()

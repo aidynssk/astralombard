@@ -13,5 +13,11 @@ enum class PermisionStatus(
     DENIED(-1)
 }
 
+enum class WriteUsError{
+    EMPTY_TEXT,
+    EMPTY_SUBJECT,
+    EMPTY_PHONE
+}
+
 const val RUSSIAN_VALUE = "ru"
 const val KAZAKH_VALUE = "kz"

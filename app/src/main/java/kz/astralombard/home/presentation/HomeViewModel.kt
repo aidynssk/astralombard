@@ -29,6 +29,9 @@ class HomeViewModel(
     private val _profileLD = MutableLiveData<Profile>()
     val profileLD: LiveData<Profile> = _profileLD
 
+    private val _userSuccesLogged = MutableLiveData<Boolean>()
+    val userSuccesLogged: LiveData<Boolean?> = _userSuccesLogged
+
     init {
         DataHolder.token = repository.getToken()
         checkPin(!DataHolder.token.isNullOrBlank())
@@ -72,8 +75,7 @@ class HomeViewModel(
         _progressBarStatusLD.value = false
         when (response) {
             is Response.Success -> {
-                checkPin(true)
-                userLoggedLD.value = true
+                _userSuccesLogged.value = true
                 repository.saveToken(response.result.token)
                 repository.saveUsernameAndIIN(username = phone, iin = iin)
                 DataHolder.token = response.result.token
@@ -107,7 +109,6 @@ class HomeViewModel(
         fun logoutConfirmed() {
             repository.saveToken(Constants.DEFAULT_STRING)
             repository.clearPin()
-            userLoggedLD.value = false
         }
 
     fun onLanguageChosen(languageType: String) = repository.saveLang(languageType)

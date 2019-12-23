@@ -1,11 +1,11 @@
 package kz.astralombard.base.ui
 
 import android.os.Bundle
-import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
+import kz.astralombard.base.DataHolder
+import kz.astralombard.base.LanguageController
 import kz.astralombard.base.Navigator
-import kz.astralombard.ext.hideKeyboard
+import kz.astralombard.base.updateLanguage
 import java.util.*
 
 /**
@@ -29,6 +29,11 @@ open class BaseFragment :
         )
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        DataHolder.currentLang = getCurrentLanguage().language
+    }
+
     fun showProgress() {
         progressBar.showDialog()
     }
@@ -49,18 +54,7 @@ open class BaseFragment :
     fun onBackPressed() = activity?.onBackPressed()
 
     fun setLanguage(language: String) =
-        baseActivity.setLanguage(language)
-
-    fun setLanguage(locale: Locale) =
-        baseActivity.setLanguage(locale)
-
-    fun setDefaultLanguage(language: String) {
-        baseActivity.setDefaultLanguage(language)
-    }
-
-    fun setDefaultLanguage(locale: Locale) {
-        baseActivity.setDefaultLanguage(locale)
-    }
+        LanguageController.setLocale(requireContext(), language)
 
     fun getCurrentLanguage(): Locale = baseActivity.getCurrentLanguage()
 

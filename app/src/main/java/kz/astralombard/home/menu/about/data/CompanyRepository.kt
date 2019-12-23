@@ -19,7 +19,7 @@ class CompanyRepository(
 ): BaseRepository(), ICompanyRepository {
 
     override suspend fun leaveFeedback(request: FeedbackRequest)
-            = makeApiRequest { apiService.leaveFeedback(request) }
+            = makeApiRequest { apiService.leaveFeedback(request.lang, request) }
 
     override suspend fun getAboutCompanyText(language: String)
             = makeApiRequest{ apiService.getAbout(language) }

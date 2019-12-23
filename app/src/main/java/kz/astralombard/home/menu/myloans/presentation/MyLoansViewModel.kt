@@ -54,14 +54,15 @@ class MyLoansViewModel(
         }
     }
 
-    fun prolongate(number: String) {
+    fun prolongate(lang: String, number: String) {
         _progressBarStatusLD.value = true
 
         launch {
             val request = ProlongateRequest(
                 number = number,
                 username = repository.getUsername(),
-                password = repository.getIIN()
+                password = repository.getIIN(),
+                lang = lang
             )
 
             when (val response = repository.prolongate(request)) {

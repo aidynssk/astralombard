@@ -11,6 +11,7 @@ import kz.astralombard.base.ui.BaseFragment
 import kz.astralombard.home.menu.about.company.AboutCompanyFragment
 import kz.astralombard.home.menu.about.news.NewsFragment
 import kz.astralombard.home.menu.about.writeus.ui.WriteUsFragment
+import kz.astralombard.home.presentation.HomeActivity
 
 class AboutFragment : BaseFragment() {
 
@@ -32,6 +33,10 @@ class AboutFragment : BaseFragment() {
         initListeners()
     }
 
+    override fun onResume() {
+        super.onResume()
+        (activity as? HomeActivity?)?.setCurrentMenuItem(R.id.nav_about_company)
+    }
    private fun initListeners(){
        cl_about?.setOnClickListener {
            addFragment(AboutCompanyFragment.newInstance())

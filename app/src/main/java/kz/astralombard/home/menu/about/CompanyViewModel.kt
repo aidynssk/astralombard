@@ -3,9 +3,10 @@ package kz.astralombard.home.menu.about
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.launch
+import kz.astralombard.base.WriteUsError
 import kz.astralombard.base.Constants
 import kz.astralombard.base.CoroutineViewModel
-import kz.astralombard.base.data.AstraException
+import kz.astralombard.base.data.AboutException
 import kz.astralombard.base.data.Response
 import kz.astralombard.home.menu.about.data.*
 
@@ -21,6 +22,8 @@ class CompanyViewModel(
     val feedbackLD: LiveData<Boolean> = _feedbackLD
     var subject: String = Constants.DEFAULT_STRING
     var username: String = Constants.DEFAULT_STRING
+        get() = field.replace("(", "").replace("(","").replace(" ", "")
+
     var text: String = Constants.DEFAULT_STRING
 
     private val _aboutCompanyLD = MutableLiveData<String>()
@@ -81,17 +84,17 @@ class CompanyViewModel(
     }
 
     private fun validateRequest(): Boolean{
-        val errorMessage: String = when {
+        val type: WriteUsError = when {
             subject.isBlank() ->
-                "Не указана тема сообщения"
-            username.isBlank() ->
-                "Не указан телефон"
+                WriteUsError.EMPTY_SUBJECT
+            username.isBlank() || username.length < 12 ->
+                WriteUsError.EMPTY_PHONE
             text.isBlank() ->
-                "Заполните текст сообщения"
+                WriteUsError.EMPTY_TEXT
             else ->
                 return true
         }
-        _errorLD.value = AstraException(errorMessage)
+        _errorLD.value = AboutException(type)
         return false
     }
 }

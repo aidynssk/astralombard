@@ -25,11 +25,12 @@
     <string name="my_loans_open_loans">ОТКРЫТЫЕ ЗАЙМЫ</string>
     <string name="my_loans_city">Город</string>
     <string name="my_loans_days_left">Остаток дней</string>
+    <string name="my_loan_day_passed">Прошло дней</string>
     <string name="my_loans_period_day">Срок залога</string>
     <string name="my_loans_tenge">Тенге</string>
     <string name="my_loans_sum_to_pay">Сумма к оплате</string>
     <string name="my_loans_pay">Оплатить</string>
-    <string name="my_loans_pledge_ticket">Залоговый билет №</string>
+    <string name="my_loans_pledge_ticket">Залоговый билет</string>
     <string name="my_loans_pay_before">Оплатить до</string>
     <string name="my_loans_close_date">Дата закрытия</string>
     <string name="my_loans_history">ИСТОРИЯ ЗАЙМОВ</string>
@@ -39,6 +40,7 @@
     <string name="details_name">Наименование</string>
     <string name="details_sample">Проба</string>
     <string name="details_item_weight">Вес изделия</string>
+    <string name="details_item_weight_without">Вес без камня</string>
     <string name="details_price_for_1g">Цена за 1 грамм</string>
     <string name="details_loan_date">Дата займа</string>
     <string name="details_pledge_period">Срок залога</string>
@@ -72,7 +74,8 @@
     <string name="calculator_tg">тг.</string>
     <string name="calculator_gold_notes">Оценка изделия будет варьироваться от просчёта товароведа в филиале</string>
     <string name="calculator_car_notes">Оценка транспорта будет варьироваться от просчёта товароведа в филиале</string>
-    <string name="calculator_more">Подробнее</string>
+    <string name="calculator_car_30_days">30 дней</string>
+    <string name="calculator_more_text">Подробнее</string>
     <string name="calculator_enter_market_price">Введите рыночную стоимость автомобиля, тг</string>
     <string name="calculator_with_drive_license">С правом вождения</string>
     <string name="calculator_more_gold_title">Правила оценки и приема золотых изделий</string>
@@ -107,6 +110,9 @@
     <string name="about_phone">Телефон:</string>
     <string name="about_message_text">Текст сообщения:</string>
     <string name="about_send">ОТПРАВИТЬ</string>
+    <string name="about_text_empty_error">Заполните текст сообщения</string>
+    <string name="about_phone_empty_error">Не указан телефон</string>
+    <string name="about_subject_empty_error">Не указана тема сообщения</string>
 
     <!--
     Addresses
@@ -128,6 +134,7 @@
     <string name="login_request_code">Запросить код</string>
     <string name="login_enter_code">Введите код</string>
     <string name="login_sms_code">СМС код</string>
+    <string name="login_read_user_agreement">Пожалуйста, ознакомьтесь с настоящим пользовательским соглашением</string>
     <string name="login_user_agreement">Я прочитал и согласен с условиями <b>пользовательского соглашения</b></string>
 
     <!--
@@ -188,6 +195,8 @@
     <string name="ok">OK</string>
     <string name="cancel">ОТМЕНА</string>
 
+    <!--Error-->
+    <string name="no_connection_error">Возможно, проблемы с соединением</string>
 
     <string-array name="planets_array">
         <item>Mercury</item>

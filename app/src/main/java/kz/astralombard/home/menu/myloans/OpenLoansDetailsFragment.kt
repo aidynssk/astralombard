@@ -68,7 +68,7 @@ class OpenLoansDetailsFragment : BaseFragment() {
             LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
         showLoans()
         initObservers()
-        viewModel.prolongate(loan.Id)
+        viewModel.prolongate(getCurrentLanguage().language, loan.Id)
         return binding.root
     }
 
@@ -76,19 +76,20 @@ class OpenLoansDetailsFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         val loanItems = loan.Items
         val detailItems = emptyList<DetailableItem>().toMutableList().apply {
-            if (loanItems!!.size > 1) {
-                loanItems.forEachIndexed { index, item ->
+//            if (loanItems!!.size > 1) {
+                loanItems?.forEachIndexed { index, item ->
                     add(DetailsHeaderModel(index + 1))
                     add(item)
                 }
-            } else {
+           /* } else {
                 addAll(loanItems)
-            }
+            }*/
 
         }
         if (hidePayInf)
             hidePayInformationViews()
         binding.loan = detailItems
+        binding.item = loanItems?.first()
     }
 
     private fun initObservers() {

@@ -29,17 +29,20 @@ object LanguageController {
         return currentAppLang(context, Locale.getDefault().language)
     }
 
+    fun getLanguageLocale(context: Context)=  Locale.getDefault()
+
     fun setLocale(context: Context, language: String?): Context {
         saveAppLang(context, language)
 
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             updateResources(context, language)
-        } else updateResourcesLegacy(context, language)
+        } else
+            updateResourcesLegacy(context, language)
 
     }
 
     @TargetApi(Build.VERSION_CODES.N)
-    private fun updateResources(context: Context, language: String?): Context {
+    fun updateResources(context: Context, language: String?): Context {
         val locale = Locale(language)
         Locale.setDefault(locale)
 
@@ -57,12 +60,10 @@ object LanguageController {
         Locale.setDefault(locale)
 
         val resources = context.resources
-
         val configuration = resources.configuration
+
         configuration.locale = locale
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            configuration.setLayoutDirection(locale)
-        }
+        configuration.setLayoutDirection(locale)
 
         resources.updateConfiguration(configuration, resources.displayMetrics)
 

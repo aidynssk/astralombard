@@ -9,6 +9,8 @@
         tools:context=".home.menu.calculator.car.CarFragment">
 
         <ScrollView
+            android:scrollbarAlwaysDrawVerticalTrack="false"
+            android:scrollbars="none"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="30dp">
@@ -115,7 +117,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="30 дней"
+                    android:text="@string/calculator_car_30_days"
                     android:textSize="24sp"
                     app:layout_constraintEnd_toEndOf="@+id/tv_days_period"
                     app:layout_constraintTop_toBottomOf="@+id/tv_days_period" />
@@ -171,7 +173,7 @@
                     app:layout_constraintStart_toEndOf="@+id/et_given_sum_value"
                     app:layout_constraintTop_toBottomOf="@+id/tv_repayment" />
 
-                <androidx.appcompat.widget.AppCompatImageView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/btn_more"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -179,12 +181,16 @@
                     android:layout_marginTop="24dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="8dp"
-                    android:text="@string/calculator_more"
+                    android:padding="8dp"
+                    android:paddingStart="18dp"
+                    android:paddingEnd="18dp"
+                    android:textSize="16sp"
+                    android:text="@string/calculator_more_text"
+                    android:background="@drawable/bg_calculator_more"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_gold_notes"
-                    app:srcCompat="@drawable/more" />
+                    app:layout_constraintTop_toBottomOf="@id/tv_gold_notes" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
     </FrameLayout>
